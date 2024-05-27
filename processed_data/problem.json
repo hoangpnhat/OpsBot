@@ -1,0 +1,576 @@
+{
+    "data": [
+        {
+            "bot_id": "5835669162562927522",
+            "command": "/amnhac",
+            "description": "#van_de: Nhạc phát tại cửa hàng",
+            "response": "",
+            "attach": {
+                "type": "text",
+                "metadata": {
+                    "mentions": []
+                },
+                "media": [],
+                "payload": null
+            }
+        },
+        {
+            "bot_id": "5835669162562927522",
+            "command": "/baohanhchatlieu",
+            "description": "#van_de: Bảo hành chất liệu",
+            "response": "",
+            "attach": {
+                "type": "text",
+                "metadata": {
+                    "mentions": []
+                },
+                "media": [],
+                "payload": null
+            }
+        },
+        {
+            "bot_id": "5835669162562927522",
+            "command": "/baohanhsuachua1",
+            "description": "#van_de: Bảo hành sửa chữa",
+            "response": "",
+            "attach": {
+                "type": "text",
+                "metadata": {
+                    "mentions": []
+                },
+                "media": [],
+                "payload": null
+            }
+        },
+        {
+            "bot_id": "5835669162562927522",
+            "command": "/cantonsanpham1",
+            "description": "#van_de: Cân tồn sản phẩm",
+            "response": "",
+            "attach": {
+                "type": "text",
+                "metadata": {
+                    "mentions": []
+                },
+                "media": [],
+                "payload": null
+            }
+        },
+        {
+            "bot_id": "5835669162562927522",
+            "command": "/capnhatdonhango2o1",
+            "description": "#van_de: Cập nhật đơn hàng O2O",
+            "response": "",
+            "attach": {
+                "type": "text",
+                "metadata": {
+                    "mentions": []
+                },
+                "media": [],
+                "payload": null
+            }
+        },
+        {
+            "bot_id": "5835669162562927522",
+            "command": "/capnhatdonhangoffline1",
+            "description": "#van_de: Cập nhật đơn hàng Offline",
+            "response": "",
+            "attach": {
+                "type": "text",
+                "metadata": {
+                    "mentions": []
+                },
+                "media": [],
+                "payload": null
+            }
+        },
+        {
+            "bot_id": "5835669162562927522",
+            "command": "/capnhatdonhangonline1",
+            "description": "#van_de: Cập nhật đơn hàng Online",
+            "response": "",
+            "attach": {
+                "type": "text",
+                "metadata": {
+                    "mentions": []
+                },
+                "media": [],
+                "payload": null
+            }
+        },
+        {
+            "bot_id": "5835669162562927522",
+            "command": "/capnhatdonhangsantmdt1",
+            "description": "#van_de: Cập nhật đơn hàng Sàn TMĐT",
+            "response": "",
+            "attach": {
+                "type": "text",
+                "metadata": {
+                    "mentions": []
+                },
+                "media": [],
+                "payload": null
+            }
+        },
+        {
+            "bot_id": "5835669162562927522",
+            "command": "/capnhatthongtinkhachhang1",
+            "description": "#van_de: Cập nhật thông tin Khách hàng",
+            "response": "",
+            "attach": {
+                "type": "text",
+                "metadata": {
+                    "mentions": []
+                },
+                "media": [],
+                "payload": null
+            }
+        },
+        {
+            "bot_id": "5835669162562927522",
+            "command": "/cgn",
+            "description": "#van_de: Cuộc gọi nhỡ từ CH",
+            "response": "",
+            "attach": {
+                "type": "text",
+                "metadata": {
+                    "mentions": []
+                },
+                "media": [],
+                "payload": null
+            }
+        },
+        {
+            "bot_id": "5835669162562927522",
+            "command": "/checkcamera1",
+            "description": "#van_de: Check camera",
+            "response": "",
+            "attach": {
+                "type": "text",
+                "metadata": {
+                    "mentions": []
+                },
+                "media": [],
+                "payload": null
+            }
+        },
+        {
+            "bot_id": "5835669162562927522",
+            "command": "/chinhsachdoitra1",
+            "description": "#van_de: Chính sách đổi trả - bảo hành",
+            "response": "",
+            "attach": {
+                "type": "text",
+                "metadata": {
+                    "mentions": []
+                },
+                "media": [],
+                "payload": null
+            }
+        },
+        {
+            "bot_id": "5835669162562927522",
+            "command": "/chinhsachtichdiemsudungdiem1",
+            "description": "#van_de: Chính sách tích điểm - sử dụng điểm",
+            "response": "",
+            "attach": {
+                "type": "text",
+                "metadata": {
+                    "mentions": []
+                },
+                "media": [],
+                "payload": null
+            }
+        },
+        {
+            "bot_id": "5835669162562927522",
+            "command": "/chuongtrinhkhuyenmai1",
+            "description": "#van_de: Chương trình khuyến mãi",
+            "response": "",
+            "attach": {
+                "type": "text",
+                "metadata": {
+                    "mentions": []
+                },
+                "media": [],
+                "payload": null
+            }
+        },
+        {
+            "bot_id": "5835669162562927522",
+            "command": "/close",
+            "description": "đóng yêu cầu",
+            "response": "Yêu cầu đã được hoàn tất, anh chị vui lòng đánh giá hài lòng/không hài lòng giúp em bằng cách gửi sticker ỉn hồng thả tim hay ỉn hồng khóc ạ! hướng dẫn ở bài ghim trong nhóm ạ!",
+            "attach": {
+                "type": "poll",
+                "metadata": {},
+                "media": [],
+                "payload": {
+                    "title": "Yêu cầu đã được hoàn tất, anh chị vui lòng đánh giá hài lòng/không hài lòng giúp em bằng cách tích bình chọn ạ!",
+                    "allow_add_choice": false,
+                    "allow_multiple_choice": false,
+                    "incognito": false,
+                    "end_at": 0,
+                    "votes": [
+                        {
+                            "title": "Hài lòng 🥰"
+                        },
+                        {
+                            "title": "Không hài lòng 🥹"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "bot_id": "5835669162562927522",
+            "command": "/dieuchuyenhanghoa1",
+            "description": "#van_de: Điều chuyển hàng hóa",
+            "response": "",
+            "attach": {
+                "type": "text",
+                "metadata": {
+                    "mentions": []
+                },
+                "media": [],
+                "payload": null
+            }
+        },
+        {
+            "bot_id": "5835669162562927522",
+            "command": "/hanhchinhnhansu1",
+            "description": "#van_de: Hỗ trợ hành chính nhân sự",
+            "response": "",
+            "attach": {
+                "type": "text",
+                "metadata": {
+                    "mentions": []
+                },
+                "media": [],
+                "payload": null
+            }
+        },
+        {
+            "bot_id": "5835669162562927522",
+            "command": "/hcch",
+            "description": "#van_de: Hành chính cửa hàng (HD điện, chính quyền...)",
+            "response": "",
+            "attach": {
+                "type": "text",
+                "metadata": {
+                    "mentions": []
+                },
+                "media": [],
+                "payload": null
+            }
+        },
+        {
+            "bot_id": "5835669162562927522",
+            "command": "/hoadonvat1",
+            "description": "#van_de: Hóa đơn VAT",
+            "response": "",
+            "attach": {
+                "type": "text",
+                "metadata": {
+                    "mentions": []
+                },
+                "media": [],
+                "payload": null
+            }
+        },
+        {
+            "bot_id": "5835669162562927522",
+            "command": "/hoantien1",
+            "description": "#van_de: Hoàn tiền",
+            "response": "",
+            "attach": {
+                "type": "text",
+                "metadata": {
+                    "mentions": []
+                },
+                "media": [],
+                "payload": null
+            }
+        },
+        {
+            "bot_id": "5835669162562927522",
+            "command": "/khongcanhotro",
+            "description": "#van_de: Không cần hỗ trợ",
+            "response": "",
+            "attach": {
+                "type": "text",
+                "metadata": {
+                    "mentions": []
+                },
+                "media": [],
+                "payload": null
+            }
+        },
+        {
+            "bot_id": "5835669162562927522",
+            "command": "/livestreamtiktok1",
+            "description": "#van_de: Hỗ trợ livestream Tiktok",
+            "response": "",
+            "attach": {
+                "type": "text",
+                "metadata": {
+                    "mentions": []
+                },
+                "media": [],
+                "payload": null
+            }
+        },
+        {
+            "bot_id": "5835669162562927522",
+            "command": "/loihethong1",
+            "description": "#van_de: Lỗi hệ thống",
+            "response": "",
+            "attach": {
+                "type": "text",
+                "metadata": {
+                    "mentions": []
+                },
+                "media": [],
+                "payload": null
+            }
+        },
+        {
+            "bot_id": "5835669162562927522",
+            "command": "/mxh",
+            "description": "#van_de: Hỗ trợ tài khoản MXH (Zalo OA, FB...)",
+            "response": "",
+            "attach": {
+                "type": "text",
+                "metadata": {
+                    "mentions": []
+                },
+                "media": [],
+                "payload": null
+            }
+        },
+        {
+            "bot_id": "5835669162562927522",
+            "command": "/nhanhvn",
+            "description": "#van_de: Phần mềm Nhanh.vn",
+            "response": "",
+            "attach": {
+                "type": "text",
+                "metadata": {
+                    "mentions": []
+                },
+                "media": [],
+                "payload": null
+            }
+        },
+        {
+            "bot_id": "5835669162562927522",
+            "command": "/phamemantbuddy1",
+            "description": "#van_de: Phần mềm Antbuddy",
+            "response": "",
+            "attach": {
+                "type": "text",
+                "metadata": {
+                    "mentions": []
+                },
+                "media": [],
+                "payload": null
+            }
+        },
+        {
+            "bot_id": "5835669162562927522",
+            "command": "/phammem1office1",
+            "description": "#van_de: Phần mềm 1Office",
+            "response": "",
+            "attach": {
+                "type": "text",
+                "metadata": {
+                    "mentions": []
+                },
+                "media": [],
+                "payload": null
+            }
+        },
+        {
+            "bot_id": "5835669162562927522",
+            "command": "/phammemgapo1",
+            "description": "#van_de: Phần mềm Gapo",
+            "response": "",
+            "attach": {
+                "type": "text",
+                "metadata": {
+                    "mentions": []
+                },
+                "media": [],
+                "payload": null
+            }
+        },
+        {
+            "bot_id": "5835669162562927522",
+            "command": "/phammemunicorn1",
+            "description": "#van_de: Phần mềm Unicorn",
+            "response": "",
+            "attach": {
+                "type": "text",
+                "metadata": {
+                    "mentions": []
+                },
+                "media": [],
+                "payload": null
+            }
+        },
+        {
+            "bot_id": "5835669162562927522",
+            "command": "/phanmemcaresoft1",
+            "description": "#van_de: Phần mềm Caresoft",
+            "response": "",
+            "attach": {
+                "type": "text",
+                "metadata": {
+                    "mentions": []
+                },
+                "media": [],
+                "payload": null
+            }
+        },
+        {
+            "bot_id": "5835669162562927522",
+            "command": "/setupthietbi1",
+            "description": "#van_de: Hỗ trợ setup thiết bị",
+            "response": "",
+            "attach": {
+                "type": "text",
+                "metadata": {
+                    "mentions": []
+                },
+                "media": [],
+                "payload": null
+            }
+        },
+        {
+            "bot_id": "5835669162562927522",
+            "command": "/sinhnhat",
+            "description": "#van_de: Chương trình sinh nhật",
+            "response": "",
+            "attach": {
+                "type": "text",
+                "metadata": {
+                    "mentions": []
+                },
+                "media": [],
+                "payload": null
+            }
+        },
+        {
+            "bot_id": "5835669162562927522",
+            "command": "/thanhtoan1",
+            "description": "#van_de: Thanh toán",
+            "response": "",
+            "attach": {
+                "type": "text",
+                "metadata": {
+                    "mentions": []
+                },
+                "media": [],
+                "payload": null
+            }
+        },
+        {
+            "bot_id": "5835669162562927522",
+            "command": "/thongsosanpham1",
+            "description": "#van_de: Sản phẩm (Hình ảnh,style, trạng thái...)",
+            "response": "",
+            "attach": {
+                "type": "text",
+                "metadata": {
+                    "mentions": []
+                },
+                "media": [],
+                "payload": null
+            }
+        },
+        {
+            "bot_id": "5835669162562927522",
+            "command": "/tiepnhankhieunai1",
+            "description": "#van_de: Tiếp nhận góp ý/ phản ánh/ khiếu nại Khách hàng",
+            "response": "",
+            "attach": {
+                "type": "text",
+                "metadata": {
+                    "mentions": []
+                },
+                "media": [],
+                "payload": null
+            }
+        },
+        {
+            "bot_id": "5835669162562927522",
+            "command": "/timdonhang1",
+            "description": "#van_de: Tìm đơn hàng",
+            "response": "",
+            "attach": {
+                "type": "text",
+                "metadata": {
+                    "mentions": []
+                },
+                "media": [],
+                "payload": null
+            }
+        },
+        {
+            "bot_id": "5835669162562927522",
+            "command": "/tonkhosanpham1",
+            "description": "#van_de: Tồn kho sản phẩm",
+            "response": "",
+            "attach": {
+                "type": "text",
+                "metadata": {
+                    "mentions": []
+                },
+                "media": [],
+                "payload": null
+            }
+        },
+        {
+            "bot_id": "5835669162562927522",
+            "command": "/uudainhanvien1",
+            "description": "#van_de: Ưu đãi nhân viên",
+            "response": "",
+            "attach": {
+                "type": "text",
+                "metadata": {
+                    "mentions": []
+                },
+                "media": [],
+                "payload": null
+            }
+        },
+        {
+            "bot_id": "5835669162562927522",
+            "command": "/vdk",
+            "description": "#van_de: Các vấn đề khác",
+            "response": "",
+            "attach": {
+                "type": "text",
+                "metadata": {
+                    "mentions": []
+                },
+                "media": [],
+                "payload": null
+            }
+        },
+        {
+            "bot_id": "5835669162562927522",
+            "command": "/vip",
+            "description": "#van_de: Chương trình VIP",
+            "response": "",
+            "attach": {
+                "type": "text",
+                "metadata": {
+                    "mentions": []
+                },
+                "media": [],
+                "payload": null
+            }
+        }
+    ]
+}

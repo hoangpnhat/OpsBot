@@ -1,0 +1,912 @@
+problem: Quy trình xử lý vấn đề "Bảo hành chất liệu" tại YODY như sau:
+    
+1. Xác định vấn đề:
+    - Kiểm tra lỗi sản phẩm được báo cáo từ khách hàng (lỗi chất liệu, lỗi sản xuất, v.v.).
+    - Xác định chi tiết về vấn đề từ khách hàng.
+
+2. **Người giải quyết**:
+    - R&D. Đinh Thị Quỳnh: Để xem xét và giải quyết vấn đề về chất liệu sản phẩm.
+
+3. **Đề xuất giải pháp**:
+    - Yêu cầu khách hàng cung cấp đầy đủ thông tin theo form bảo hành.
+    Form:
+        - Tên Cửa hàng/Chi nhánh Online:
+        - Tên Khách hàng
+        - SĐT
+        - Ngày mua tại Cửa hàng / Ngày nhận hàng đối với đơn Online
+        - Sản phẩm: Mã-màu-size (số lượng). Ví dụ: APN3340-HOG-S (2 áo)
+        - Ảnh chụp sản phẩm lỗi
+
+    - Chuyển thông tin đến R&D (Nghiên cứu và Phát triển) để khảo sát vấn đề.
+    - Yêu cầu R&D kiểm tra và xác nhận vấn đề.
+        + Nếu lỗi do chất liệu, đổi sản phẩm cho khách hàng một cách ngang giá. 
+        + Nếu lỗi do khách hàng tự gây ra, nhân viên giải thích cho khách hàng lý do không được hỗ trợ.
+    - Nếu cần phải duyệt quá hạn hoặc có các thay đổi khác về chính sách đổi trả, chuyển trực tiếp cho team BOT 247 hoặc relevant team.
+
+4. Kiểm tra hài lòng:
+    - Đảm bảo khách hàng được thông báo rõ về việc xử lý vấn đề.
+    - Hỏi ý kiến khách hàng về sự hài lòng sau khi vấn đề được giải quyết.
+
+Nếu có vấn đề cụ thể hơn, bạn có thể liên hệ trực tiếp với tôi để được hỗ trợ chi tiết hơn.
+
+------------------------------
+
+problem: Dựa trên các cuộc hội thoại đã được cung cấp, dưới đây là quy trình chuẩn để xử lý vấn đề về "Bảo hành sửa chữa" cho các sản phẩm của YODY:
+
+1. **Xác định các vấn đề con (sub-problem) thường gặp:**
+    - Mất chìa khóa hoặc hư khoá.
+    - Bong đế.
+    - Lem màu.
+    - Hỏng khóa.
+    - Lỗi đường may.
+    
+2. **Xác định người có thể giải quyết được vấn đề:**
+    - @QLCLSP Phạm Thị Thoan: Chị Phạm Thị Thoan thường xử lý các vấn đề liên quan đến kho hàng và sửa chữa sản phẩm.
+    - @R&D. Đinh Thị Quỳnh: Anh Đinh Thị Quỳnh đề xuất các giải pháp sửa chữa hoặc đổi sản phẩm cho khách hàng.
+
+3. **Đề xuất giải pháp xử lý vấn đề:**
+    - Sử dụng chính sách bảo hành tương ứng với từng vấn đề như thay thế sản phẩm lỗi, sửa chữa tại cửa hàng, hoặc chuyển sản phẩm về kho bảo hành.
+    - Đối với sản phẩm không thể sửa hoặc đổi, hướng dẫn khách hàng về chính sách bảo hành và giải quyết theo quy trình chuẩn.
+
+4. **Kiểm tra mức độ hài lòng của người dùng sau khi giải quyết vấn đề:**
+    - Yêu cầu khách hàng cho đánh giá hài lòng hoặc không hài lòng thông qua gửi sticker thông qua hướng dẫn trong nhóm.
+
+Quy trình trên là hướng dẫn chung để xử lý các vấn đề liên quan đến "Bảo hành sửa chữa" cho sản phẩm của YODY tại Việt Nam.ết hài lòng hoặc không hài lòng thông qua gửi sticker thông qua hướng dẫn trong nhóm.
+
+------------------------------
+
+problem: Quy trình xử lý vấn đề "Check camera" bao gồm các bước sau:
+
+1. **Xác định các vấn đề con thường gặp**:
+   - Camera không hoạt động.
+   - Lỗi màn hình đen hoặc lag khi xem camera.
+   - Sự cố không xem được camera trong khoảng thời gian nhất định.
+   - Cài đặt phần mềm camera bị mất.
+
+2. **Người giải quyết và hướng dẫn**:
+   - Nếu vấn đề liên quan đến thiết bị hoặc hạ tầng, người giải quyết là CNTT.Nguyễn Mạnh Linh (@CNTT.Nguyễn Mạnh Linh).
+   - Nếu vấn đề không rõ ràng, yêu cầu hướng dẫn từ QTRR.Pham Ngoc (@QTRR.Pham Ngoc).
+  
+3. **Giải pháp xử lý**:
+   - Kiểm tra kết nối máy tính hoặc thiết bị với camera.
+   - Nếu xảy ra lỗi màn hình đen hoặc lag, thử cắt thời gian ngắn hơn hoặc sử dụng phần mềm khác để xem camera.
+   - Nếu cài đặt phần mềm bị mất, cài đặt lại phần mềm camera hoặc cung cấp thông tin đăng nhập mới.
+  
+4. **Kiểm tra mức độ hài lòng**:
+   - Sau khi áp dụng giải pháp, yêu cầu người dùng kiểm tra lại tính năng của camera để đảm bảo vấn đề đã được giải quyết.
+   - Yêu cầu người dùng đánh giá mức độ hài lòng bằng cách gửi sticker ỉn hồng thả tim hoặc ỉn hồng khóc.
+
+Quy trình trên sẽ giúp xác định, giải quyết vấn đề và đảm bảo sự hài lòng của khách hàng khi gặp sự cố liên quan đến camera.
+
+------------------------------
+
+problem: Để xử lý vấn đề về chính sách tích điểm - sử dụng điểm tại YODY, dưới đây là quy trình bạn có thể tham khảo:
+
+1. **Xác định các vấn đề con thường gặp**:
+   - Khách hàng đổi sản phẩm cao cấp nhưng không tích điểm lại.
+   - Khách hàng không nhận được điểm khi đổi sản phẩm cao cấp.
+   - Số điểm tích lũy không chính xác hoặc bị mất điểm.
+
+2. **Người có thể giải quyết vấn đề**:
+   - @CNTT.Nguyễn Mạnh Linh
+   - @CNTT.Lê Văn Chiến
+   - @Call Center
+
+3. **Đề xuất giải pháp xử lý**:
+   - Nếu khách hàng đổi sản phẩm cao cấp nhưng không tích điểm lại:
+     + Kiểm tra xem sản phẩm đó đã được tích điểm chưa, nếu chưa tích thì tích điểm cho khách hàng.
+     + Xuất phiếu tích điểm cho khách hàng nhằm bù lại số điểm không tích được.
+
+   - Nếu khách hàng không nhận được điểm khi đổi sản phẩm cao cấp:
+     + Kiểm tra lại hệ thống tích điểm để đảm bảo quá trình làm việc mà không gây mất mát điểm cho khách hàng.
+
+   - Nếu số điểm tích lũy không chính xác hoặc bị mất điểm:
+     + Kiểm tra lịch sử giao dịch của khách hàng để xác định lý do mất điểm.
+     + Nhắc nhở nhân viên cửa hàng cần chú ý tính toán và cập nhật thông tin điểm tích lũy cho khách hàng chính xác.
+
+4. **Kiểm tra mức độ hài lòng của người dùng sau khi giải quyết vấn đề**:
+   - Đảm bảo rằng khách hàng đã nhận được giải đáp hợp lý và cảm thấy hài lòng.
+   - Yêu cầu khách hàng đánh giá hiệu quả của quy trình hỗ trợ và giải pháp cung cấp.
+
+Quy trình này sẽ giúp bạn hoàn thành công việc một cách hiệu quả và chuyên nghiệp khi xử lý các vấn đề liên quan đến chính sách tích điểm và sử dụng điểm tại YODY.
+
+------------------------------
+
+problem: Để xử lý vấn đề về chính sách đổi trả - bảo hành tại YODY, quy trình giải quyết sẽ bao gồm các bước sau:
+
+1. **Xác định vấn đề cụ thể**: Tiếp nhận yêu cầu từ khách hàng và xác định vấn đề của họ, bao gồm mã đơn hàng, sản phẩm cần đổi trả và lý do cụ thể.
+
+2. **Xác định người giải quyết**: Trong trường hợp không thể xử lý trực tiếp, chuyển vấn đề cho các đơn vị có thẩm quyền, như @BOT 247 để xác nhận thông tin.
+
+3. **Đề xuất giải pháp xử lý**:
+   - Nếu khách hàng đổi cùng mã sản phẩm: Áp dụng chiết khấu cũ, chỉ cần thao tác trên hệ thống để hệ thống tự nhảy chiết khấu.
+   - Nếu khách hàng muốn đổi sang sản phẩm khác mã: Áp dụng chiết khấu mới tùy vào chính sách hiện tại.
+   - Trong trường hợp vượt quá thời gian quy định, hãy hướng dẫn khách hàng về chính sách của cửa hàng.
+
+4. **Kiểm tra mức độ hài lòng**: Sau khi giải quyết vấn đề, yêu cầu khách hàng đánh giá mức độ hài lòng bằng cách gửi sticker ỉn hồng thả tim hay ỉn hồng khóc.
+
+Đây là quy trình cơ bản giúp xử lý vấn đề đổi trả - bảo hành tại YODY một cách hiệu quả. Nếu có thêm thông tin, hãy liên hệ với đội ngũ hỗ trợ để được hướng dẫn chi tiết hơn.
+
+------------------------------
+
+problem: Quy trình xử lý vấn đề liên quan đến chương trình VIP của YODY như sau:
+
+1. Xác định vấn đề:
+   - Đổi cấp VIP từ VIP S lên VIP G.
+   - Hỏi về việc sử dụng VIP và chiết khấu cho từng cấp độ VIP.
+   - Đổi đơn hàng khi khách hàng lên cấp VIP và việc điều chỉnh chiết khấu tương ứng.
+   - Hỗ trợ đổi đồ cho khách hàng VIP.
+
+2. Người giải quyết vấn đề:
+   - Call Center: Phương Thảo (@Call Center)
+   - Call Center: Huỳnh Nhã Minh Thương (@Call Center)
+   - Call Center: Đinh Thanh Xuân (@Call Center)
+   - CX: Lưu Vân Thảo Anh (@CX Lưu Vân Anh)
+
+3. Đề xuất giải pháp xử lý:
+   - Đối với việc đổi cấp VIP và điều chỉnh chiết khấu: Thực hiện theo hướng dẫn từ Call Center và chiết khấu theo ưu đãi hiện tại của khách hàng trong cấp VIP mới. Nếu cần thêm thông tin, yêu cầu khách hàng cung cấp đầy đủ thông tin đơn hàng.
+   - Đối với việc đổi đơn hàng khi lên cấp VIP: Trả hết đơn hàng cũ và tạo đơn hàng mới để áp dụng chiết khấu theo cấp VIP mới.
+   - Đối với việc hỗ trợ đổi đồ cho khách hàng VIP: Thao tác theo hướng dẫn từ Call Center và điều chỉnh theo ưu đãi của chương trình khuyến mãi.
+
+4. Kiểm tra hài lòng:
+   - Sau khi xử lý vấn đề, yêu cầu khách hàng đánh giá hài lòng hoặc không hài lòng bằng cách gửi sticker tương ứng.
+
+Hy vọng rằng quy trình trên sẽ giúp bạn xử lý các vấn đề liên quan đến chương trình VIP của YODY hiệu quả. Nếu cần hỗ trợ thêm, đừng ngần ngại liên hệ tôi.
+
+------------------------------
+
+problem: Dựa trên các cuộc hội thoại mà tôi đã thấy, đây là quy trình của công ty YODY để xử lý vấn đề liên quan đến chương trình khuyến mãi:
+
+1. **Xác định vấn đề cụ thể:**
+    - Đầu tiên, phải xác định rõ vấn đề mà khách hàng đang gặp phải. Cụ thể, xem xét về việc sử dụng mã giảm giá, trả đổi sản phẩm, hoặc các vấn đề khác liên quan đến chương trình khuyến mãi.
+
+2. **Xác định người giải quyết vấn đề:**
+    - Nếu vấn đề liên quan đến mã giảm giá, đổi trả sản phẩm, hoặc kiểm tra tiền tích lũy, các nhân viên có thể giải quyết vấn đề bao gồm các thành viên trong đội IT, Trade, Marketing hoặc các thành viên trong bộ phận Chăm sóc khách hàng.
+    - Đảm bảo giao tiếp và hỗ trợ trực tiếp với người giải quyết vấn đề để giải quyết vấn đề một cách nhanh chóng và hiệu quả.
+
+3. **Đề xuất giải pháp:**
+    - Nếu mã giảm giá không hoạt động, cần thực hiện kiểm tra lại mã, lịch sử sử dụng và các điều kiện áp dụng.
+    - Nếu khách hàng muốn trả đơn hàng để đổi sản phẩm hoặc sử dụng mã khuyến mãi, cần kiểm tra chi tiết đơn hàng, trạng thái sản phẩm và tiền tích lũy trên hệ thống.
+    - Một khi đã xác định nguyên nhân, cần thực hiện hướng dẫn khách hàng hoặc thực hiện thao tác xử lý trên hệ thống.
+
+4. **Kiểm tra mức độ hài lòng:**
+    - Sau khi giải quyết vấn đề, yêu cầu khách hàng đánh giá mức độ hài lòng với giải pháp được cung cấp bằng cách gửi sticker ỉn hồng thả tim hay ỉn hồng khóc.
+    - Điều này giúp công ty đánh giá hiệu quả của dịch vụ khách hàng và cải thiện quy trình hỗ trợ trong tương lai.
+
+Lưu ý: Để đáp ứng tốt nhu cầu của khách hàng, quy trình cụ thể có thể thay đổi tùy theo từng tình huống cụ thể, và luôn cần sự phối hợp chặt chẽ giữa các bộ phận để giải quyết vấn đề một cách nhanh chóng và chính xác.
+
+------------------------------
+
+problem: Quy trình xử lý vấn đề liên quan đến chương trình sinh nhật của YODY như sau:
+
+1. **Xác định vấn đề con thường gặp**:
+    - Đổi sản phẩm sinh nhật cho khách hàng.
+    - Cấp mã sinh nhật cho khách hàng.
+    - Hỗ trợ về việc áp dụng mã sinh nhật cùng lúc với điểm tích luỹ.
+
+2. **Người có thể giải quyết vấn đề**:
+    - ASM (Assistant Store Manager) hoặc trưởng cửa hàng có thể đưa ra quyết định về việc đổi sản phẩm hoặc cấp mã mới cho khách hàng.
+    - Nhân viên trong phòng KDOL.SALE hoặc Omni. CX. Call Center để hỗ trợ về áp dụng mã sinh nhật cùng lúc với điểm tích luỹ.
+
+3. **Giải pháp xử lý vấn đề**:
+    - Đối với việc đổi sản phẩm sinh nhật cho khách hàng, sau khi trả hàng, khách hàng sẽ được hoàn tiền hoặc đổi sản phẩm khác.
+    - Đối với việc cấp mã sinh nhật cho khách hàng, nhân viên từ KDOL hoặc Omni. CX. Call Center sẽ cung cấp mã mới cho khách hàng.
+    - Đối với việc áp dụng mã sinh nhật cùng lúc với điểm tích luỹ, khách hàng vẫn có thể sử dụng mã sinh nhật và tích điểm trong cùng một đơn hàng.
+
+4. **Kiểm tra mức độ hài lòng của khách hàng sau khi giải quyết vấn đề**:
+    - Cung cấp thông tin và hướng dẫn chi tiết cho khách hàng về quy trình xử lý vấn đề.
+    - Đảm bảo khách hàng nhận được sự hỗ trợ và giải đáp đầy đủ về vấn đề của mình.
+    - Yêu cầu khách hàng đánh giá mức độ hài lòng qua việc gửi sticker phản hồi như ỉn hồng thả tim hay ỉn hồng khóc. 
+
+*Nhờ vậy, chúng ta có thể đảm bảo việc xử lý vấn đề một cách chính xác và nhanh chóng, từ đó tăng cường sự hài lòng của khách hàng.*
+
+------------------------------
+
+problem: Dựa trên các cuộc hội thoại bạn đã cung cấp, dưới đây là quy trình để xử lý vấn đề về cuộc gọi nhỡ từ cửa hàng (CH):
+
+1. Xác định vấn đề con thường gặp:
+   - Cuộc gọi nhỡ từ cửa hàng đến khách hàng.
+   - Khách hàng không nhận được cuộc gọi nhỡ từ cửa hàng.
+
+2. Người có thể giải quyết vấn đề:
+   - @Call Center: Để phân loại và giải quyết các cuộc gọi nhỡ từ cửa hàng.
+
+3. Đề xuất giải pháp xử lý vấn đề:
+   - Call Center phải xác định được cửa hàng cần liên hệ lại khách hàng nào.
+   - Liên hệ với người phụ trách tại cửa hàng (CH) tương ứng để thông báo về cuộc gọi nhỡ.
+   - Cửa hàng (CH) cần liên hệ lại khách hàng để giải quyết vấn đề hoặc cung cấp thông tin / hỗ trợ cần thiết.
+
+4. Kiểm tra mức độ hài lòng của người dùng sau khi giải quyết vấn đề:
+   - Đưa ra lời giải thích, hỗ trợ và xác nhận rằng cửa hàng đã liên hệ lại khách hàng.
+   - Yêu cầu người dùng đánh giá hài lòng/không hài lòng thông qua việc gửi sticker ỉn hồng thả tim hay ỉn hồng khóc.
+
+Quy trình trên sẽ giúp đảm bảo việc giải quyết vấn đề một cách hiệu quả và chuyên nghiệp trong trường hợp cuộc gọi nhỡ từ cửa hàng đến khách hàng. Nếu có bất kỳ thắc mắc nào thêm, bạn vui lòng cho biết.
+
+------------------------------
+
+problem: Quy trình xử lý vấn đề khi khách hàng muốn in logo trên áo đồng phục tại công ty YODY như sau:
+1. **Xác định vấn đề cụ thể**: Khách hàng muốn in logo trên áo đồng phục tại YODY.
+2. **Người giải quyết**: Liên hệ với POD. Nguyễn Đình Quân để hỗ trợ khách hàng về việc in logo trên áo đồng phục.
+3. **Giải pháp xử lý**:
+   - CX Huỳnh Nhã Minh Thương liên hệ trực tiếp với POD. Nguyễn Đình Quân để trao đổi và hỗ trợ khách hàng.
+   - Nếu PH không thể giải quyết, hãy yêu cầu sự hỗ trợ của các bộ phận khác, ví dụ như NPS hoặc Call Center.
+4. **Kiểm tra sự hài lòng**: Sau khi vấn đề được giải quyết, yêu cầu khách hàng xác nhận sự hài lòng sau khi in logo trên áo đồng phục.
+
+Quy trình này giúp đảm bảo việc hỗ trợ khách hàng một cách chuyên nghiệp và hiệu quả. Nếu có thêm thắc mắc, đừng ngần ngại để lại tin nhắn cho tôi.
+
+------------------------------
+
+problem: Quy trình xử lý vấn đề "Cân tồn sản phẩm" gồm các bước sau:
+1. Xác định các vấn đề con:
+    - Tồn thực tế của sản phẩm không khớp với hệ thống.
+    - Yêu cầu cân tồn sản phẩm từ cửa hàng.
+2. Người có thể giải quyết:
+    - @QTRR (username: Trương Hoài Phúc, Nguyễn Trung Bửu, Nguyễn Hoàng Gia, Đức Thuận, Hà Huynh, Mạnh Vũ).
+3. Đề xuất giải pháp:
+    - Check lại tồn thực tế của sản phẩm.
+    - Đẩy tồn về để bán nếu có lệch tồn.
+    - Hỗ trợ cân tồn cho cửa hàng nếu yêu cầu từ họ.
+4. Kiểm tra hài lòng:
+    - Sau khi xử lý vấn đề, yêu cầu đánh giá hài lòng/không hài lòng từ cửa hàng để đảm bảo chất lượng dịch vụ.
+
+Nếu cần thêm thông tin hoặc hỗ trợ về vấn đề cụ thể, vui lòng cung cấp thông tin chi tiết để chúng tôi có thể hỗ trợ bạn tốt hơn.
+
+------------------------------
+
+problem: Quy trình xử lý vấn đề "Cập nhật thông tin Khách hàng" gồm các bước sau:
+1. **Xác định các vấn đề con thường gặp:**
+    - Thay đổi Số điện thoại Khách hàng
+    - Sửa Ngày sinh Nhật của Khách hàng
+2. **Người giải quyết được vấn đề:**
+    - @Call Center: xác nhận thông tin, gọi điện xác nhận với Khách hàng.
+3. **Đề xuất giải pháp xử lý:**
+    - Yêu cầu Khách hàng cung cấp thông tin cần thiết (số điện thoại cũ, số điện thoại mới, lý do thay đổi).
+    - Gọi điện xác nhận với Khách hàng.
+    - Cập nhật thông tin trên hệ thống.
+    - Đóng yêu cầu sau khi hoàn tất.
+4. **Kiểm tra hài lòng:**
+    - Yêu cầu Khách hàng đánh giá bằng cách gửi sticker ỉn hồng thả tim hoặc ỉn hồng khóc.
+
+Quy trình trên đã được áp dụng trong các trường hợp cụ thể và giải quyết vấn đề thành công. Đảm bảo tiến trình xử lý vấn đề hiệu quả và nhanh chóng.
+
+------------------------------
+
+problem: Quy trình xử lý vấn đề về Cập nhật đơn hàng O2O của công ty thời trang YODY tại Việt Nam bao gồm các bước sau:
+
+1. Xác định các vấn đề con thường gặp:
+   - Đơn hàng không cập nhật thông tin thành công.
+   - Yêu cầu thay đổi thông tin trên đơn hàng.
+   - Cần hỗ trợ khách hàng về đơn hàng O2O.
+
+2. Xác định người giải quyết được vấn đề:
+   - Cần liên hệ CX chuyên viên hỗ trợ xử lý vấn đề.
+   - Hỗ trợ từ các nhân viên chuyên trách về Online Sales (OS), Customer Service (CS), hoặc các vị trí tương tự.
+
+3. Đề xuất giải pháp xử lý vấn đề:
+   - Đối với đơn hàng không cập nhật thông tin: Kiểm tra lịch sử đơn hàng, liên hệ khách hàng hoặc CSĐH để xác minh thông tin.
+   - Đối với yêu cầu thay đổi thông tin đơn hàng: Liên hệ với CH hoặc các đầu mối liên quan để thực hiện thay đổi theo yêu cầu.
+   - Đối với hỗ trợ khách hàng về đơn hàng O2O: Tiếp nhận yêu cầu từ khách hàng, liên hệ trực tiếp với CH hoặc CSĐH để hỗ trợ khách hàng giải quyết vấn đề.
+
+4. Kiểm tra mức độ hài lòng của người dùng sau khi giải quyết vấn đề:
+   - Sau khi vấn đề được xử lý, yêu cầu người dùng đánh giá hài lòng/không hài lòng bằng cách gửi sticker tương ứng.
+   
+Hy vọng rằng quy trình này sẽ giúp công ty YODY xử lý các vấn đề liên quan đến đơn hàng O2O hiệu quả hơn.
+
+------------------------------
+
+problem: Quy trình xử lý vấn đề "Cập nhật đơn hàng Offline" cho công ty thời trang YODY tại Việt Nam như sau:
+
+1. **Xác định vấn đề con thường gặp**:
+    - Khách hàng muốn kiểm tra đơn hàng offline.
+    - Khách hàng muốn đổi sản phẩm trong đơn hàng offline.
+    - Yêu cầu xóa đơn hàng offline khi đã sử dụng mã ưu đãi.
+
+2. **Người giải quyết**:
+    - Xác định đơn hàng và tìm hiểu thông tin liên quan: 
+        + NV tư vấn: @NV_tuvan
+        + NV thu ngân: @NV_thungan
+        + Tổ chức COD: @COD
+    - Giải quyết thắc mắc của khách hàng và thực hiện các thay đổi cần thiết:
+        + NV hỗ trợ khách hàng: @NV_ho_tro
+        + CNTT: @CNTT
+
+3. **Đề xuất giải pháp xử lý**:
+    - Kiểm tra thông tin đơn hàng và tình trạng hàng hóa.
+    - Liên hệ khách hàng để xác nhận thông tin và thực hiện các chỉnh sửa cần thiết.
+    - Nếu cần, thực hiện đổi sản phẩm trong đơn hàng hoặc hủy đơn hàng theo quy định.
+
+4. **Kiểm tra mức độ hài lòng của người dùng**:
+    - Sau khi giải quyết vấn đề, yêu cầu người dùng đánh giá hài lòng/không hài lòng bằng cách gửi sticker tương ứng.
+
+Nếu cần hỗ trợ hoặc thông tin chi tiết hơn, vui lòng liên hệ với tôi.
+
+------------------------------
+
+problem: Dựa vào các cuộc trò chuyện đã đưa ra, dưới đây là quy trình tiêu biểu để xử lý vấn đề "Cập nhật đơn hàng Online" tại YODY:
+
+1. Xác định vấn đề thường gặp:
+    - Khách hàng yêu cầu cập nhật đơn hàng online.
+
+2. Người giải quyết vấn đề:
+    - Omni.CX.NPS.Lưu Vân Anh: Hỗ trợ xử lý đơn hàng và giải quyết các yêu cầu từ khách hàng.
+
+3. Giải pháp xử lý:
+    - Xác định yêu cầu cụ thể của khách hàng (đổi hàng, cập nhật thông tin, v.v.).
+    - Kiểm tra các bước cần thực hiện để cập nhật đơn hàng theo yêu cầu của khách hàng.
+    - Tiếp tục tương tác với các bộ phận liên quan (Sale, CSĐH, TCKT) để xử lý đơn hàng một cách chính xác và nhanh chóng.
+    - Theo dõi quy trình xử lý đơn hàng và đảm bảo rằng việc cập nhật được thực hiện đúng theo yêu cầu của khách hàng.
+
+4. Kiểm tra hài lòng của người dùng sau khi giải quyết vấn đề:
+    - Đóng cuộc hội thoại sau khi vấn đề đã được giải quyết.
+    - Yêu cầu người dùng đánh giá mức độ hài lòng bằng cách gửi sticker.
+
+Quy trình trên có thể giúp tổ chức và thực hiện việc xử lý vấn đề "Cập nhật đơn hàng Online" một cách hiệu quả và chuyên nghiệp tại YODY.
+
+------------------------------
+
+problem: Quy trình xử lý vấn đề cập nhật đơn hàng Sàn TMĐT của công ty YODY tại Việt Nam bao gồm các bước sau:
+
+1. Xác định vấn đề: 
+    - Đối với việc cập nhật đơn hàng Sàn TMĐT, chủ yếu là việc đổi sản phẩm (màu, size) cho khách hàng.
+    - Có thể có trường hợp khách hàng muốn đổi online nhưng sản phẩm cần đổi không còn tại cửa hàng.
+    
+2. Người giải quyết:
+    - Đối với việc thao tác đổi sản phẩm, @BOT 247 sẽ hỗ trợ cách thao tác cụ thể.
+    - Nếu cần hỗ trợ thêm, @Call Center sẽ phối hợp và có thể trao đổi trực tiếp với cửa hàng hoặc khách hàng cần hỗ trợ.
+
+3. Giải pháp:
+    - Để đổi sản phẩm (màu, size) cùng mã, cửa hàng đổi sản phẩm sang ngang cho khách hàng theo chính sách quy định.
+    - Nếu sản phẩm cần đổi khác mã, cửa hàng sẽ tính theo giá hiện tại của sản phẩm và thu thêm chi phí chênh lệch.
+    - Để thực hiện việc đổi sản phẩm, cần nhắn ID đơn + mã sản phẩm cũ => mã sản phẩm mới như hướng dẫn của @BOT 247.
+
+4. Kiểm tra hài lòng:
+    - Sau khi hỗ trợ xong, yêu cầu khách hàng kiểm tra lại và đánh giá hài lòng qua việc gửi sticker ỉn hồng thả tim hay ỉn hồng khóc.
+    - Nếu khách hàng có thắc mắc hoặc cần hỗ trợ thêm, @Call Center sẽ tiếp tục hỗ trợ và đóng yêu cầu sau khi vấn đề được giải quyết.
+
+Nếu có thắc mắc hoặc yêu cầu hỗ trợ khác, bạn vui lòng cung cấp thêm thông tin để chúng tôi có thể hỗ trợ bạn tốt hơn.
+
+------------------------------
+
+problem: Quy trình xử lý vấn đề "#van_de: Hành chính cửa hàng (HD điện, chính quyền...)" như sau:
+
+1. Xác định các vấn đề con thường gặp:
+   - Mất điện hoặc mất mạng tại cửa hàng.
+   - In hoá đơn bị mờ hoặc lỗi.
+   - Hỗ trợ về giấy tờ, hợp đồng, phép kinh doanh.
+
+2. Xác định người giải quyết được vấn đề:
+   - Vấn đề mất điện hoặc mất mạng yêu cầu sự can thiệp từ bên IT, có thể áp dụng cho Nguyễn Mạnh Linh.
+   - Vấn đề in hoá đơn cần hỗ trợ từ bên CNTT, có thể gọi đến Nguyễn Mạnh Linh.
+   - Vấn đề liên quan đến giấy tờ, hợp đồng, phép kinh doanh cần hỗ trợ từ pháp chế hoặc bộ phận đối tác, như Pháp chế - Xuân Bùi hoặc Vũ Trung Hiếu.
+
+3. Đề xuất giải pháp:
+   - Với vấn đề mất điện hoặc mất mạng, cần liên hệ bên IT để kiểm tra và xử lý sự cố.
+   - Với vấn đề in hoá đơn bị mờ hoặc lỗi, hỗ trợ từ bên CNTT để điều chỉnh cài đặt và sửa lỗi máy in.
+   - Với vấn đề giấy tờ, hợp đồng, phép kinh doanh, cần tiếp cận với bộ phận pháp chế hoặc đối tác để hỗ trợ cung cấp thông tin cần thiết.
+
+4. Kiểm tra mức độ hài lòng của khách hàng sau khi giải quyết vấn đề:
+   - Yêu cầu người dùng đánh giá từ "hài lòng" đến "không hài lòng" bằng cách gửi sticker thích hợp.
+
+Quy trình này giúp đảm bảo việc giải quyết các vấn đề liên quan đến hành chính cửa hàng (hướng dẫn điện, chính quyền) được thực hiện một cách hiệu quả và kịp thời. 
+Nếu có thêm vấn đề hoặc cần hỗ trợ, đừng ngần ngại hỏi thêm hoặc liên hệ với điều phối viên @coordination hoặc team BOT 247.
+
+------------------------------
+
+problem: **Vấn đề: Hoàn tiền**
+
+**Quy trình xử lý:**
+
+1. **Xác định vấn đề:**
+   - Xác định yêu cầu hoàn tiền từ khách hàng.
+   - Kiểm tra thông tin đơn hàng, mã đơn hàng cần hoàn tiền.
+
+2. **Người giải quyết:**
+   - Trường hợp cần kiểm tra và cập nhật thông tin về hoàn tiền: @TCKT.Bùi Thị Ngoan
+   - Trường hợp cần đóng yêu cầu hoàn tiền: @Call Center
+
+3. **Đề xuất giải pháp xử lý:**
+   - Kiểm tra danh sách đơn hàng cần hoàn tiền.
+   - Kiểm tra lịch sử giao dịch và xác nhận việc hoàn tiền cho đơn hàng mà khách hàng yêu cầu.
+   - Điền thông tin hoàn tiền vào hệ thống, cập nhật ID đơn trả và số tiền cần hoàn.
+
+4. **Kiểm tra hài lòng:**
+   - Sau khi hoàn tiền thành công, yêu cầu khách hàng kiểm tra thông tin và hài lòng với việc hoàn tiền.
+   - Yêu cầu khách hàng đánh giá hài lòng/không hài lòng bằng cách gửi sticker ỉn hồng thả tim hoặc ỉn hồng khóc.
+
+Bạn có thể áp dụng quy trình trên để xử lý các yêu cầu hoàn tiền từ khách hàng. Nếu cần thêm thông tin hoặc có vấn đề gì khác, đừng ngần ngại để lại tin nhắn cho tôi.🛠
+
+------------------------------
+
+problem: Quy trình xử lý vấn đề về hóa đơn VAT như sau:
+
+1. **Xác định vấn đề con thường gặp**:
+    - Hoá đơn điều chỉnh thông tin khách hàng.
+    - Yêu cầu xác nhận hoặc xuất lại hóa đơn VAT.
+    - Sai sót trong thông tin hóa đơn.
+
+2. **Người có thể giải quyết**:
+    - Kế toán hoặc TCKT có nhiệm vụ hỗ trợ thực hiện hóa đơn điều chỉnh.
+
+3. **Đề xuất giải pháp**:
+    - Nếu chỉ sai tên hoặc địa chỉ: Kế toán có thể hỗ trợ làm mẫu 04 điều chỉnh và bổ sung chứng từ.
+    - Nếu mã số thuế sai: Không thể xuất lại được hóa đơn, cần lên đơn trả và số lập hóa đơn mới với thông tin chính xác.
+    - Khi khách muốn xuất hóa đơn theo mã số thuế khác: Cung cấp mẫu hóa đơn điều chỉnh để khách xem và quyết định.
+
+4. **Kiểm tra hài lòng**:
+    - Sau khi giải quyết vấn đề hóa đơn VAT, yêu cầu người dùng đánh giá hài lòng hoặc không hài lòng bằng cách gửi sticker ỉn hồng thả tim hay ỉn hồng khóc.
+
+Hãy áp dụng quy trình trên để giải quyết các vấn đề liên quan đến hóa đơn VAT hiệu quả và đáp ứng tốt nhu cầu của khách hàng.
+
+------------------------------
+
+problem: Dựa trên các cuộc trò chuyện đã cung cấp, dưới đây là quy trình chuẩn để xử lý vấn đề liên quan đến việc hỗ trợ tài khoản mạng xã hội (MXH):
+
+1. Xác định vấn đề:
+    - Nếu người dùng yêu cầu hỗ trợ tài khoản mạng xã hội bị khóa, không đăng nhập hoặc liên quan đến quyền admin.
+    
+2. Người có thể giải quyết được vấn đề:
+    - Nếu vấn đề liên quan đến khóa tài khoản MXH hoặc quyền admin: đề xuất liên hệ với bộ phận Marketing (MKT).
+    
+3. Giải pháp xử lý vấn đề:
+    - Nếu người dùng yêu cầu đăng nhập hoặc khôi phục mật khẩu Zalo OA/Facebook: yêu cầu họ xem lại sim đã đăng ký Zalo và thử lấy lại mật khẩu thông qua số điện thoại hoặc email.
+    - Nếu yêu cầu là thêm tài khoản vào page để live: liên hệ với bộ phận MKT để họ hỗ trợ thêm thành viên hoặc quyền admin vào page.
+
+4. Kiểm tra mức độ hài lòng:
+    - Sau khi giải quyết vấn đề, yêu cầu người dùng đánh giá hài lòng/không hài lòng bằng cách gửi sticker ỉn hồng thả tim hay ỉn hồng khóc.
+    
+Quy trình trên giúp đảm bảo vấn đề được giải quyết một cách nhanh chóng và hiệu quả, cung cấp dịch vụ hỗ trợ chất lượng cho người dùng.
+
+------------------------------
+
+problem: Để xử lý vấn đề về hỗ trợ hành chính nhân sự tại YODY, quy trình sẽ bao gồm các bước sau:
+   
+1. Xác định các vấn đề con thường gặp:
+   - Hỗ trợ cấp lại mật khẩu đăng nhập.
+   - Hướng dẫn đăng nhập vào các hệ thống của công ty.
+   
+2. Xác định người có thể giải quyết được vấn đề:
+   - Vấn đề về mật khẩu đăng nhập: NSHP (Nguyễn Thị Vân Anh), CNTT (Nguyễn Mạnh Linh), hoặc NSHP (Đoàn Hồng Vân).
+   - Hướng dẫn đăng nhập vào hệ thống: Call Center.
+
+3. Đề xuất giải pháp xử lý vấn đề:
+   - Đối với vấn đề mất mật khẩu đăng nhập:
+       + Yêu cầu người dùng cung cấp thông tin cần thiết.
+       + NSHP hoặc CNTT sẽ cung cấp mật khẩu mới và hướng dẫn cách sử dụng.
+       
+   - Đối với hướng dẫn đăng nhập vào hệ thống:
+       + Call Center sẽ hướng dẫn người dùng cách đăng nhập vào các hệ thống của công ty.
+
+4. Kiểm tra mức độ hài lòng sau khi giải quyết vấn đề:
+   - Đề nghị người dùng đánh giá hài lòng hoặc không hài lòng sau khi vấn đề đã được giải quyết bằng cách gửi sticker tương ứng.
+
+Quy trình trên sẽ giúp đảm bảo việc xử lý vấn đề một cách nhanh chóng và hiệu quả.
+
+------------------------------
+
+problem: Quy trình xử lý vấn đề "Hỗ trợ livestream Tiktok" như sau:
+1. Xác định vấn đề con thường gặp:
+    - Không thể thêm sản phẩm vào giỏ hàng trên Tiktok.
+    - Không thể đăng nhập hoặc đăng ký tài khoản Tiktok.
+    - Nick Tiktok bị khoá hoặc không kích hoạt được.
+    - Lỗi nội dung nguyên gốc trên Tiktok.
+
+2. Người giải quyết vấn đề:
+    - @Sàn TMDT. Đào Quang Huy
+    - @BOT 247 Giải đáp thắc mắc Tiktok
+
+3. Đề xuất giải pháp xử lý vấn đề:
+    - Nếu không thêm sản phẩm vào giỏ hàng, tạo video mới không lấy nguồn từ kênh khác và xóa mã vạch trên tem áo.
+    - Nếu không đăng nhập hoặc đăng ký tài khoản Tiktok, sử dụng email thay vì số điện thoại để đăng ký.
+    - Nếu nick Tiktok bị khoá, xóa hết các bài đăng và chỉnh sửa phần chú thích để loại bỏ thông tin không phù hợp.
+    - Nếu bị lỗi nội dung nguyên gốc, xóa các video lộ thương hiệu hoặc gói quà trên Tiktok.
+
+4. Kiểm tra và đánh giá hài lòng của người dùng sau khi giải quyết vấn đề.
+
+Hy vọng quy trình trên sẽ giúp bạn xử lý các vấn đề liên quan đến hỗ trợ livestream Tiktok hiệu quả. Nếu cần thêm thông tin hoặc hỗ trợ, đừng ngần ngại liên hệ lại. Cảm ơn!
+
+------------------------------
+
+problem: Để giải quyết vấn đề về máy in hóa đơn không hoạt động, dưới đây là quy trình cụ thể:
+
+1. **Xác định vấn đề**:
+    - Máy in hóa đơn không hoạt động đúng cách.
+    - Không xuất hiện giá tiền trên hóa đơn.
+    - Máy không in ra hóa đơn sau khi đã thực hiện các bước đúng.
+
+2. **Người giải quyết**:
+    - @CNTT.Nguyễn Mạnh Linh: Kiểm tra, xác định sự cố và thực hiện khắc phục.
+
+3. **Giải pháp xử lý**:
+    a. Kiểm tra kết nối: 
+    - Yêu cầu người dùng kiểm tra kết nối giữa máy in và máy tính, đảm bảo kết nối ổn định và chính xác.
+    - Đảm bảo dây cáp kết nối không bị lỏng hoặc hỏng.
+
+    b. Kiểm tra giấy in: 
+    - Yêu cầu người dùng kiểm tra xem giấy in có đủ hoặc còn hay không. Nếu cần, thêm giấy in mới và đảm bảo cài đặt đúng.
+
+    c. Kiểm tra cấu hình phần mềm:
+    - Đảm bảo cài đặt và cấu hình phần mềm máy in hóa đơn đúng cách.
+    - Kiểm tra xem phần mềm hóa đơn đã cập nhật và hoạt động đúng không.
+
+    d. Kiểm tra lỗi hóa đơn:
+    - Đảm bảo hóa đơn không bị lỗi cú pháp hoặc mã vạch.
+    - Kiểm tra cấu hình để đảm bảo giá tiền hiện diện đúng trên hóa đơn.
+
+4. **Kiểm tra và đánh giá**:
+    - Yêu cầu người dùng thử in hóa đơn sau khi thực hiện các bước kiểm tra và sửa lỗi.
+    - Xác nhận người dùng có thấy giá tiền hiển thị chính xác trên hóa đơn hay không.
+
+5. **Kết luận và đóng vấn đề**:
+    - Sau khi máy in hoạt động đúng, yêu cầu người dùng kiểm tra hoạt động một lần nữa.
+    - Đảm bảo người dùng hài lòng với việc giải quyết vấn đề.
+
+Hy vọng rằng quy trình trên sẽ giúp bạn giải quyết vấn đề một cách hiệu quả. Nếu có thêm câu hỏi hoặc vấn đề nào khác, đừng ngần ngại thông báo để chúng tôi hỗ trợ bạn.
+
+------------------------------
+
+problem: Dựa trên các cuộc hội thoại trước đó, quy trình xử lý vấn đề mà tôi đề xuất sẽ được thực hiện theo các bước sau:
+
+1. Xác định các vấn đề con thường gặp:
+    - Hỗ trợ khách hàng phát sinh hóa đơn.
+    - Hỗ trợ khách hàng sử dụng mã giảm giá hoặc mã khuyến mãi.
+    - Hỗ trợ khách hàng khi đợi lâu để được phục vụ.
+    - Hỗ trợ khách hàng khi sản phẩm bị lỗi hoặc xước xác.
+    - Hỗ trợ khách hàng về việc tách đơn hàng.
+
+2. Xác định người giải quyết được vấn đề:
+    - Đối với vấn đề hóa đơn, vấn đề mã giảm giá, mã khuyến mãi: Call Center (@Call Center).
+    - Đối với vấn đề đợi lâu để được phục vụ: Call Center (@Call Center).
+    - Đối với vấn đề sản phẩm bị lỗi hoặc xước xác: BOT 247 (@BOT 247).
+    - Đối với vấn đề tách đơn hàng: Call Center (@Call Center).
+
+3. Đề xuất giải pháp xử lý vấn đề:
+    - Đối với hóa đơn và mã giảm giá: Hướng dẫn khách hàng cách sử dụng hoặc giải quyết trên hệ thống.
+    - Đối với việc đợi lâu: Xác nhận tình trạng đơn hàng và thông báo dự kiến thời gian phục vụ.
+    - Đối với sản phẩm bị lỗi: Yêu cầu khách hàng cung cấp thông tin bảo hành theo form chuẩn.
+    - Đối với tách đơn hàng: Yêu cầu khách hàng cung cấp thông tin chi tiết để xử lý.
+
+4. Kiểm tra mức độ hài lòng của khách hàng sau khi giải quyết vấn đề:
+    - Yêu cầu khách hàng đánh giá hài lòng hoặc không hài lòng bằng cách gửi sticker phản hồi.
+
+Đây là quy trình chuẩn dành cho các vấn đề phổ biến đã được đề cập. Nếu có thêm vấn đề cụ thể nào khác, vui lòng cung cấp thông tin chi tiết để chúng tôi có thể hỗ trợ bạn tốt hơn.
+
+------------------------------
+
+problem: Quy trình giải quyết vấn đề "Nhạc phát tại cửa hàng" bao gồm:
+
+1. **Xác định các vấn đề con thường gặp:**
+    - Nhân viên không thể truy cập link nhạc.
+    - Link nhạc bị lỗi hoặc không phát nhạc đúng cách.
+    - Nhạc phát tại cửa hàng bị gián đoạn hoặc dừng đột ngột.
+
+2. **Người giải quyết được vấn đề:**
+    - CNTT. Vũ Trung Hiếu: Xử lý các vấn đề kỹ thuật liên quan đến link nhạc.
+    - BOT 247: Cung cấp link nhạc cho nhân viên.
+   
+3. **Đề xuất giải pháp xử lý:**
+    - Reset (F5) trang web và kiểm tra kết nối internet.
+    - Báo lỗi đến CNTT. Vũ Trung Hiếu nếu link nhạc gặp lỗi.
+    - Hướng dẫn nhân viên không nên ấn play hoặc pause.
+    - Cắm USB vào cổng khác hoặc format nếu không thể truy cập file nhạc.
+
+4. **Kiểm tra mức độ hài lòng:**
+    - Yêu cầu người dùng thực hiện các bước hướng dẫn và sau đó đánh giá kết quả.
+    - Nếu vấn đề được giải quyết, đề nghị người dùng gửi sticker ỉn hồng thả tim.
+    - Nếu vẫn còn vấn đề, tiếp tục hỗ trợ cho đến khi người dùng hài lòng.
+
+Với quy trình này, việc giải quyết vấn đề "Nhạc phát tại cửa hàng" sẽ được thực hiện một cách hiệu quả và chuyên nghiệp.
+
+------------------------------
+
+problem: Quy trình xử lý vấn đề liên quan đến phần mềm Nhanh.vn tại công ty thời trang YODY tại Việt Nam như sau:
+
+1. Xác định các vấn đề con thường gặp:
+   - Gặp sự cố với tài khoản đăng nhập vào phần mềm Nhanh.vn.
+   - Yêu cầu cấp lại mật khẩu cho tài khoản trong phần mềm.
+   - Yêu cầu chuyển phần mềm từ một người dùng sang người dùng khác.
+   - Hỗ trợ mở khóa tài khoản bị khóa trong phần mềm.
+
+2. Người có thể giải quyết:
+   - CNTT. Vũ Trung Hiếu (@CNTT. Vũ Trung Hiếu)
+   - MSTT. Trần Hoàng Minh Tân (@MSTT. Trần Hoàng Minh Tân)
+
+3. Đề xuất giải pháp xử lý vấn đề:
+   - Đối với yêu cầu cấp lại mật khẩu hoặc khóa tài khoản:
+     - Cung cấp mật khẩu mới cho người dùng.
+     - Đảm bảo người dùng có thể truy cập lại vào tài khoản.
+   - Đối với yêu cầu chuyển phần mềm:
+     - Thực hiện chuyển giao phần mềm từ người dùng cũ sang người dùng mới.
+     - Đảm bảo dữ liệu không bị mất khi chuyển giao.
+   - Đối với các vấn đề khác:
+     - Kiểm tra và xử lý theo yêu cầu cụ thể của người dùng.
+
+4. Kiểm tra mức độ hài lòng của người dùng sau khi giải quyết vấn đề:
+   - Sau khi xử lý vấn đề, hỏi người dùng về mức độ hài lòng của họ.
+   - Yêu cầu người dùng đánh giá bằng cách gửi sticker ỉn hồng thả tim nếu hài lòng hoặc ỉn hồng khóc nếu không hài lòng.
+
+Quy trình trên sẽ giúp tối ưu hóa việc xử lý vấn đề và đảm bảo sự hài lòng của người dùng khi sử dụng phần mềm Nhanh.vn của YODY.
+
+------------------------------
+
+problem: Quy trình xử lý vấn đề liên quan đến phần mềm 1Office như sau:
+### Xác định vấn đề:
+- Khách hàng có thắc mắc hoặc cần hỗ trợ về phần mềm 1Office.
+
+### Xác định người giải quyết:
+1. Nếu là vấn đề về hợp đồng, ký HĐ, gia hạn HĐ: Hướng dẫn và hỗ trợ bởi @Call Center.
+2. Nếu liên quan đến việc thay đổi thông tin cá nhân trên 1Office: Hỗ trợ bởi @NSHP.Trần Thị Quốc Dân hoặc @NSHP.Đoàn Hồng Vân.
+3. Nếu cần hướng dẫn sử dụng, tạo mật khẩu 1Office: Hỗ trợ bởi @BOT 247.
+
+### Đề xuất giải pháp xử lý:
+1. Kiểm tra vấn đề cụ thể mà khách hàng gặp phải.
+2. Hướng dẫn khách hàng về cách thao tác hoặc giải quyết vấn đề cụ thể.
+3. Đối với các vấn đề cần can thiệp từ bên quản lý 1Office, chuyển hướng và thông báo lại cho khách hàng về quy trình giải quyết.
+
+### Kiểm tra mức độ hài lòng:
+- Sau khi giải quyết vấn đề, yêu cầu khách hàng đánh giá hài lòng thông qua sticker: ỉn hồng thả tim hoặc ỉn hồng khóc.
+
+Quy trình này sẽ giúp đảm bảo việc xử lý nhanh chóng và chính xác các vấn đề liên quan đến phần mềm 1Office, từ đó nâng cao sự hài lòng của khách hàng.
+
+------------------------------
+
+problem: Quy trình xử lý vấn đề liên quan đến phần mềm Antbuddy như sau:
+   
+1. Xác định các vấn đề con thường gặp:
+   - Không thể gọi điện qua phần mềm Antbuddy.
+   - Lỗi khi đăng nhập vào ứng dụng Antbuddy.
+   - Không kết nối được với máy chủ khi sử dụng Antbuddy.
+   - Lỗi "không thể tải ứng dụng" trên App Store.
+
+2. Người giải quyết vấn đề:
+   - @CNTT. Nguyễn Đăng Thái: Chị Thái sẽ giúp xử lý các vấn đề kỹ thuật liên quan đến phần mềm Antbuddy.
+
+3. Đề xuất giải pháp xử lý vấn đề:
+   a. Trong trường hợp không thể gọi điện qua phần mềm Antbuddy:
+      - Đề xuất hướng dẫn sử dụng Zoom để hỗ trợ trực tuyến.
+   b. Đối với lỗi khi đăng nhập hoặc không kết nối được với máy chủ:
+      - Hướng dẫn kiểm tra tài khoản và thực hiện logout, sau đó đăng nhập lại để khắc phục.
+      - Nếu vấn đề vẫn tồn tại, hướng dẫn sử dụng link Zoom để nhận sự hỗ trợ trực tuyến.
+   c. Nếu gặp lỗi "không thể tải ứng dụng" trên App Store:
+      - Gợi ý cách khắc phục bằng cách thử lại sau một thời gian hoặc reset thiết bị để thử tải lại ứng dụng.
+
+4. Kiểm tra mức độ hài lòng của người dùng sau khi giải quyết vấn đề:
+   - Yêu cầu người dùng đánh giá hài lòng/không hài lòng bằng cách gửi sticker tương ứng.
+
+Đây là quy trình chuẩn mà chúng tôi sẽ thực hiện để xử lý vấn đề liên quan đến phần mềm Antbuddy khi có yêu cầu hỗ trợ từ người dùng.
+
+------------------------------
+
+problem: Quy trình xử lý vấn đề "Phần mềm Caresoft":
+1. Xác định vấn đề: Người dùng yêu cầu cần được hỗ trợ về việc khôi phục lại mật khẩu hoặc tài khoản bị xoá trên phần mềm Caresoft.
+2. Người giải quyết vấn đề: @Call Center hoặc các nhân viên hỗ trợ tương tự tham gia vào nhóm hỗ trợ.
+3. Đề xuất giải pháp:
+    - Yêu cầu người dùng cung cấp thông tin cần thiết như email hoặc mã tài khoản để hỗ trợ việc khôi phục mật khẩu hoặc thông tin tài khoản bị xoá.
+    - Sau đó, người dùng sẽ được yêu cầu tham gia nhóm gửi thông tin hoặc liên hệ trực tiếp để được hỗ trợ.
+4. Sau khi vấn đề được giải quyết, người dùng sẽ được yêu cầu đánh giá mức độ hài lòng bằng cách gửi sticker ỉn hồng thả tim hoặc ỉn hồng khóc để hoàn tất quá trình hỗ trợ.
+
+Với quy trình trên, chúng tôi hy vọng sẽ giúp người dùng xử lý vấn đề liên quan đến phần mềm Caresoft một cách nhanh chóng và hiệu quả.
+
+------------------------------
+
+problem: Quy trình xử lý vấn đề liên quan đến phần mềm Gapo của công ty YODY như sau:
+   
+    1. Xác định các vấn đề con thường gặp:
+        - Mất mật khẩu Gapo.
+        - Hỗ trợ cài đặt và sử dụng phần mềm Gapo.
+    
+    2. Người giải quyết vấn đề:
+        - CNTT. Nguyễn Công Văn: Giám đốc công nghệ.
+        - CNTT. Vũ Thị Hương: Chuyên viên CNTT.
+    
+    3. Đề xuất giải pháp xử lý:
+        a. Đối với trường hợp mất mật khẩu Gapo:
+            - Yêu cầu khách hàng cung cấp số điện thoại mới nếu có.
+            - CNTT. Nguyễn Công Văn kiểm tra và cấp lại mật khẩu qua tin nhắn.
+            - Hướng dẫn khách hàng đổi mật khẩu sau khi đăng nhập thành công.
+        
+        b. Đối với trường hợp hỗ trợ cài đặt và sử dụng phần mềm Gapo:
+            - CNTT. Vũ Thị Hương hướng dẫn từng bước sử dụng theo hướng dẫn sẵn có.
+            - Hướng dẫn khách hàng thực hiện theo hướng dẫn từ chuyên viên CNTT.
+    
+    4. Kiểm tra mức độ hài lòng:
+        - Yêu cầu khách hàng đánh giá hài lòng/không hài lòng sau khi vấn đề được giải quyết.
+        - Hướng dẫn khách hàng gửi sticker ỉn hồng thả tim hoặc ỉn hồng khóc để đưa ra đánh giá của mình.
+
+Quy trình này giúp giải quyết hiệu quả các vấn đề liên quan đến phần mềm Gapo và đảm bảo sự hài lòng của người dùng sau khi vấn đề được xử lý.
+
+------------------------------
+
+problem: Quy trình để xử lý vấn đề liên quan đến phần mềm Unicorn của công ty thời trang YODY:
+
+1. **Xác định vấn đề cụ thể:**
+    - Mỗi khi có người dùng gặp sự cố, hãy xác định rõ vấn đề của họ, như việc không thể tạo chứng từ trên UNI hay không nhận được đơn trả về cửa hàng.
+    
+2. **Xác định người có thể giải quyết và điều phối:**
+    - Nếu vấn đề là liên quan đến kỹ thuật, hãy yêu cầu người hỗ trợ kỹ thuật như CNTT.Nguyễn Mạnh Linh hỗ trợ.
+    - Nếu vấn đề cần phải điều phối, hãy liên hệ với đội điều phối viên như Omni. VĐ. Đoàn Văn Hòa.
+    
+3. **Đề xuất giải pháp và hướng dẫn xử lý:**
+    - Đối với các vấn đề cụ thể như không thể tạo chứng từ, đề xuất giải pháp như rút ngắn kí tự trong phần thông tin để khắc phục.
+    - Đối với trường hợp không nhận được đơn trả về cửa hàng, hướng dẫn như chỉ kho cửa hàng có quyền nhận hàng trả về.
+    
+4. **Kiểm tra sự hài lòng sau khi giải quyết:**
+    - Sau khi vấn đề được giải quyết, yêu cầu người dùng đánh giá hài lòng/không hài lòng bằng cách gửi sticker theo hướng dẫn.
+
+Hơn nữa, tiếp theo là việc trao quyền cho các nhân viên cụ thể như YD7303 - Phạm Thị Mỹ Duyên, YD0975 - Lê Quý Khánh và YD0735 - Phan Thị Bình. Đồng thời, hãy theo dõi và xác nhận rằng tình hình đã được giải quyết và mọi người đã có quyền truy cập tương ứng.
+
+------------------------------
+
+problem: Quy trình xử lý vấn đề về Sản phẩm (Hình ảnh, style, trạng thái) như sau:
+1. Xác định các vấn đề con thường gặp:
+    - Yêu cầu mở bán sản phẩm.
+    - Yêu cầu kiểm tra thông số sản phẩm.
+    - Yêu cầu xem hình ảnh sản phẩm.
+    - Yêu cầu cập nhật trạng thái sản phẩm.
+
+2. Người có thể giải quyết:
+    - Đối với yêu cầu mở bán: liên hệ @CNTT để mở bán.
+    - Đối với yêu cầu kiểm tra thông số: liên hệ @Merchandiser để kiểm tra.
+    - Đối với yêu cầu xem hình ảnh: liên hệ @Merchandise để hỗ trợ.
+    - Đối với yêu cầu cập nhật trạng thái: liên hệ @Trade MKT.
+
+3. Giải pháp xử lý vấn đề:
+    - Mở bán sản phẩm: Liên hệ @CNTT để thực hiện việc mở bán sản phẩm.
+    - Kiểm tra thông số sản phẩm: Yêu cầu @Merchandiser kiểm tra và cập nhật thông số sản phẩm.
+    - Xem hình ảnh sản phẩm: Hỏi @Merchandise để cung cấp hình ảnh của sản phẩm.
+    - Cập nhật trạng thái sản phẩm: Thông báo @Trade MKT để cập nhật trạng thái sản phẩm.
+
+4. Kiểm tra mức độ hài lòng sau khi giải quyết vấn đề:
+    - Yêu cầu người dùng đánh giá bằng cách gửi sticker ỉn hồng thả tim (hài lòng) hoặc ỉn hồng khóc (không hài lòng).
+
+Quy trình trên giúp xác định vấn đề, phân công công việc một cách rõ ràng và tiếp cận nhanh chóng giải quyết vấn đề cho người dùng.
+
+------------------------------
+
+problem: Quy trình giải quyết vấn đề về Thanh toán như sau:
+1. Xác định vấn đề: 
+- Có khách hàng thanh toán nhưng hệ thống không ghi nhận đúng thông tin.
+2. Xác định người giải quyết: 
+- Nếu gặp vấn đề với Bảo Kim, hãy nhờ sự hỗ trợ từ @BOT 247.
+- Nếu gặp lỗi từ Uni, liên hệ với đội CNTT, bao gồm @CNTT. Đàm Văn Dũng và @CNTT. Vũ Quốc Anh.
+3. Đề xuất giải pháp: 
+- Đối với lỗi từ Bảo Kim: Hướng dẫn khách hàng thực hiện lại theo hướng dẫn từ BOT 247.
+- Đối với lỗi Uni: Yêu cầu CNTT kiểm tra giao dịch và xử lý lỗi từ ngân hàng.
+4. Kiểm tra hài lòng: 
+- Sau khi giải quyết, yêu cầu khách hàng kiểm tra lại và thông báo trạng thái mới.
+    
+Đảm bảo rằng luôn thông báo và hướng dẫn khách hàng qua từng bước để họ có thể theo dõi và giải quyết vấn đề một cách dễ dàng và nhanh chóng.
+
+------------------------------
+
+problem: Dựa trên các cuộc hội thoại mà tôi đã hỗ trợ, dưới đây là quy trình chuẩn để xử lý vấn đề tiếp nhận góp ý/phản ánh/khiếu nại từ khách hàng:
+
+1. **Xác định vấn đề cụ thể**:
+   - Phân loại vấn đề từ khách hàng, ví dụ: hàng hỏng, phản ánh chất lượng sản phẩm, khiếu nại dịch vụ, v.v.
+
+2. **Xác định người xử lý**:
+   - Đối với vấn đề về đơn hàng, cần liên hệ với nhân viên cụ thể tại cửa hàng hoặc kho hàng. Điều phối viên từ khu vực call center sẽ giúp phân công người giải quyết.
+   - Nếu cần hỗ trợ từ đội ngũ khác, tùy trường hợp sẽ yêu cầu sự can thiệp từ các đơn vị khác.
+
+3. **Đề xuất giải pháp xử lý**:
+   - Dựa trên thông tin từ nhân viên tại cửa hàng hoặc kho hàng, tìm ra giải pháp phù hợp như trao đổi hàng mới, hoàn tiền, giảm giá cho đơn hàng tiếp theo, hoặc bất kỳ biện pháp nào khác để khách hàng hài lòng.
+   - Tạo sự minh bạch và chủ động trong quy trình đổi/trả hàng hoặc hoàn tiền.
+
+4. **Kiểm tra mức độ hài lòng của khách hàng**:
+   - Yêu cầu nhân viên liên hệ với khách hàng sau khi vấn đề được xử lý để đảm bảo họ hài lòng với giải pháp được đưa ra.
+   - Nếu cần, nhận phản hồi từ khách hàng để cải thiện dịch vụ và giữ chân khách hàng.
+
+Quy trình trên giúp đảm bảo việc xử lý vấn đề một cách nhanh chóng, chính xác và mang lại sự hài lòng cho khách hàng.
+
+------------------------------
+
+problem: Quy trình xử lý khi không tìm thấy đơn hàng đối với các trường hợp cụ thể như sau:
+1. **Xác định các vấn đề con (sub-problems) thường gặp**:
+   - Khách hàng không tìm thấy đơn hàng trên ứng dụng.
+   - Không thể truy cập vào đơn hàng trên sàn thương mại điện tử.
+
+2. **Người có thể giải quyết được vấn đề**:
+   - CX Call Center (Người hỗ trợ chuyên nghiệp từ công ty YODY): 
+       - Các tài khoản CX cụ thể: @Huỳnh Nhã Minh Thương, @Nguyễn Ngọc Phương Uyên, @Lưu Vân Anh, @Phương Thảo
+
+3. **Đề xuất giải pháp xử lý vấn đề**:
+   - **Vấn đề 1: Khách hàng không tìm thấy đơn hàng trên ứng dụng**:
+       - Đảm bảo khách hàng đã thử tìm đơn hàng theo hướng dẫn sử dụng Chat BOT 247.
+       - Nếu khách hàng không tìm thấy Chat BOT 247, yêu cầu họ thử lại bằng cách khác hoặc cung cấp hướng dẫn cụ thể.
+       - Nếu vẫn gặp khó khăn, chuyển yêu cầu đến CX Call Center để hỗ trợ chi tiết.
+
+   - **Vấn đề 2: Không thể truy cập vào đơn hàng trên sàn thương mại điện tử**:
+       - Hướng dẫn khách hàng tìm đơn hàng dựa trên ID đơn hàng hoặc mã vận đơn.
+       - Cung cấp đường link trực tiếp đến đơn hàng nếu cần thiết.
+       - Nếu khách hàng gặp khó khăn, chuyển yêu cầu đến CX Call Center để hỗ trợ.
+
+4. **Kiểm tra mức độ hài lòng của người dùng**:
+   - Sau khi giải quyết vấn đề, yêu cầu người dùng đánh giá hài lòng bằng cách gửi sticker ỉn hồng thả tim hoặc ỉn hồng khóc.
+   - Đảm bảo khách hàng được hài lòng với giải pháp được cung cấp.
+
+Hy vọng rằng quy trình này sẽ giúp bạn giải quyết các vấn đề liên quan đến việc không tìm thấy đơn hàng một cách hiệu quả. Nếu cần thêm hỗ trợ, đừng ngần ngại liên hệ đến các chuyên viên CX Call Center của chúng tôi.
+
+------------------------------
+
+problem: Dựa trên các cuộc hội thoại đã được cung cấp, đây là quy trình chuẩn để xử lý vấn đề về "Tồn kho sản phẩm":
+
+1. **Xác định vấn đề:**
+   - Xác định cụ thể vấn đề liên quan đến tồn kho sản phẩm, ví dụ: tồn kho âm, cân lệch tồn, kiểm tra tồn kho, cập nhật dữ liệu sản phẩm, v.v.
+
+2. **Người giải quyết vấn đề:**
+   - Nếu là vấn đề về cân lệch tồn, liên hệ với QTRR. Nguyễn Thìn để hỗ trợ.
+   - Nếu cần kiểm tra tồn kho, hãy liên hệ với KHO&LOGISTIC.Trần Đình Huy.
+   - Nếu có yêu cầu mở bán sản phẩm, vui lòng liên hệ với CNTT. Nguyễn Quốc Duy.
+
+3. **Đề xuất giải pháp:**
+   - Nêu rõ vấn đề và thông tin cụ thể cho người giải quyết.
+   - Sử dụng hình ảnh hoặc video để minh họa cho vấn đề nếu cần.
+
+4. **Kiểm tra mức độ hài lòng sau khi giải quyết:**
+   - Sau khi giải quyết vấn đề, thẩm định xem vấn đề đã được xử lý đúng cách chưa.
+   - Yêu cầu người dùng đánh giá mức độ hài lòng bằng cách gửi sticker ỉn hồng thả tim hay ỉn hồng khóc.
+
+Quy trình này giúp xác định rõ vấn đề, phân công nhiệm vụ một cách chính xác và theo dõi mức độ hài lòng của người dùng sau khi vấn đề được giải quyết.
+
+------------------------------
+
+problem: Dựa trên các cuộc hội thoại đã được cung cấp, dưới đây là quy trình xử lý vấn đề "Điều chuyển hàng hóa" cho công ty thời trang YODY tại Việt Nam:
+
+1. **Xác định vấn đề chính:**
+   - Điều chuyển hàng hóa từ kho này sang kho khác hoặc từ cửa hàng này sang cửa hàng khác.
+
+2. **Các bước thực hiện:**
+   - **Bước 1: Xác định các vấn đề con:**
+     - Xác định nguyên nhân chính gây ra việc không thể điều chuyển hàng hóa.
+     - Xác định vị trí cụ thể của hàng hóa cần điều chuyển.
+
+   - **Bước 2: Người có thể giải quyết vấn đề:**
+     - Liên hệ với đội IT hoặc người phụ trách kho để giải quyết vấn đề.
+     - Đối với việc xác nhận số lượng hàng hóa, cần phối hợp giữa cửa hàng và kho hàng để đảm bảo độ chính xác.
+
+   - **Bước 3: Đề xuất giải pháp xử lý vấn đề:**
+     - Xác nhận số lượng hàng hóa cần điều chuyển.
+     - Theo dõi và xác nhận việc chuyển hàng hóa từ điểm A sang điểm B.
+     - Đảm bảo việc giao nhận hàng hóa được thực hiện một cách chính xác và kịp thời.
+   
+   - **Bước 4: Kiểm tra mức độ hài lòng:**
+     - Yêu cầu người yêu cầu kiểm tra và xác nhận mức độ hài lòng sau khi vấn đề đã được giải quyết.
+     - Thu thập thông tin phản hồi để cải thiện quy trình và đảm bảo chất lượng dịch vụ.
+
+Để xử lý một cách hiệu quả, cần sự hợp tác giữa các bộ phận khác nhau như cửa hàng, kho hàng, IT, và nhân viên chăm sóc khách hàng (Call Center). Điều này giúp đảm bảo việc điều chuyển hàng hóa diễn ra một cách suôn sẻ và chính xác.
+
+------------------------------
+
+problem: Dựa trên các cuộc trò chuyện đã được cung cấp, quy trình xử lý vấn đề "#ưu_đãi_nhân_viên" có thể được xác định như sau:
+
+1. **Xác định vấn đề con thường gặp**:
+    - Yêu cầu mã nhân viên tháng
+    - Hỏi về việc áp dụng ưu đãi cho nhân viên
+    - Yêu cầu mã quà tặng nhân viên
+    - Hỏi về mã quay của nhân viên
+    - Hỏi về chính sách mua hàng cho nhân viên
+
+2. **Người có thể giải quyết**:
+    - @Omni.CX.CallCenter
+    - @Omni.CX.Loyalty.TrầnThịThuHiền
+    - @BOT247
+
+3. **Đề xuất giải pháp**:
+    a. Đối với yêu cầu về mã nhân viên tháng:
+    - Cung cấp mã nhân viên như NHANVIENT4 và hướng dẫn cách sử dụng.
+    
+    b. Đối với vấn đề về việc áp dụng ưu đãi cho nhân viên:
+    - Thông báo về chính sách ưu đãi nhân viên như chiết khấu đối với order nguyên giá và quy định sử dụng mã chiết khấu.
+    
+    c. Đối với yêu cầu về mã quà tặng hoặc mã quay của nhân viên:
+    - Cung cấp mã quà tặng hoặc hướng dẫn cách quay mã giảm giá cho nhân viên.
+    
+    d. Đối với hỏi về chính sách mua hàng cho nhân viên:
+    - Cung cấp thông tin chi tiết về chính sách mua hàng và áp dụng cho nhân viên.
+
+4. **Kiểm tra hậu quả**:
+    - Sau khi cung cấp giải pháp, yêu cầu người dùng đánh giá hài lòng hoặc không hài lòng bằng cách gửi sticker ỉn hồng thả tim hoặc ỉn hồng khóc.
+
+Quy trình trên giúp đảm bảo việc xử lý vấn đề "#ưu_đãi_nhân_viên" được thực hiện một cách hiệu quả và chuyên nghiệp.
+
+------------------------------
+
