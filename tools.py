@@ -1,5 +1,5 @@
 from langchain.tools import tool
-from prompts import system_prompt,material_warranty_prompt,update_customer_info_prompt,administrate_order_prompt,promotions_prompt,personnel_prompt
+from prompts import material_warranty_prompt,update_customer_info_prompt,administrate_order_prompt,promotions_prompt,personnel_prompt
 from langchain_core.prompts import ChatPromptTemplate,MessagesPlaceholder
 from langchain_core.prompts.chat import SystemMessagePromptTemplate,HumanMessagePromptTemplate
 
