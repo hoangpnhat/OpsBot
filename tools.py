@@ -4,7 +4,7 @@ from langchain_core.prompts import ChatPromptTemplate,MessagesPlaceholder
 from langchain_core.prompts.chat import SystemMessagePromptTemplate,HumanMessagePromptTemplate
 
 @tool
-def material_warranty(query: str) -> str:
+def material_warranty(query: str) -> ChatPromptTemplate:
     """Quy trình xử lý vấn đề "Bảo hành chất liệu" do chất liệu không đạt yêu cầu. """
 
     system_define = """Bạn là một người điều phối viên chuyên nghiệp của một công ty bán hàng thời trang YODY. 
@@ -20,7 +20,7 @@ def material_warranty(query: str) -> str:
     return prompt
 
 @tool
-def update_customer_info(query: str) -> str:
+def update_customer_info(query: str) -> ChatPromptTemplate:
     """Quy trình xử lý vấn đề "Cập nhật thông tin Khách hàng" 
     khi cần cập nhật thông tin khách hàng như số điện thoại, địa chỉ, email, ngày sinh, nghề nghiệp."""
 
@@ -42,7 +42,7 @@ def update_customer_info(query: str) -> str:
     ])
     return prompt
 @tool
-def administrate_order(query: str) -> str:
+def administrate_order(query: str) -> ChatPromptTemplate:
     """Quy trình xử lý vấn đề "#van_de: Hành chính cửa hàng (HD điện, chính quyền...) 
     khi gặp các vấn đề mất điện hoặc mất mạng tại cửa hàng, in hoá đơn bị mờ hoặc lỗi, hỗ trợ về giấy tờ, hợp đồng, phép kinh doanh."""
     
@@ -60,7 +60,7 @@ def administrate_order(query: str) -> str:
 
 
 @tool
-def promotions(query: str) -> str:
+def promotions(query: str) -> ChatPromptTemplate:
     """Quy trình chuẩn để xử lý vấn đề "Chương trình khuyến mãi", 
     khi gặp các vấn đề Khách hàng không áp được mã giảm giá hoặc không nhận được tin nhắn hoặc mã khuyến mãi,
     Khách hàng không hài lòng với quy trình áp dụng mã khuyến mãi, Vấn đề về việc xác nhận và sử dụng mã khuyến mãi."""
@@ -78,7 +78,7 @@ def promotions(query: str) -> str:
     return prompt
 
 @tool
-def personnel(query: str) -> str:
+def personnel(query: str) -> ChatPromptTemplate:
     """Quy trình chuẩn để xử lý vấn đề "Hỗ trợ hành chính nhân sự", 
     Các yêu cầu thường gặp: Yêu cầu cấp lại mật khẩu, hỗ trợ đăng nhập vào các phần mềm của công ty (Unicorn, Office), hỗ trợ phân quyền để xem báo cáo hoặc tài liệu, hỗ trợ vấn đề liên quan đến đánh giá năng lực chuyên môn."""
 
