@@ -1,1 +1,3 @@
-conversation_history_dir: logs/conversation_history
+gapo_api_url: https://api.gapowork.vn/3rd-bot/v1.0/3rd/messages
+log_file_path: logs/data.log
+mongodb_db_name: chatbot247
