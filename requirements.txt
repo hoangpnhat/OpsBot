@@ -1,4 +1,9 @@
 langchain
 langchain-openai
 openai
-streamlit
+yacs
+uvicorn
+fastapi
+python-dotenv
+pymongo
+ngrok

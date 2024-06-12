@@ -9,3 +9,4 @@ app.mount("/gapo", gapo_app)
 @app.get("/health_check")
 def health_check():
     return {"status": "ok"}
+ 
