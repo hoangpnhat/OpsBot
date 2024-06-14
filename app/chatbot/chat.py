@@ -7,12 +7,11 @@ from langchain_openai import ChatOpenAI
 from typing import List, Union
 import sys
 from dotenv import load_dotenv, find_dotenv
-import logging
 
 load_dotenv(find_dotenv(), override=True)
 
-sys.path.append(os.getcwd())
-from app.common.config import cfg
+if os.getcwd() not in sys.path: sys.path.append(os.getcwd())
+from app.common.config import logger
 from app.chatbot.tools import material_warranty, update_customer_info,administrate_order, \
                                 promotions,promotions,personnel,other
 
@@ -49,20 +48,20 @@ class Chatbot:
         ])
 
     def chat(self, chat_history: List[Union[HumanMessage, AIMessage]], user_input: str):
-        logging.debug(f"User input: {user_input}")
-        logging.debug(f"Chat history: {chat_history}")
+        logger.debug(f"User input: {user_input}")
+        logger.debug(f"Chat history: {chat_history}")
         selected_tool =  self.chain_for_tool.invoke({
             "input": user_input, 
             "chat_history": chat_history, 
             "agent_scratchpad": []
         })
-        logging.debug(f"Selected tool: {selected_tool}")
+        logger.debug(f"Selected tool: {selected_tool}")
         try:
             get_prompt_problems = self.call_function_by_name(selected_tool.tool_calls[0]['name'], 
                                                          selected_tool.tool_calls[0]['args']['query'])
             chain = get_prompt_problems | self.llm
             response = chain.invoke({"chat_history": chat_history, "agent_scratchpad": []})
-            logging.debug(f"Response from LLM after identifying the problem: {response}")
+            logger.debug(f"Response from LLM after identifying the problem: {response}")
         except Exception as e:
             response = selected_tool
         return response.content

@@ -1,6 +1,6 @@
 import logging
-from typing import Optional
-from dataclasses import dataclass
+import os
+
 
 class Config:
     _instance = None
@@ -28,14 +28,63 @@ class Config:
         return cls._config
 
 
-@dataclass
-class LoggingConfig:
-    logger_level: int = logging.DEBUG
-    console_log_level: int = logging.INFO
-    file_log_level: Optional[int] = logging.DEBUG
-    file_log_name: Optional[str] = "./logs/debug.log"
-    logging_format: str = "[%(asctime)s] %(name)s:%(levelname)s - %(message)s"
+class CustomFormatter(logging.Formatter):
+    green = "\x1b[32;20m"
+    grey = "\x1b[38;20m"
+    yellow = "\x1b[33;20m"
+    red = "\x1b[31;20m"
+    bold_red = "\x1b[31;1m"
+    reset = "\x1b[0m"
+    format = "%(asctime)s - %(name)s - %(levelname)s - %(message)s (%(filename)s:%(lineno)d)"
+
+    FORMATS = {
+        logging.DEBUG: green + format + reset,
+        logging.INFO: green + format + reset,
+        logging.WARNING: yellow + format + reset,
+        logging.ERROR: red + format + reset,
+        logging.CRITICAL: bold_red + format + reset
+    }
+
+    def format(self, record):
+        log_fmt = self.FORMATS.get(record.levelno)
+        formatter = logging.Formatter(log_fmt)
+        return formatter.format(record)
+    
+
+class MyLogger:
+    _instances = {}
+
+    def __new__(cls, name: str):
+        if name not in cls._instances:
+            cls._instances[name] = super(MyLogger, cls).__new__(cls)
+            cls._instances[name].__init_once(name)
+        return cls._instances[name].logger
+
+    def __init_once(self, name: str):
+        self.logger = logging.getLogger(name)
+
+        if name == "dev":
+            self.logger.setLevel(logging.DEBUG)
+            # console handling
+            ch = logging.StreamHandler()
+            ch.setLevel(logging.DEBUG)
+            ch.setFormatter(CustomFormatter())
+            self.logger.addHandler(ch)
+
+            # file handling
+            fh = logging.FileHandler(os.environ.get("DEV_LOG_FILE_PATH"), mode="a", encoding="utf-8")
+            fh.setLevel(logging.DEBUG)
+            fh.setFormatter(CustomFormatter())
+            self.logger.addHandler(fh)
+
+        elif name == "prd":
+            self.logger.setLevel(logging.INFO)
+            # file handling
+            fh = logging.FileHandler(os.environ.get("PRD_LOG_FILE_PATH"), mode="a", encoding="utf-8")
+            fh.setLevel(logging.INFO)
+            fh.setFormatter(CustomFormatter())
+            self.logger.addHandler(fh)
+
 
 cfg = Config()
-logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s', 
-                    filename=cfg.log_file_path)
+logger = MyLogger(os.environ.get("ENV"))
