@@ -68,7 +68,7 @@ class Chatbot:
                 response = self.call_function_by_name(function_name=function_name, args=function_args)
                 return response
             else:
-                get_prompt_problems = self.call_function_by_name(selected_tool.tool_calls[0]['name'], 
+                get_prompt_problems, id_problem = self.call_function_by_name(selected_tool.tool_calls[0]['name'], 
                                                             selected_tool.tool_calls[0]['args']['query'])
                 chain = get_prompt_problems | self.llm
                 response = chain.invoke({"chat_history": chat_history, "agent_scratchpad": []})

@@ -7,7 +7,7 @@ from app.common.config import logger
 from app.gapo.create_message import MessageSender
 from app.gapo.get_message import MessageGetter
 from app.chatbot.chat import Chatbot
-
+from app.utils.str import extract_dict_from_string
 GapoMessage = TypeVar('GapoMessage')
 
 
@@ -85,6 +85,15 @@ class BaseMessage:
 
         """
         answer = answer or self.get_anwser_from_bot()
+
+        json_output= extract_dict_from_string(answer)
+        if json_output['status'] =="clarified":
+            mention = {
+                                "pic_gapo_name": json_output['pic_gapo_name'],
+                                "pic_gapo_id": json_output['pic_gapo_id']
+                    }
+            logger.debug(f"mention: {mention}")
+            
         logger.debug(f"Answer: {answer}")
         if self.message_type in ("group", "subthread"):
             if self.thread_id is None or self.parent_message_id is None or self.bot_id is None:
@@ -93,7 +102,7 @@ class BaseMessage:
                                 parent_message_id: {self.parent_message_id} or bot_id: {self.bot_id}"
                             )
                 return False
-            self.msg_sender.send_text_message_to_subthread(self.thread_id, self.bot_id, self.parent_message_id, answer)
+            self.msg_sender.send_text_message_to_subthread(self.thread_id, self.bot_id, self.parent_message_id, answer, mention)
         elif self.message_type == "direct":
             if self.user_id is None or self.bot_id is None:
                 logger.error(f"Cannot send message to the User. \
