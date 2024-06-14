@@ -41,19 +41,21 @@ class MessageSender:
             "message_id": message_id,
             "body": {
                 "type": "text",
-                "text": message + mention['pic_gapo_name'],
+                "text": message,
                 "is_markdown_text": False,
                 
             }
         }
         if mention:
-            data['body']['metadat'] ={
+            data['body']['text']= message + mention['pic_gapo_name']
+            data['body']['metadata'] ={
                     "mentions": [
                         {"target": mention['pic_gapo_id'], 
                          "length": len(message + mention['pic_gapo_name']), 
                          "offset": len(message)}
                     ]
                 }
+        print(data)
         try:
             response = requests.post(self.url, headers=self.headers, json=data)
             if response.status_code == 200:

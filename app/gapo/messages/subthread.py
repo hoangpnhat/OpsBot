@@ -26,7 +26,7 @@ class SubThread(BaseMessage):
         # This is a reply to a message in a subthread
         elif self.message_type == "subthread":
             self.parent_thread_id = event.message.get('thread').get('parent_id')
-            self.thread_id = self.parent_thread_id
+            self.thread_id = event.thread_id
             self.parent_message_id = event.message.get('thread').get('root_message_id')
 
         logger.debug("=" * 10 + f"Chat group - thread_id: {self.thread_id}, parent_thread_id: {self.parent_thread_id} parent_message_id: {self.parent_message_id}" + "=" * 10)

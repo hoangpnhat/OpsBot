@@ -14,7 +14,7 @@ load_dotenv(find_dotenv(), override=True)
 
 if os.getcwd() not in sys.path: sys.path.append(os.getcwd())
 from app.common.config import logger
-from app.chatbot.tools import material_warranty, update_customer_info,administrate_order, \
+from app.chatbot.tools import material_warranty, update_customer_info,administrate_store, \
                                 promotions_vip,promotions_partnership,promotions_marketing,personnel,other
 from app.chatbot.prompts.system import system_prompt
 
@@ -25,7 +25,7 @@ class Chatbot:
         self.temperature = temperature
         self.api_key = api_key or os.environ.get("OPENAI_API_KEY")
         self.tools = [
-            material_warranty, update_customer_info, administrate_order, 
+            material_warranty, update_customer_info, administrate_store, 
             promotions_vip,promotions_partnership,promotions_marketing, personnel, other
         ]
         # self.llm = ChatOpenAI(model=self.model, temperature=self.temperature, api_key=self.api_key)
@@ -53,7 +53,7 @@ class Chatbot:
 
     def chat(self, chat_history: List[Union[HumanMessage, AIMessage]], user_input: str):
         logger.debug(f"User input: {user_input}")
-        logger.debug(f"Chat history: {chat_history}")
+        # logger.debug(f"Chat history: {chat_history}")
         selected_tool =  self.chain_for_tool.invoke({
             "input": user_input, 
             "chat_history": chat_history, 

@@ -32,10 +32,10 @@ Giá trị "status" có thể là:
 Giá trị "mention" là 1 JSON có format: {{'pic_gapo_name': , 'pic_gapo_id': }}
 
 ### Answer sample 1:
-Đã nhận thông tin, nhờ @... hỗ trợ em vấn đề này với ạ \n {{'status': "clarified", 'pic_gapo_name': '@R&D. Đinh Thị Quỳnh', 'pic_gapo_id':1884536567}}
+Đã nhận thông tin, nhờ @... hỗ trợ em vấn đề này với ạ \n {{'status': 'clarified', 'pic_gapo_name': '@R&D. Đinh Thị Quỳnh', 'pic_gapo_id':1884536567}}
 
 ### Answer sample 2:
-Không thể hỗ trợ vấn đề này, vui lòng liên hệ @coordination để được hỗ trợ \n {{'status': "out of scope",'pic_gapo_name': '@coordination', 'pic_gapo_id':}}   
+Không thể hỗ trợ vấn đề này, vui lòng liên hệ @coordination để được hỗ trợ \n {{'status': 'oos','pic_gapo_name': '@coordination', 'pic_gapo_id':}}   
 
 ### Answer sample 3:
 Nhờ anh/chị cũng cấp thêm thông tin về vấn đề này với ạ \n {{'status': 'clarifying'}}

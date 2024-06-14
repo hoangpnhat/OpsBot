@@ -1,34 +1,29 @@
 import ast
 from typing import List, Dict
-def extract_dict_from_string(s)-> Dict | None:
-    """
-    This function extracts a dictionary from a string
-
-    Args:
-        s (str): The string containing the dictionary
-    Returns:
-        dict: The dictionary extracted from the string
-    """
-    # Find the start and end position of the dict in the string
+def extract_and_remove_dict_from_string(s):
+    # Tìm vị trí bắt đầu và kết thúc của dict trong chuỗi
     start = s.find('{')
     end = s.rfind('}') + 1
 
-    # If the dict is not found in the string, return None
+    # Nếu không tìm thấy dict trong chuỗi, trả về chuỗi gốc và None
     if start == -1 or end == -1:
-        return None
+        return s, None
 
-    # Extract the substring containing the dict
+    # Trích xuất chuỗi con chứa dict
     dict_str = s[start:end]
 
-    # Convert string dict to real dict
+    # Chuyển chuỗi dict thành dict thực
     try:
         dict_data = ast.literal_eval(dict_str)
     except (SyntaxError, ValueError) as e:
-        # If transfer fails, return None
+        # Nếu không chuyển được, trả về chuỗi gốc và None
         print(f"Lỗi khi phân tích chuỗi: {e}")
-        return None
+        return s, None
 
-    return dict_data
+    # Xóa dict ra khỏi chuỗi gốc
+    modified_str = s[:start] + s[end:]
+
+    return modified_str.strip(), dict_data
 # str = """
 #     Cảm ơn bạn đã cung cấp lý do. Tôi đã ghi nhận thông tin và yêu cầu của bạn. Bây giờ, tôi sẽ mời @Omni. CX. Trần Văn Nhớ vào để giúp cập nhật thông tin của bạn.
 # {

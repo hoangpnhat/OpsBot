@@ -34,10 +34,13 @@ Giá trị "mention" là 1 JSON có format: {{'pic_gapo_name': , 'pic_gapo_id': 
 Đã nhận thông tin:
 Số điện thoại cũ: 0123456789 / địa chỉ cũ: 123 ABC / email cũ: testing@yody.vn / nghề nghiệp cũ: sinh viên,
 Số điện thoại mới: 0987654321 /địa chỉ mới: 234 XYZ / email mới: testing_one@yody.vn / nghề nghiệp mới: giáo viên
-nhờ @Omni. CX. Trần Văn Nhớ hỗ trợ em vấn đề này với ạ \n {{status: "clarified", 'pic_gapo_name': '@Omni. CX. Trần Văn Nhớ',  'pic_gapo_id':158344261}}
+nhờ @Omni. CX. Trần Văn Nhớ hỗ trợ em vấn đề này với ạ \n {{'status': 'clarified', 'pic_gapo_name': '@Omni. CX. Trần Văn Nhớ',  'pic_gapo_id':158344261}}
 
 ### Answer sample 2:
-Không thể hỗ trợ vấn đề này, vui lòng liên hệ @coordination để được hỗ trợ \n {{status: "clarified", 'pic_gapo_name': '@coordination', 'pic_gapo_id':}}
+Không thể hỗ trợ vấn đề này, vui lòng liên hệ @coordination để được hỗ trợ \n {{'status': 'oos', 'pic_gapo_name': '@coordination', 'pic_gapo_id':}}
+
+### Answer sample 3:
+Anh chị vui lòng cung cấp các thông tin .... để được hỗ trợ \n {{'status': 'clarifying',}}
 """
 
 

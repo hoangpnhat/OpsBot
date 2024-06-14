@@ -20,10 +20,10 @@ Giá trị "status" có thể là:
 Giá trị "mention" là 1 JSON có format: {{'pic_gapo_name': , 'pic_gapo_id': }}
 
 ### Answer sample 1:
-Đã nhận thông tin, nhờ @Omni. CX. Trần Văn Nhớ hỗ trợ em vấn đề này với ạ \n {{'status': "clarified", 'pic_gapo_name': '@Omni. CX. Trần Văn Nhớ', 'pic_gapo_id':158344261}}
+Đã nhận thông tin, nhờ @Omni. CX. Trần Văn Nhớ hỗ trợ em vấn đề này với ạ \n {{'status': 'clarified', 'pic_gapo_name': '@Omni. CX. Trần Văn Nhớ', 'pic_gapo_id':158344261}}
 
 ### Answer sample 2:
-Không thể hỗ trợ vấn đề này, vui lòng liên hệ @coordination để được hỗ trợ \n {{'status': "out of scope",'pic_gapo_name': '@coordination', 'pic_gapo_id':}}   
+Không thể hỗ trợ vấn đề này, vui lòng liên hệ @coordination để được hỗ trợ \n {{'status': 'oos','pic_gapo_name': '@coordination', 'pic_gapo_id':}}   
 
 ### Answer sample 3:
 Nhờ anh/chị cũng cấp thêm thông tin về vấn đề này với ạ \n {{'status': 'clarifying'}}
@@ -55,10 +55,10 @@ Giá trị "status" có thể là:
 Giá trị "mention" là 1 JSON có format: {{'pic_gapo_name': , 'pic_gapo_id': }}
 
 ### Answer sample 1:
-Đã nhận thông tin, nhờ @Omni. PNS. Đoàn Thị Thu Hoài hỗ trợ em vấn đề này với ạ \n {{'status': "clarified", 'pic_gapo_name': '@Omni. PNS. Đoàn Thị Thu Hoài', 'pic_gapo_id':1219776551}}
+Đã nhận thông tin, nhờ @Omni. PNS. Đoàn Thị Thu Hoài hỗ trợ em vấn đề này với ạ \n {{'status': 'clarified', 'pic_gapo_name': '@Omni. PNS. Đoàn Thị Thu Hoài', 'pic_gapo_id':1219776551}}
 
 ### Answer sample 2:
-Không thể hỗ trợ vấn đề này, vui lòng liên hệ @coordination để được hỗ trợ \n {{'status': "out of scope",'pic_gapo_name': '@coordination', 'pic_gapo_id':}}   
+Không thể hỗ trợ vấn đề này, vui lòng liên hệ @coordination để được hỗ trợ \n {{'status': 'oos','pic_gapo_name': '@coordination', 'pic_gapo_id':}}   
     
 ### Answer sample 3:
 Nhờ anh/chị cũng cấp thêm thông tin về vấn đề này với ạ \n {{'status': 'clarifying'}}
@@ -87,10 +87,10 @@ Giá trị "status" có thể là:
 Giá trị "mention" là 1 JSON có format: {{'pic_gapo_name': , 'pic_gapo_id': }}
 
 ### Answer sample 1:
-Đã nhận thông tin, nhờ @Omni. PNS. Đoàn Thị Thu Hoài hỗ trợ em vấn đề này với ạ \n {{'status': "clarified", 'pic_gapo_name': '@Omni. PNS. Đoàn Thị Thu Hoài', 'pic_gapo_id':1219776551}}
+Đã nhận thông tin, nhờ @Omni. PNS. Đoàn Thị Thu Hoài hỗ trợ em vấn đề này với ạ \n {{'status': 'clarified', 'pic_gapo_name': '@Omni. PNS. Đoàn Thị Thu Hoài', 'pic_gapo_id':1219776551}}
 
 ### Answer sample 2:
-Không thể hỗ trợ vấn đề này, vui lòng liên hệ @coordination để được hỗ trợ \n {{'status': "out of scope",'pic_gapo_name': '@coordination', 'pic_gapo_id':}}   
+Không thể hỗ trợ vấn đề này, vui lòng liên hệ @coordination để được hỗ trợ \n {{'status': 'oos','pic_gapo_name': '@coordination', 'pic_gapo_id':}}   
     
 ### Answer sample 3:
 Nhờ anh/chị cũng cấp thêm thông tin về vấn đề này với ạ \n {{'status': 'clarifying'}}
