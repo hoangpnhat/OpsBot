@@ -2,18 +2,21 @@ import os
 from langchain_core.prompts import ChatPromptTemplate,MessagesPlaceholder
 from langchain_core.prompts.chat import SystemMessagePromptTemplate,HumanMessagePromptTemplate
 from langchain_core.messages import HumanMessage, AIMessage
-from prompts import system_prompt
 from langchain_openai import ChatOpenAI
 from typing import List, Union
 import sys
 from dotenv import load_dotenv, find_dotenv
+import logging
+from langchain_groq import ChatGroq
+
 
 load_dotenv(find_dotenv(), override=True)
 
 if os.getcwd() not in sys.path: sys.path.append(os.getcwd())
 from app.common.config import logger
 from app.chatbot.tools import material_warranty, update_customer_info,administrate_order, \
-                                promotions,promotions,personnel,other
+                                promotions_vip,promotions_partnership,promotions_marketing,personnel,other
+from app.chatbot.prompts.system import system_prompt
 
 
 class Chatbot:
@@ -23,9 +26,10 @@ class Chatbot:
         self.api_key = api_key or os.environ.get("OPENAI_API_KEY")
         self.tools = [
             material_warranty, update_customer_info, administrate_order, 
-            promotions, personnel, other
+            promotions_vip,promotions_partnership,promotions_marketing, personnel, other
         ]
-        self.llm = ChatOpenAI(model=self.model, temperature=self.temperature, api_key=self.api_key)
+        # self.llm = ChatOpenAI(model=self.model, temperature=self.temperature, api_key=self.api_key)
+        self.llm = ChatGroq(temperature=0, groq_api_key="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", model_name="llama3-70b-8192")
         self.llm_with_tools = self.llm.bind_tools(self.tools)
         self.prompt_template = self.setup_prompt_template()
         self.chain_for_tool = self.prompt_template | self.llm_with_tools
@@ -55,12 +59,19 @@ class Chatbot:
             "chat_history": chat_history, 
             "agent_scratchpad": []
         })
+        
         logger.debug(f"Selected tool: {selected_tool}")
         try:
-            get_prompt_problems = self.call_function_by_name(selected_tool.tool_calls[0]['name'], 
-                                                         selected_tool.tool_calls[0]['args']['query'])
-            chain = get_prompt_problems | self.llm
-            response = chain.invoke({"chat_history": chat_history, "agent_scratchpad": []})
+            function_name = selected_tool.tool_calls[0]['name']
+            function_args = selected_tool.tool_calls[0]['args']['query']
+            if function_name =="other":
+                response = self.call_function_by_name(function_name=function_name, args=function_args)
+                return response
+            else:
+                get_prompt_problems = self.call_function_by_name(selected_tool.tool_calls[0]['name'], 
+                                                            selected_tool.tool_calls[0]['args']['query'])
+                chain = get_prompt_problems | self.llm
+                response = chain.invoke({"chat_history": chat_history, "agent_scratchpad": []})
             logger.debug(f"Response from LLM after identifying the problem: {response}")
         except Exception as e:
             response = selected_tool
