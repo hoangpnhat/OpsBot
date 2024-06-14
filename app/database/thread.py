@@ -5,7 +5,7 @@ from pydantic import BaseModel, HttpUrl
 from typing import Optional, Dict, Any, List
 import pymongo
 
-sys.path.append(os.getcwd())
+if os.getcwd() not in sys.path: sys.path.append(os.getcwd())
 from app.database.mongodb import MongoDBConnection
 from app.database.base import BaseCollection
 from app.database.schemas import SubThread

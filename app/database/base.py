@@ -3,7 +3,7 @@ import sys
 import os
 from typing import Dict
 
-sys.path.append(os.getcwd())
+if os.getcwd() not in sys.path: sys.path.append(os.getcwd())
 from app.database.mongodb import MongoDBConnection
 
 

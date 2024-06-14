@@ -16,7 +16,7 @@ import sys
 import os
 
 if os.getcwd() not in sys.path:
-    sys.path.append(os.getcwd())
+    if os.getcwd() not in sys.path: sys.path.append(os.getcwd())
 
 
 from app.common.config import LoggingConfig

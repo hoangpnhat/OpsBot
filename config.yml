@@ -1,3 +1,2 @@
-gapo_api_url: https://api.gapowork.vn/3rd-bot/v1.0/3rd/messages
-log_file_path: logs/data.log
-mongodb_db_name: chatbot247
+n_subthread_mesages: 6
+n_direct_messages: 6
