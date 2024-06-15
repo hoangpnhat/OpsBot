@@ -28,8 +28,8 @@ class Chatbot:
             material_warranty, update_customer_info, administrate_store, 
             promotions_vip,promotions_partnership,promotions_marketing, personnel, other
         ]
-        # self.llm = ChatOpenAI(model=self.model, temperature=self.temperature, api_key=self.api_key)
-        self.llm = ChatGroq(temperature=0, groq_api_key="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", model_name="llama3-70b-8192")
+        self.llm = ChatOpenAI(model=self.model, temperature=self.temperature, api_key=self.api_key)
+        # self.llm = ChatGroq(temperature=0, groq_api_key="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", model_name="llama3-70b-8192")
         self.llm_with_tools = self.llm.bind_tools(self.tools)
         self.prompt_template = self.setup_prompt_template()
         self.chain_for_tool = self.prompt_template | self.llm_with_tools

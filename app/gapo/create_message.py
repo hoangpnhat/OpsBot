@@ -55,6 +55,7 @@ class MessageSender:
                          "offset": len(message)}
                     ]
                 }
+        print(mention)
         print(data)
         try:
             response = requests.post(self.url, headers=self.headers, json=data)
