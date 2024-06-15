@@ -18,9 +18,9 @@ class SubThreadCollection(BaseCollection):
     def __init__(self):
         super().__init__("subthreads")
 
-    def find_by_thread_id(self, thread_id: int) -> List[Dict]:
+    def find_by_thread_id(self, thread_id: int,parent_message_id:int) -> List[Dict]:
         """Find all subthread documents by thread_id."""
-        results = self.collection.find({"thread_id": thread_id}).sort("message_id", pymongo.ASCENDING)
+        results = self.collection.find({"thread_id": thread_id,"parent_message_id":parent_message_id}).sort("message_id", pymongo.ASCENDING)
         return [{**row, "_id": str(row["_id"])} for row in results]
 
     

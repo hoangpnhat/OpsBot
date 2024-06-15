@@ -10,7 +10,11 @@ class MessageGetter:
     def __init__(self):
         self.url = os.environ.get("GAPO_BASE_API_URL") + 'messages'
         try:
-            access_token = tokenizer.get_access_token()
+            if os.environ.get("ENV") == "dev":
+                access_token = os.environ.get("GAPO_ACCESS_TOKEN")
+            else:
+                access_token = tokenizer.get_access_token()
+            logger.info(f"Access token retrieved successfully from Gapo {access_token}")
         except Exception as e:
             logger.error(f"Failed to get access token from Gapo! {e}. \
                          We will try to use the environment variable GAPO_ACCESS_TOKEN instead")

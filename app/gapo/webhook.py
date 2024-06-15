@@ -46,7 +46,7 @@ async def handle_webhook(event: GapoMessage):
         if handler is not None:
             answer = "Bạn đã hết tiền, tôi không thể trả lời cho bạn. Vui lòng nạp card! PAY TO WIN" 
             logger.debug(f"Chat history: {handler.get_chat_history()}")
-            handler.send_answer(answer)
+            handler.send_answer()
     
     else:
         # Unsupported event type

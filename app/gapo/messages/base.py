@@ -7,7 +7,7 @@ from app.common.config import logger
 from app.gapo.create_message import MessageSender
 from app.gapo.get_message import MessageGetter
 from app.chatbot.chat import Chatbot
-
+from app.utils.str import extract_and_remove_dict_from_string
 GapoMessage = TypeVar('GapoMessage')
 
 
@@ -41,6 +41,8 @@ class BaseMessage:
 
         """
         chat_history = []
+        if self.message_type == "group":
+            return chat_history
         messages = self.msg_getter.get_messages(self.thread_id, self.page_size)
         for i, msg in enumerate(messages):
             # Skip the first message, because it is user query
@@ -71,7 +73,7 @@ class BaseMessage:
         """
 
         chat_history = chat_history or self.get_chat_history()
-        logger.debug(f"Chat history: {chat_history}")
+        # logger.debug(f"Chat history: {chat_history}")
         user_message = user_message or self.user_message
         return self.chatbot.chat(chat_history, user_message)
 
@@ -85,15 +87,27 @@ class BaseMessage:
 
         """
         answer = answer or self.get_anwser_from_bot()
+        answer, json_output= extract_and_remove_dict_from_string(answer)
+
+        mention = None
+        try:
+            if json_output.get('status') =="clarified":
+                mention = {
+                                    "pic_gapo_name": json_output['pic_gapo_name'],
+                                    "pic_gapo_id": json_output['pic_gapo_id']
+                        }
+                logger.debug(f"mention: {mention}")
+        except:
+            pass
         logger.debug(f"Answer: {answer}")
         if self.message_type in ("group", "subthread"):
-            if self.thread_id is None or self.parent_message_id is None or self.bot_id is None:
+            if self.parent_thread_id is None or self.parent_message_id is None or self.bot_id is None:
                 logger.error(f"Cannot send message to subthread. \
-                                Missing value(s) thread_id: {self.thread_id}, \
+                                Missing value(s) parent_thread_id: {self.parent_thread_id}, \
                                 parent_message_id: {self.parent_message_id} or bot_id: {self.bot_id}"
                             )
                 return False
-            self.msg_sender.send_text_message_to_subthread(self.thread_id, self.bot_id, self.parent_message_id, answer)
+            self.msg_sender.send_text_message_to_subthread(self.parent_thread_id, self.bot_id, self.parent_message_id, answer, mention)
         elif self.message_type == "direct":
             if self.user_id is None or self.bot_id is None:
                 logger.error(f"Cannot send message to the User. \
