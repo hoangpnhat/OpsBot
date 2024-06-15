@@ -1,27 +1,30 @@
-import ast
-from typing import List, Dict
+import json
+import re
 def extract_and_remove_dict_from_string(s):
-    # Tìm vị trí bắt đầu và kết thúc của dict trong chuỗi
-    start = s.find('{')
-    end = s.rfind('}') + 1
-
-    # Nếu không tìm thấy dict trong chuỗi, trả về chuỗi gốc và None
-    if start == -1 or end == -1:
-        return s, None
-
-    # Trích xuất chuỗi con chứa dict
-    dict_str = s[start:end]
+    # Xử lý trường hợp dict được bọc trong ```json và ```
+    pattern_json = r'```json\s*({.*?})\s*```'
+    match_json = re.search(pattern_json, s, re.DOTALL)
+    
+    if match_json:
+        dict_str = match_json.group(1)
+        modified_str = s[:match_json.start()] + s[match_json.end():]
+    else:
+        # Tìm dict có thể có trong chuỗi (cả JSON và non-JSON)
+        pattern_dict = r'{.*}'
+        match_dict = re.search(pattern_dict, s, re.DOTALL)
+        
+        if match_dict:
+            dict_str = match_dict.group(0)
+            modified_str = s[:match_dict.start()] + s[match_dict.end():]
+        else:
+            return s, None
 
     # Chuyển chuỗi dict thành dict thực
     try:
-        dict_data = ast.literal_eval(dict_str)
-    except (SyntaxError, ValueError) as e:
-        # Nếu không chuyển được, trả về chuỗi gốc và None
+        dict_data = json.loads(dict_str.replace("'", "\""))
+    except json.JSONDecodeError as e:
         print(f"Lỗi khi phân tích chuỗi: {e}")
         return s, None
-
-    # Xóa dict ra khỏi chuỗi gốc
-    modified_str = s[:start] + s[end:]
 
     return modified_str.strip(), dict_data
 # str = """

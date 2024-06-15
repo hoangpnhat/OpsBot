@@ -88,7 +88,7 @@ class BaseMessage:
         """
         answer = answer or self.get_anwser_from_bot()
         answer, json_output= extract_and_remove_dict_from_string(answer)
-
+        print(json_output,type(json_output))
         mention = None
         try:
             if json_output.get('status') =="clarified":
@@ -96,10 +96,12 @@ class BaseMessage:
                                     "pic_gapo_name": json_output['pic_gapo_name'],
                                     "pic_gapo_id": json_output['pic_gapo_id']
                         }
-                logger.debug(f"mention: {mention}")
+                # logger.debug(f"mention: {mention}")
         except:
             pass
         logger.debug(f"Answer: {answer}")
+        logger.debug(f"mention: {mention}")
+
         if self.message_type in ("group", "subthread"):
             if self.parent_thread_id is None or self.parent_message_id is None or self.bot_id is None:
                 logger.error(f"Cannot send message to subthread. \
