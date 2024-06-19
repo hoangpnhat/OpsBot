@@ -15,7 +15,7 @@ load_dotenv(find_dotenv(), override=True)
 if os.getcwd() not in sys.path: sys.path.append(os.getcwd())
 from app.common.config import logger
 from app.chatbot.tools import material_warranty, update_customer_info,administrate_store, \
-                                promotions_vip,promotions_partnership,promotions_marketing,personnel,other
+                                promotions_partnership,promotions_marketing,personnel,other
 from app.chatbot.prompts.system import system_prompt
 
 
@@ -26,7 +26,7 @@ class Chatbot:
         self.api_key = api_key or os.environ.get("OPENAI_API_KEY")
         self.tools = [
             material_warranty, update_customer_info, administrate_store, 
-            promotions_vip,promotions_partnership,promotions_marketing, personnel, other
+            promotions_partnership,promotions_marketing, personnel, other
         ]
         self.llm = ChatOpenAI(model=self.model, temperature=self.temperature, api_key=self.api_key)
         # self.llm = ChatGroq(temperature=0, groq_api_key="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", model_name="llama3-70b-8192")
