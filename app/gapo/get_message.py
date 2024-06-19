@@ -47,9 +47,34 @@ class MessageGetter:
                 return response.json()['data']
             else:
                 logger.error(f"Failed to retrieve messages from Gapo! \
+                                Request url: {self.url}, \
                             Status code {response.status_code}, Response {response.json()}")
                 return []
         except Exception as e:
             logger.error(f"Failed to retrieve messages from Gapo! {e}")
             return []
         
+    def get_parent_message(self, parent_thread_id, parent_message_id):
+        """
+        Get the parent message of a subthread
+
+        Args:
+            parent_thread_id (int): The parent thread id
+        
+        Returns:
+            Dict: The parent message
+        """
+        try:
+            url = os.environ.get("GAPO_BASE_API_URL") + 'messages'
+            response = requests.get(url + f'/{parent_message_id}?thread_id={parent_thread_id}', headers=self.headers)
+            if response.status_code == 200:
+                logger.debug("Parent message retrieved successfully")
+                return response.json()['data'].get('body').get("text")
+            else:
+                logger.error(f"Failed to retrieve parent message from Gapo! \
+                             Request url: {url}, \
+                            Status code {response.status_code}, Response {response.json()}")
+                return None
+        except Exception as e:
+            logger.error(f"Failed to retrieve parent message from Gapo! {e}")
+            return None
