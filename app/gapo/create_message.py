@@ -47,14 +47,18 @@ class MessageSender:
             }
         }
         if mention:
-            data['body']['text']= message + mention['pic_gapo_name']
-            data['body']['metadata'] ={
-                    "mentions": [
-                        {"target": mention['pic_gapo_id'], 
-                         "length": len(message + mention['pic_gapo_name']), 
-                         "offset": len(message)}
-                    ]
-                }
+            data['body']['metadata']={}
+            data['body']['metadata']['mentions']=[]
+            for user in mention:
+                data['body']['metadata']['mentions'].append(
+                        {
+                            "target": user['pic_gapo_id'], 
+                            "length": len(user['pic_gapo_name']), 
+                            "offset": len(data['body']['text'])
+                            }
+                    )
+                data['body']['text']+= user['pic_gapo_name']
+
         print(mention)
         print(data)
         try:

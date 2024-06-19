@@ -10,7 +10,7 @@ from app.chatbot.prompts.system import actor
 from app.chatbot.prompts.info_customer import update_customer_info_prompt
 from app.chatbot.prompts.material_warranty_staff import material_warranty_prompt
 from app.chatbot.prompts.administrator import administrate_store_prompt, administrate_personnel_prompt
-from app.chatbot.prompts.promotion import promotions_vip_prompt, promotions_partnership_prompt, promotions_marketing_prompt
+from app.chatbot.prompts.promotion import promotions_partnership_prompt, promotions_marketing_prompt
 
 @tool
 def update_customer_info(query: str) -> ChatPromptTemplate:
@@ -27,22 +27,22 @@ def update_customer_info(query: str) -> ChatPromptTemplate:
     ])
     return prompt,id_problem
 
-@tool
-def promotions_vip(query: str) -> ChatPromptTemplate:
-    """Quy trình chuẩn để xử lý vấn đề "Chương trình khuyến mãi cho khách hàng VIP và sinh nhật", 
-    khi gặp các vấn đề Khách hàng không áp được mã giảm giá hoặc không nhận được tin nhắn hoặc mã khuyến mãi,
-    Khách hàng không hài lòng với quy trình áp dụng mã khuyến mãi, Vấn đề về việc xác nhận và sử dụng mã khuyến mãi."""
+# @tool
+# def promotions_vip(query: str) -> ChatPromptTemplate:
+#     """Quy trình chuẩn để xử lý vấn đề "Chương trình khuyến mãi cho khách hàng VIP và sinh nhật", 
+#     khi gặp các vấn đề Khách hàng không áp được mã giảm giá hoặc không nhận được tin nhắn hoặc mã khuyến mãi,
+#     Khách hàng không hài lòng với quy trình áp dụng mã khuyến mãi, Vấn đề về việc xác nhận và sử dụng mã khuyến mãi."""
 
-    id_problem = "/vd51"
+#     id_problem = "/vd51"
                 
-    system_prompt= actor + promotions_vip_prompt
-    prompt = ChatPromptTemplate.from_messages([
-        SystemMessagePromptTemplate.from_template(system_prompt),
-        MessagesPlaceholder(variable_name="chat_history"),
-        HumanMessagePromptTemplate.from_template(query),
-        MessagesPlaceholder(variable_name="agent_scratchpad")
-    ])
-    return prompt,id_problem
+#     system_prompt= actor + promotions_vip_prompt
+#     prompt = ChatPromptTemplate.from_messages([
+#         SystemMessagePromptTemplate.from_template(system_prompt),
+#         MessagesPlaceholder(variable_name="chat_history"),
+#         HumanMessagePromptTemplate.from_template(query),
+#         MessagesPlaceholder(variable_name="agent_scratchpad")
+#     ])
+#     return prompt,id_problem
 
 @tool
 def promotions_partnership(query: str) -> ChatPromptTemplate:
@@ -62,7 +62,7 @@ def promotions_partnership(query: str) -> ChatPromptTemplate:
 
 @tool
 def promotions_marketing(query: str) -> ChatPromptTemplate:
-    """Quy trình chuẩn để xử lý vấn đề "Chương trình khuyến mãi hàng tháng", 
+    """Quy trình chuẩn để xử lý vấn đề "Chương trình khuyến mãi của YODY", 
     khi gặp các vấn đề Khách hàng không áp được mã giảm giá hoặc không nhận được tin nhắn hoặc mã khuyến mãi,
     Khách hàng không hài lòng với quy trình áp dụng mã khuyến mãi, Vấn đề về việc xác nhận và sử dụng mã khuyến mãi."""
 
@@ -92,8 +92,8 @@ def material_warranty(query: str) -> ChatPromptTemplate:
 
 @tool
 def administrate_store(query: str) -> ChatPromptTemplate:
-    """Quy trình xử lý vấn đề "#van_de: Vận hành cửa hàng (HD điện, chính quyền...) 
-    khi gặp các vấn đề mất điện hoặc mất mạng tại cửa hàng, in hoá đơn bị mờ hoặc lỗi, hỗ trợ về giấy tờ, hợp đồng, phép kinh doanh."""
+    """Quy trình xử lý vấn đề "#van_de: Vận hành cửa hàng 
+    khi gặp các vấn đề mất điện hoặc mất mạng tại cửa hàng, in hoá đơn bị mờ hoặc lỗi,báo lỗi camera, hỗ trợ về giấy tờ, hợp đồng, phép kinh doanh."""
     
     id_problem = "/vd14"
     system_prompt= actor+ administrate_store_prompt
@@ -112,21 +112,8 @@ def personnel(query: str) -> ChatPromptTemplate:
     Các yêu cầu thường gặp: Yêu cầu cấp lại mật khẩu, hỗ trợ đăng nhập vào các phần mềm của công ty (Unicorn, Office), hỗ trợ phân quyền để xem báo cáo hoặc tài liệu, hỗ trợ vấn đề liên quan đến đánh giá năng lực chuyên môn."""
 
     id_problem = "/vd12"
-    system_define = """Bạn là một chuyên viên quản lý nhân sự chuyên nghiệp của một công ty bán hàng thời trang YODY.
-            Dựa vào quy trình dưới đây, hãy xử lý vấn đề của người dùng 
-            Nếu không thể tự xử lý, hãy nhờ các đồng nghiệp có chuyên môn (được nêu trong quy trình) để hỗ trợ bạn\n"""
-    format_output= """\n #Lưu ý: kết quả trả về phải có format JSON gồm có trường status. 
-    Ở trường "status" lựa chọn giữa: 
-        -"out of scope" cho trường hợp không thể hỗ trợ
-        -"clarifying" cho trường hợp đang làm rõ vấn đề
-        -"clarified" cho trường hợp đã làm rõ vấn đề.
-    Fomart:
-    *YOUR ANSWER HERE* \n {{'status': "out of scope"/ "clarifying"/ "clarified"}}
-    ví dụ:
-    - Đã nhận thông tin, nhờ @... hỗ trợ em vấn đề này với ạ \n {{'status': "clarified"}}
-    - Không thể hỗ trợ vấn đề này, vui lòng liên hệ @coordination để được hỗ trợ \n {{'status': "out of scope"}}       
-    - Nhờ anh/chị cũng cấp thêm thông tin về vấn đề này với ạ \n {{'status': 'clarifying'}}"""
-    system_prompt= system_define+ administrate_personnel_prompt + format_output
+
+    system_prompt= actor+ administrate_personnel_prompt
     prompt = ChatPromptTemplate.from_messages([
         SystemMessagePromptTemplate.from_template(system_prompt),
         MessagesPlaceholder(variable_name="chat_history"),
@@ -137,5 +124,15 @@ def personnel(query: str) -> ChatPromptTemplate:
 
 @tool
 def other(query: str) -> str:
-    """Quy trình xử lý vấn đề những vấn đề khác, liên hệ với @Coordinators để được hỗ trợ.""" 
-    return "Vấn đề này vượt quá thẩm quyền hỗ trợ của em, vui lòng liên hệ nhân viên @coordinate để được hỗ trợ"
+    """Quy trình xử lý khi không phân loại được vấn đề hoặc vấn đề không thuộc phạm vi xử lý.""" 
+    return """Vấn đề này vượt quá thẩm quyền hỗ trợ của em, vui lòng liên hệ nhân viên @Omni. CX. Trần Văn Nhớ để được hỗ trợ
+            ```json
+            {
+            "status": "clarified",
+            "mention": [{
+                "pic_gapo_name": "@Omni. CX. Trần Văn Nhớ",
+                "pic_gapo_id": 158344261
+                }]
+            }
+            ```
+"""

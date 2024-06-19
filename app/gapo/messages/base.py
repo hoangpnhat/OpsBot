@@ -91,11 +91,14 @@ class BaseMessage:
         print(json_output,type(json_output))
         mention = None
         try:
-            if json_output.get('status') =="clarified":
-                mention = {
-                                    "pic_gapo_name": json_output['pic_gapo_name'],
-                                    "pic_gapo_id": json_output['pic_gapo_id']
-                        }
+            if json_output.get('status') != "clarifying":
+                mention = [
+                                {
+                                    "pic_gapo_name": user['pic_gapo_name'],
+                                    "pic_gapo_id": user['pic_gapo_id']
+                                } 
+                        for user in json_output['mention']
+                        ]
                 # logger.debug(f"mention: {mention}")
         except:
             pass

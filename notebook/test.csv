@@ -1,0 +1,40 @@
+﻿STT,Tên chương trình,NỘI DUNG,NGÀY BẮT ĐẦU,NGÀY KẾT THÚC,PHẠM VI ÁP DỤNG,Danh sách hàng sale/ Link quà tặng,File code CTKM,Quy chế chương trình,Template
+I. CHƯƠNG TRÌNH TỔNG,,,,,,,,,
+1,MUA NHIỀU GIẢM NHIỀU,"Đơn hàng nguyên giá từ 500k đến dưới 750k được giảm 2% tổng đơn
+Đơn hàng nguyên giá từ 750k đến dưới 1 triệu được giảm 5% tổng đơn
+Đơn hàng nguyên giá từ 1 triệu đến dưới 1.5 triệu được giảm 10% tổng đơn
+Đơn hàng nguyên giá từ 1.5 triệu đến dưới 2 triệu được giảm 12% tổng đơn
+Đơn hàng nguyên giá từ 2 triệu trở lên được giảm 15% tổng đơn",1-Jun,30-Jun,"OFFLINE 
+(Trừ các CH khu vực Hồ Chí Minh từ ngày 5/6) + 
+OMNI CONTACT",,File code CTKM T6.2024,"- Áp dụng đơn hàng Nguyên Giá
+(Không thuộc danh mục hàng lỗi, EOL)
+- Không áp dụng đồng thời CTKM khác 
+(Được áp dụng cùng quà tặng Crazy Offer)
+- Không áp dụng VIP, SN, Tiêu điểm, Mã nhân viên",
+2,MUA NHIỀU GIẢM NHIỀU 1,"Đơn hàng nguyên giá có 4 sản phẩm được giảm 5% tổng đơn
+Đơn hàng nguyên giá có 5 sản phẩm được giảm 10% tổng đơn
+Đơn hàng nguyên giá từ 6 sản phẩm được giảm 15% tổng đơn
+Áp dụng cho sản phẩm Nguyên Giá từ 99k trở lên",5-Jun,30-Jun,9 CH Offline khu vực Hồ Chí Minh,,File code CTKM T6.2024,"- Áp dụng sản phẩm Nguyên Giá
+(Không thuộc danh mục hàng lỗi, EOL)
+- Không áp dụng đồng thời CTKM khác 
+(Được áp dụng cùng quà tặng Crazy Offer)
+- Không áp dụng VIP, SN, Tiêu điểm, Mã nhân viên",
+3,VOUCHER FOLLOW,"Khách hàng follow Zalo OA (Tổng) mới trong tháng 6
+Nhận 1 đôi tất trị giá 29k hoặc 1 bình nước thể thao ZQT0008 (Từ 8/6)
+(1 SĐT/Quà)
+Nhận 1 Voucher 50k mua đơn hàng nguyên giá 299k 
+(1 SĐT/Voucher)",7-Jun,30-Jun,"OFFLINE + 
+OMNI CONTACT",Danh mục quà tặng - CT Voucher Follow: https://docs.google.com/spreadsheets/d/15rkefPksx4Or-gxEfXeevpKlS-_heOjkOMY37lZm9IA/edit#gid=978396171,File code CTKM T6.2024," - Áp dụng sản phẩm Nguyên Giá
+(Không thuộc danh mục hàng lỗi, EOL)
+- Không áp dụng đồng thời CTKM khác
+ - Không áp dụng VIP, SN, Tiêu điểm, Mã nhân viên",Luồng vận hành follow OA - Voucher 50K
+4,"EOL
+HÈ MỚI GIÁ MỚI",Polo đồng giá 99k (1 SĐT/ 1 SP),7-Jun,30-Jun,"OFFLINE + 
+OMNI CONTACT + 
+SÀN",Danh sách Polo đồng giá 99k: https://docs.google.com/spreadsheets/d/1i-Y66FOytV_2LdGBxNxM1PsmVQQAo3zC0wrskRsw9ww/edit#gid=460955172,File code CTKM T6.2024,"- Không áp dụng đồng thời CTKM khác
+- Không áp dụng VIP, SN, Tiêu điểm
+- Không áp dụng đổi trả trong thời gian diễn ra chương trình và sau 15 ngày kết thúc chương trình",
+,"EOL
+HÈ MỚI GIÁ MỚI",Giảm 50%,7-Jun,30-Jun,"OFFLINE + 
+OMNI CONTACT",Danh sách sale 50%: https://docs.google.com/spreadsheets/d/1l8m6JwaIlcwzYFQaALQs1yle87KBOj-h-k8-r7XbBq8/edit#gid=1593152200,File code CTKM T6.2024,"- Không áp dụng đồng thời CTKM khác
+- Không áp dụng VIP, SN, Tiêu điểm",
