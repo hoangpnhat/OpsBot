@@ -125,7 +125,7 @@ def personnel(query: str) -> ChatPromptTemplate:
 @tool
 def other(query: str) -> str:
     """Quy trình xử lý khi không phân loại được vấn đề hoặc vấn đề không thuộc phạm vi xử lý.""" 
-    return """Vấn đề này vượt quá thẩm quyền hỗ trợ của em, vui lòng liên hệ nhân viên @Omni. CX. Trần Văn Nhớ để được hỗ trợ
+    answer = """Vấn đề này vượt quá thẩm quyền hỗ trợ của em, vui lòng liên hệ nhân viên @Omni. CX. Trần Văn Nhớ để được hỗ trợ
             ```json
             {
             "status": "clarified",
@@ -136,3 +136,5 @@ def other(query: str) -> str:
             }
             ```
 """
+    problem_id = "/vd0"
+    return answer, problem_id

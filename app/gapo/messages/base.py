@@ -1,6 +1,6 @@
 import os
 import sys
-from typing import TypeVar, List
+from typing import TypeVar, List, Dict
 from langchain_core.messages import HumanMessage, AIMessage
 if os.getcwd() not in sys.path: sys.path.append(os.getcwd())
 from app.common.config import logger
@@ -49,7 +49,7 @@ class BaseMessage:
             if i == 0:
                 continue
             msg_text = msg.get('body').get('text')
-            if msg.get('sender_id') == self.bot_id:
+            if str(msg.get('sender', {}).get("id")) == str(self.bot_id):
                 chat_history.insert(0, AIMessage(msg_text))
             else:
                 chat_history.insert(0, HumanMessage(msg_text))
@@ -73,11 +73,12 @@ class BaseMessage:
         """
 
         chat_history = chat_history or self.get_chat_history()
-        # logger.debug(f"Chat history: {chat_history}")
         user_message = user_message or self.user_message
-        return self.chatbot.chat(chat_history, user_message)
+        return self.chatbot.chat(chat_history, 
+                                 user_message, 
+                                 self.user_id)
 
-    def send_answer(self, answer: str = None) -> bool:
+    def send_answer(self, answer: str = None) -> Dict | None:
         """
         This function sends the answer to the user.
 
@@ -88,7 +89,6 @@ class BaseMessage:
         """
         answer = answer or self.get_anwser_from_bot()
         answer, json_output= extract_and_remove_dict_from_string(answer)
-        print(json_output,type(json_output))
         mention = None
         try:
             if json_output.get('status') != "clarifying":
@@ -99,7 +99,6 @@ class BaseMessage:
                                 } 
                         for user in json_output['mention']
                         ]
-                # logger.debug(f"mention: {mention}")
         except:
             pass
         logger.debug(f"Answer: {answer}")
@@ -111,16 +110,15 @@ class BaseMessage:
                                 Missing value(s) parent_thread_id: {self.parent_thread_id}, \
                                 parent_message_id: {self.parent_message_id} or bot_id: {self.bot_id}"
                             )
-                return False
-            self.msg_sender.send_text_message_to_subthread(self.parent_thread_id, self.bot_id, self.parent_message_id, answer, mention)
+                return None
+            return self.msg_sender.send_text_message_to_subthread(self.parent_thread_id, self.bot_id, self.parent_message_id, answer, mention)
         elif self.message_type == "direct":
             if self.user_id is None or self.bot_id is None:
                 logger.error(f"Cannot send message to the User. \
                                 Missing user_id: {self.user_id} or bot_id: {self.bot_id}"
                             )
-                return False
-            self.msg_sender.send_text_message_to_user(self.user_id, self.bot_id, answer)
+                return None
+            return self.msg_sender.send_text_message_to_user(self.user_id, self.bot_id, answer)
         else:
             logger.error(f"Message type {self.message_type} not supported")
-            return False
-        return True
+            return None

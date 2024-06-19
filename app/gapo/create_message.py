@@ -59,8 +59,6 @@ class MessageSender:
                     )
                 data['body']['text']+= user['pic_gapo_name']
 
-        print(mention)
-        print(data)
         try:
             response = requests.post(self.url, headers=self.headers, json=data)
             if response.status_code == 200:

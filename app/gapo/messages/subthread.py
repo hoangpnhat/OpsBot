@@ -1,6 +1,7 @@
 import os
 import sys
 from typing import TypeVar, List
+from langchain_core.messages import HumanMessage, AIMessage
 if os.getcwd() not in sys.path: sys.path.append(os.getcwd())
 from app.common.config import logger
 from app.gapo.create_message import MessageSender
@@ -32,3 +33,18 @@ class SubThread(BaseMessage):
         logger.debug("=" * 10 + f"Chat group - thread_id: {self.thread_id}, parent_thread_id: {self.parent_thread_id} parent_message_id: {self.parent_message_id}" + "=" * 10)
     
 
+    def get_chat_history(self) -> List[HumanMessage | AIMessage]:
+        """
+        This function retrieves the chat history from the subthread or direct message by thread_id
+
+        Returns:
+            List[HumanMessage | AIMessage]: Chat history, it is a list of messages to feed to the chatbot
+
+        """
+
+        chat_history = super().get_chat_history()
+        parent_message = self.msg_getter.get_parent_message(self.parent_thread_id, self.parent_message_id)
+        # make sure this history is not only contain the parent message (parent_message is user_query in this case)
+        if parent_message and len(chat_history) > 0:
+            chat_history.insert(0, HumanMessage(content=parent_message))
+        return chat_history

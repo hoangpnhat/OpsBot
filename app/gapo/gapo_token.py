@@ -60,7 +60,6 @@ class GapoAuthClient:
         
         if cls._access_token and cls._expires_at > int(time.time() + 100):
             return cls._access_token
-        print(cls._base_url)
         url = f"{cls._base_url}/login"
         payload = {
             "device_id": device_id,
