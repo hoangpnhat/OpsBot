@@ -1,9 +1,8 @@
-langchain
-langchain-openai
-openai
-yacs
-uvicorn
-fastapi
-python-dotenv
-pymongo
-ngrok
+langchain==0.2.3
+langchain-openai==0.1.8
+openai==1.30.1
+yacs==0.1.8
+uvicorn==0.30.1
+fastapi==0.111.0
+python-dotenv==1.0.1
+pymongo==4.7.3

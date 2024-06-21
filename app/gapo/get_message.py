@@ -9,22 +9,27 @@ from app.gapo.gapo_token import tokenizer
 class MessageGetter:
     def __init__(self):
         self.url = os.environ.get("GAPO_BASE_API_URL") + 'messages'
+    
+    def generate_headers(self):
+        """
+        Generate headers for the request
+
+        Returns:
+            Dict: The headers
+        """
         try:
-            if os.environ.get("ENV") == "dev":
-                access_token = os.environ.get("GAPO_ACCESS_TOKEN")
-            else:
-                access_token = tokenizer.get_access_token()
-            logger.info(f"Access token retrieved successfully from Gapo {access_token}")
+            access_token = tokenizer.get_access_token()
         except Exception as e:
-            logger.error(f"Failed to get access token from Gapo! {e}. \
-                         We will try to use the environment variable GAPO_ACCESS_TOKEN instead")
-            access_token = os.environ.get("GAPO_ACCESS_TOKEN")
-        self.headers = {
+            logger.error(f"Failed to get access token from Gapo! {e}.")
+
+        headers = {
             "Accept": "application/json",
             "X-Gapo-Workspace-Id": str(os.environ.get("GAPO_WORKSPACE_ID")),
             "Content-Type": "application/json",
             "Authorization": f"Bearer {access_token}"
         }
+        return headers
+        
     def get_messages(self, thread_id: int, page_size: int = cfg.n_subthread_mesages) -> List[Dict] | List:
         """
         Get messages from a subthread or direct message
@@ -36,12 +41,15 @@ class MessageGetter:
         Returns:
             List[Dict]: A list of messages
         """
+
+        headers = self.generate_headers()
+
         params = {
             "thread_id": thread_id,
             "page_size": page_size
         }
         try:
-            response = requests.get(self.url, headers=self.headers, params=params)
+            response = requests.get(self.url, headers=headers, params=params)
             if response.status_code == 200:
                 logger.debug("Messages retrieved successfully")
                 return response.json()['data']
@@ -65,8 +73,10 @@ class MessageGetter:
             Dict: The parent message
         """
         try:
+            
+            headers = self.generate_headers()
             url = os.environ.get("GAPO_BASE_API_URL") + 'messages'
-            response = requests.get(url + f'/{parent_message_id}?thread_id={parent_thread_id}', headers=self.headers)
+            response = requests.get(url + f'/{parent_message_id}?thread_id={parent_thread_id}', headers=headers)
             if response.status_code == 200:
                 logger.debug("Parent message retrieved successfully")
                 return response.json()['data'].get('body').get("text")

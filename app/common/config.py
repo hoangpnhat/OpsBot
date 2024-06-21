@@ -29,6 +29,7 @@ class Config:
 
 
 class CustomFormatter(logging.Formatter):
+    blue = "\x1b[34;20m"
     green = "\x1b[32;20m"
     grey = "\x1b[38;20m"
     yellow = "\x1b[33;20m"
@@ -38,7 +39,7 @@ class CustomFormatter(logging.Formatter):
     format = "%(asctime)s - %(name)s - %(levelname)s - %(message)s (%(filename)s:%(lineno)d)"
 
     FORMATS = {
-        logging.DEBUG: green + format + reset,
+        logging.DEBUG: blue + format + reset,
         logging.INFO: green + format + reset,
         logging.WARNING: yellow + format + reset,
         logging.ERROR: red + format + reset,
@@ -72,7 +73,7 @@ class MyLogger:
             self.logger.addHandler(ch)
 
             # file handling
-            fh = logging.FileHandler(os.environ.get("DEV_LOG_FILE_PATH"), mode="a", encoding="utf-8")
+            fh = logging.FileHandler(os.environ.get("DEV_LOG_FILE_PATH"), mode="a+", encoding="utf-8")
             fh.setLevel(logging.DEBUG)
             fh.setFormatter(CustomFormatter())
             self.logger.addHandler(fh)
@@ -80,7 +81,7 @@ class MyLogger:
         elif name == "prd":
             self.logger.setLevel(logging.INFO)
             # file handling
-            fh = logging.FileHandler(os.environ.get("PRD_LOG_FILE_PATH"), mode="a", encoding="utf-8")
+            fh = logging.FileHandler(os.environ.get("PRD_LOG_FILE_PATH"), mode="a+", encoding="utf-8")
             fh.setLevel(logging.INFO)
             fh.setFormatter(CustomFormatter())
             self.logger.addHandler(fh)
