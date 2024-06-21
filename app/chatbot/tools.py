@@ -161,7 +161,16 @@ def personnel(query: str) -> ChatPromptTemplate:
 
 @tool
 def other(query: str) -> str:
-    """Quy trình xử lý khi không phân loại được vấn đề hoặc vấn đề không thuộc phạm vi xử lý.""" 
+    """
+    Đây là "other" hàm này sẽ được chọn khi không phân loại được vấn đề hoặc vấn đề không thuộc phạm vi xử lý của bạn.
+
+    Args:
+        query (str): Câu hỏi của người dùng
+    
+    Returns:
+        str: Câu trả lời từ của bạn
+    
+    """ 
     answer = """Vấn đề này vượt quá thẩm quyền hỗ trợ của em, vui lòng liên hệ nhân viên @Omni. CX. Trần Văn Nhớ để được hỗ trợ
             ```json
             {
