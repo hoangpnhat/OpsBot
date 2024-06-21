@@ -6,7 +6,6 @@ from langchain_openai import ChatOpenAI
 from typing import List, Union, Dict, Tuple
 import sys
 from dotenv import load_dotenv, find_dotenv
-from langchain_groq import ChatGroq
 from langfuse.decorators import langfuse_context, observe
 
 load_dotenv(find_dotenv(), override=True)
@@ -15,6 +14,7 @@ from app.common.config import logger
 from app.chatbot.tools import material_warranty, update_customer_info,administrate_store, \
                                 promotions_partnership,promotions_marketing,personnel,other
 from app.chatbot.prompts.system import system_prompt
+from app.chatbot.prompts.langfuse_prompt import get_prompt_str
 
 
 class Chatbot:
@@ -27,7 +27,6 @@ class Chatbot:
             promotions_partnership,promotions_marketing, personnel, other
         ]
         self.llm = ChatOpenAI(model=self.model, temperature=self.temperature, api_key=self.api_key)
-        # self.llm = ChatGroq(temperature=0, groq_api_key="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", model_name="llama3-70b-8192")
         self.llm_with_tools = self.llm.bind_tools(self.tools)
         self.prompt_template = self.setup_prompt_template()
         self.chain_for_tool = self.prompt_template | self.llm_with_tools
@@ -55,8 +54,11 @@ class Chatbot:
 
     @staticmethod
     def setup_prompt_template():
+        lf_system_prompt = get_prompt_str(name="system_prompt", label='latest')
+        lf_system_prompt = lf_system_prompt or system_prompt
+        
         return ChatPromptTemplate.from_messages([
-            SystemMessagePromptTemplate.from_template(system_prompt),
+            SystemMessagePromptTemplate.from_template(lf_system_prompt),
             MessagesPlaceholder(variable_name="chat_history"),
             HumanMessagePromptTemplate.from_template("{input}"),
             MessagesPlaceholder(variable_name="agent_scratchpad")

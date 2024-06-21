@@ -61,7 +61,7 @@ class GapoAuthClient:
         if os.environ.get("ENV") == "dev":
             env_access_token = os.environ.get("GAPO_ACCESS_TOKEN", "")
             if len(env_access_token) > 0 and cls.check_access_token(env_access_token):
-                logger.debug(f"Using access token from environment variable: {env_access_token}")
+                logger.debug("Using access token from environment variable.")
                 return env_access_token
 
         
