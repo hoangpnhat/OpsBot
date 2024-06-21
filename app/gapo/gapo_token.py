@@ -1,6 +1,7 @@
 import requests
 import os
 import time
+from app.common.config import logger
 
 class GapoAuthClient:
     _instance = None
@@ -57,6 +58,12 @@ class GapoAuthClient:
         Returns:
             str: The access token from Gapo
         """
+        if os.environ.get("ENV") == "dev":
+            env_access_token = os.environ.get("GAPO_ACCESS_TOKEN", "")
+            if len(env_access_token) > 0 and cls.check_access_token(env_access_token):
+                logger.debug(f"Using access token from environment variable: {env_access_token}")
+                return env_access_token
+
         
         if cls._access_token and cls._expires_at > int(time.time() + 100):
             return cls._access_token
@@ -76,6 +83,7 @@ class GapoAuthClient:
                 cls._access_token = response.json()['data']['access_token']
                 cls._expires_at = response.json()['data']['access_token_expires_at']
                 cls._refresh_token = response.json()['data']['refresh_token']
+                logger.debug("Succesfully got access token from Gapo")
                 return cls._access_token
             else:
                 raise requests.RequestException(f"Failed to get access token from Gapo! \
@@ -85,4 +93,27 @@ class GapoAuthClient:
             raise requests.RequestException(f"Failed to get access token from Gapo! {e}")
 
 
+    def check_access_token(cls, access_token: str) -> bool:
+        """
+        Check the access token
+
+        Args:
+            access_token (str): The access token
+
+        Returns:
+            bool: True if the access token is valid, False otherwise
+        """
+        try:
+            if access_token is None or len(access_token) == 0:
+                return False
+
+            url = os.environ.get("GAPO_BASE_API_URL") + "messages"
+            headers = {"Content-Type": "application/json", "Authorization": f"Bearer {access_token}"}
+            response = requests.post(url, headers=headers)
+            if response.status_code == 401:
+                return False
+            return True
+        except Exception as e:
+            return False
+    
 tokenizer = GapoAuthClient()
