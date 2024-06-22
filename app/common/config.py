@@ -65,6 +65,7 @@ class MyLogger:
         self.logger = logging.getLogger(name)
 
         if name == "dev":
+            os.makedirs(os.path.dirname(os.environ.get("DEV_LOG_FILE_PATH")), exist_ok=True)
             self.logger.setLevel(logging.DEBUG)
             # console handling
             ch = logging.StreamHandler()
@@ -79,6 +80,7 @@ class MyLogger:
             self.logger.addHandler(fh)
 
         elif name == "prd":
+            os.makedirs(os.path.dirname(os.environ.get("DEV_LOG_FILE_PATH")), exist_ok=True)
             self.logger.setLevel(logging.INFO)
             # file handling
             fh = logging.FileHandler(os.environ.get("PRD_LOG_FILE_PATH"), mode="a+", encoding="utf-8")
