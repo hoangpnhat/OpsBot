@@ -9,6 +9,6 @@ app = FastAPI()
 app.mount("/gapo", gapo_app)
 
 # Define the routes
-@app.get("/health_check")
+@app.get("/")
 def health_check():
     return {"status": "ok"}
