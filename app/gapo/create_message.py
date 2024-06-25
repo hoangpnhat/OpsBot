@@ -110,3 +110,4 @@ class MessageSender:
             logger.error(f"Cannot send reply the message to gapo! {e} \
                           \n receiver_id: {receiver_id}, bot_id: {bot_id}, bot_id: {bot_id}, message: {message}")
             return None
+        
