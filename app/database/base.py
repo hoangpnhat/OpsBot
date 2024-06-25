@@ -34,3 +34,30 @@ class BaseCollection:
         results = self.collection.find()
         return [{**row, "_id": str(row["_id"])} for row in results]
     
+    def find(self, query: dict) -> list:
+        """
+        Find survey records by query
+
+        Args:
+            query (dict): The query
+        
+        Returns:
+            list: The list of survey records
+        """
+        results = self.collection.find(query)
+        return [{**row, "_id": str(row["_id"])} for row in results]
+
+    def update(self, query: dict, update: dict) -> str:
+        """
+        Update a record by query
+
+        Args:
+            query (dict): The query
+            update (dict): The update
+        
+        Returns:
+            str: The updated id
+        """
+
+        result = self.collection.update_one(query, update)
+        return str(result.upserted_id)

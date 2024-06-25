@@ -1,5 +1,6 @@
 from pydantic import BaseModel, HttpUrl
 from typing import Optional, Dict, Any, List
+from datetime import datetime
 
 class Thread(BaseModel):
     id: str
@@ -44,3 +45,23 @@ class SubThread(BaseModel):
     from_id: str
     to_id: str
     message: Message
+
+class LastMessage(BaseModel):
+    thread_id: str
+    message_id: str
+    sender_id: str
+    bot_id: str
+    message_sent_at: datetime
+    survey_sent: bool
+    survey_sent_at: datetime | None
+    survey_id: str | None
+
+class SurveySchema(BaseModel):
+    thread_id: str
+    message_id: str
+    send_at: datetime | None
+    is_completed: bool | None
+    completed_at: datetime | None
+    question: str
+    feedback: str | None
+    feedback_id: str | None

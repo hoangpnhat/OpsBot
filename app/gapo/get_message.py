@@ -51,7 +51,7 @@ class MessageGetter:
         try:
             response = requests.get(self.url, headers=headers, params=params)
             if response.status_code == 200:
-                logger.debug("Messages retrieved successfully")
+                logger.debug(f"Messages retrieved successfully. Content: {response.json()}")
                 return response.json()['data']
             else:
                 logger.error(f"Failed to retrieve messages from Gapo! \

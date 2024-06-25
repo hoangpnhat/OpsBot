@@ -1,2 +1,13 @@
 n_subthread_mesages: 10
 n_direct_messages: 10
+min_minutes_to_sent_survey: 2
+survey_question: "Mức độ hài lòng của anh/chị với sự hỗ trợ của em như thế nào ạ?"
+answer_options:
+  - "Hài lòng"
+  - "Bình thường"
+  - "Không hài lòng"
+
+answer_option_ids:
+  - "1"
+  - "2"
+  - "3"

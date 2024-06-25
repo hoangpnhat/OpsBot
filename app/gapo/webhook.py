@@ -11,6 +11,7 @@ from app.gapo.get_message import MessageGetter
 from app.gapo.messages.direct_message import DirectMessage
 from app.gapo.messages.subthread import SubThread
 from app.common.config import cfg, logger
+from app.gapo.survey import Survey
 
 gapo_app = FastAPI()
 langfuse_handler = CallbackHandler()
@@ -25,6 +26,7 @@ class GapoMessage(BaseModel):
 chatbot = Chatbot()
 message_sender = MessageSender()
 message_getter = MessageGetter()
+survey = Survey()
 
 @gapo_app.post("/chatbot247")
 @observe()
@@ -38,6 +40,16 @@ async def handle_webhook(event: GapoMessage):
     Returns:
         Response: A response object
     """
+    logger.debug(f"Received event: {event}")
+    # check if this is the feedback message from user
+    msg_type = event.message.get('type')
+    if msg_type == "quick_reply":
+        feedback_id = str(event.message.get('payload'))
+        thread_id = str(event.thread_id)
+        feedback = event.message.get('text')
+        survey.update_feedback(thread_id, feedback, feedback_id)          
+        return Response(status_code=200)
+
     # Check the event type
     if event.event == 'message_created':
         message_type = event.message.get('thread', {}).get('type')
@@ -59,6 +71,12 @@ async def handle_webhook(event: GapoMessage):
                     session_id = str(response.get('sub_thread_id'))
                 elif message_type == "direct":
                     session_id = str(response.get('thread_id'))
+                
+                # save the last message to send survey
+                survey.save_last_message(thread_id=str(session_id), 
+                                         message_id=str(response.get('message_id')), 
+                                         sender_id=str(handler.bot_id),
+                                         bot_id=str(handler.bot_id))
 
         langfuse_context.update_current_trace(
             name="Gapo-Chatbot247",
@@ -78,3 +96,12 @@ async def handle_webhook(event: GapoMessage):
     langfuse_handler.flush()
     # Return a success response
     return Response(status_code=200)
+
+
+@gapo_app.get("/send_survey")
+async def send_survey():
+    """
+    This function sends the survey to the available threads
+    """
+    survey.send_survey()
+    return Response(status_code=200, content="Survey sent successfully")

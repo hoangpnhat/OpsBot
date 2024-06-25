@@ -84,6 +84,7 @@ class GapoAuthClient:
                 cls._expires_at = response.json()['data']['access_token_expires_at']
                 cls._refresh_token = response.json()['data']['refresh_token']
                 logger.debug("Succesfully got access token from Gapo")
+                logger.debug(f"Access token: {cls._access_token}")
                 return cls._access_token
             else:
                 raise requests.RequestException(f"Failed to get access token from Gapo! \

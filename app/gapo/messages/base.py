@@ -48,7 +48,15 @@ class BaseMessage:
             # Skip the first message, because it is user query
             if i == 0:
                 continue
-            msg_text = msg.get('body').get('text')
+            # Verify message type
+            msg_type = msg.get('body', {}).get('type')
+            if msg_type != "text":
+                if msg_type == "carousel":
+                    msg_text = msg.get('body').get('metadata').get('carousel_cards', [])[0].get('title')
+                else:
+                    continue
+            else:
+                msg_text = msg.get('body').get('text')
             if str(msg.get('sender', {}).get("id")) == str(self.bot_id):
                 chat_history.insert(0, AIMessage(msg_text))
             else:
