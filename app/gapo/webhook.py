@@ -33,9 +33,16 @@ def survey_scheduler():
     """
     This function sends the survey to the available threads
     """
-    survey.send_reminder()
-    survey.send_survey()
-    return Response(status_code=200, content="Survey sent successfully")
+    try:
+        survey.send_reminder()
+        survey.send_survey()
+        return Response(status_code=200, content="Survey sent successfully")
+    except Exception as e:
+        exc_type, _, exc_tb = sys.exc_info()
+        fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
+        msg = f"Error while sending survey: {e}. Error type: {exc_type}, file name {fname}, line no {exc_tb.tb_lineno}"
+        logger.error(msg)
+        return Response(status_code=500, content=msg)
 
 
 # Create a subprocess to call function send_survey every 3 minutes
