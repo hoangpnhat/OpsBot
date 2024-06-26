@@ -53,8 +53,11 @@ class LastMessage(BaseModel):
     bot_id: str
     message_sent_at: datetime
     survey_sent: bool
+    message_type: str
     survey_sent_at: datetime | None
     survey_id: str | None
+    reminder_sent: bool | None
+    reminder_sent_at: datetime | None
 
 class SurveySchema(BaseModel):
     thread_id: str

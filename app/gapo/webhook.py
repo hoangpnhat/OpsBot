@@ -4,6 +4,7 @@ import os
 import sys
 from langfuse.decorators import observe, langfuse_context
 from langfuse.callback import CallbackHandler
+from apscheduler.schedulers.background import BackgroundScheduler
 if os.getcwd() not in sys.path: sys.path.append(os.getcwd())
 from app.chatbot.chat import Chatbot
 from app.gapo.create_message import MessageSender
@@ -11,7 +12,7 @@ from app.gapo.get_message import MessageGetter
 from app.gapo.messages.direct_message import DirectMessage
 from app.gapo.messages.subthread import SubThread
 from app.common.config import cfg, logger
-from app.gapo.survey import Survey
+from app.gapo.survey import SurveyThread
 
 gapo_app = FastAPI()
 langfuse_handler = CallbackHandler()
@@ -26,7 +27,28 @@ class GapoMessage(BaseModel):
 chatbot = Chatbot()
 message_sender = MessageSender()
 message_getter = MessageGetter()
-survey = Survey()
+survey = SurveyThread()
+
+def survey_scheduler():
+    """
+    This function sends the survey to the available threads
+    """
+    survey.send_reminder()
+    survey.send_survey()
+    return Response(status_code=200, content="Survey sent successfully")
+
+
+# Create a subprocess to call function send_survey every 3 minutes
+SCHERDULED_INTERVAL = os.environ.get("SCHEDULER_INTERVAL_MINS", 5)
+# Set up the scheduler
+scheduler = BackgroundScheduler()
+scheduler.add_job(survey_scheduler, 'interval', seconds=int(SCHERDULED_INTERVAL)*60)
+scheduler.start()
+
+def scheduler_shutdown():
+    scheduler.shutdown()
+gapo_app.add_event_handler("shutdown", scheduler_shutdown)
+
 
 @gapo_app.post("/chatbot247")
 @observe()
@@ -76,7 +98,8 @@ async def handle_webhook(event: GapoMessage):
                 survey.save_last_message(thread_id=str(session_id), 
                                          message_id=str(response.get('message_id')), 
                                          sender_id=str(handler.bot_id),
-                                         bot_id=str(handler.bot_id))
+                                         bot_id=str(handler.bot_id),
+                                         message_type="reply")
 
         langfuse_context.update_current_trace(
             name="Gapo-Chatbot247",
@@ -99,9 +122,7 @@ async def handle_webhook(event: GapoMessage):
 
 
 @gapo_app.get("/send_survey")
-async def send_survey():
-    """
-    This function sends the survey to the available threads
-    """
-    survey.send_survey()
-    return Response(status_code=200, content="Survey sent successfully")
+def send_survey():
+    survey_scheduler()
+    return Response(content="Triggered survey successfully", status_code=200)
+

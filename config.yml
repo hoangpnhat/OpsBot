@@ -1,7 +1,9 @@
 n_subthread_mesages: 10
 n_direct_messages: 10
-min_minutes_to_sent_survey: 2
-survey_question: "Mức độ hài lòng của anh/chị với sự hỗ trợ của em như thế nào ạ?"
+min_minutes_to_sent_survey: 3
+min_minutes_to_sent_reminder: 2
+reminder_message: "Anh/chị có cần em hỗ trợ gì nữa không ạ?"
+survey_question: "Anh/chị vui lòng đánh giá chất lượng hỗ trợ với ạ."
 answer_options:
   - "Hài lòng"
   - "Bình thường"
