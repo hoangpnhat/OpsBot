@@ -118,7 +118,7 @@ def material_warranty(query: str) -> ChatPromptTemplate:
 @tool
 def administrate_store(query: str) -> ChatPromptTemplate:
     """Quy trình xử lý vấn đề "#van_de: Vận hành cửa hàng 
-    khi gặp các vấn đề mất điện hoặc mất mạng tại cửa hàng, in hoá đơn bị mờ hoặc lỗi,báo lỗi camera, hỗ trợ về giấy tờ, hợp đồng, phép kinh doanh."""
+    khi gặp các vấn đề mất điện hoặc mất mạng tại cửa hàng, in hoá đơn bị mờ hoặc lỗi,báo lỗi camera, hỗ trợ về giấy tờ, hợp đồng, giấy phép kinh doanh."""
     
     lf_actor = get_prompt_str(name="actor", label='latest')
     lf_administrate_store_prompt = get_prompt_str(name="administrate_store", label='latest')

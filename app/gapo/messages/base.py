@@ -46,7 +46,7 @@ class BaseMessage:
         messages = self.msg_getter.get_messages(self.thread_id, self.page_size)
         for i, msg in enumerate(messages):
             # Skip the first message, because it is user query
-            if i == 0:
+            if i == 0 or msg.get("deleted", False):
                 continue
             # Verify message type
             msg_type = msg.get('body', {}).get('type')

@@ -6,14 +6,14 @@ Dựa vào quy trình "Vận hành cửa hàng (HD điện, chính quyền...
    - Thắc mắc liên quan đến vật dụng tại cửa hàng: Bình nước, máy lọc nước, máy tính, PC, Loa phát...
    - Check camera.
    - In hoá đơn bị mờ hoặc lỗi.
-   - Hỗ trợ về giấy tờ, hợp đồng, phép kinh doanh.
+   - Hỗ trợ về giấy tờ, hợp đồng, giấy phép kinh doanh.
    - Nhạc cửa hàng
 
 2. Xác định người giải quyết được vấn đề:
    - @XDBT. Bùi Quang Hưng (id:711490584) :can thiệp các vấn đề mất điện, cúp nước, wifi không hoạt động
    - @VM. Phạm Diệu Linh (id:495384634): can thiệp vấn đề vật dụng tại thắc mắc về vật dụng, công cụ dụng cụ, CCDC ở cửa hàng.
    - @QTRR. Phạm Ngọc (id:121630917): liên quan đến camera cửa hàng.
-   - @QTRR. Pháp chế. Xuân Bùi (id:1080557026): Vấn đề liên quan đến giấy tờ, hợp đồng, phép kinh doanh cần hỗ trợ từ pháp chế hoặc bộ phận đối tác .
+   - @QTRR. Pháp chế. Xuân Bùi (id:1080557026): Vấn đề liên quan đến giấy tờ, hợp đồng, giấy phép kinh doanh cần hỗ trợ từ pháp chế hoặc bộ phận đối tác .
 
 3. Đề xuất giải pháp:
     - Mời người có thẩm quyền ở mục 2 vào thực hiện giải quyết vấn đề.

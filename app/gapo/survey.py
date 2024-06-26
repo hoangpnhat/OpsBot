@@ -1,18 +1,19 @@
 from app.common.config import cfg, logger
 from app.database.base import BaseCollection
 from app.database.schemas import LastMessage, SurveySchema
+from app.gapo.create_message import MessageSender
 from datetime import datetime, timedelta
 import os
 import sys
 import requests
 
 
-class Survey:
+class SurveyThread:
     def __init__(self):
         self.collection_survey = BaseCollection("survey")
         self.collection_last_message = BaseCollection("last_message")
 
-    def save_last_message(self, thread_id: str, message_id: str, sender_id: str, bot_id: str) -> None:
+    def save_last_message(self, thread_id: str, message_id: str, sender_id: str, bot_id: str, message_type: str=None) -> None:
         """
         This function saves the last message id of a thread
 
@@ -32,6 +33,9 @@ class Survey:
                         "message_sent_at": datetime.now(),
                     }
                 }
+                if message_type != "reminder":
+                    update["$set"]["reminder_sent"] = False
+                    update["$set"]["reminder_sent_at"] = None
                 self.collection_last_message.update(query, update)
             else:
                 data = LastMessage(
@@ -39,10 +43,13 @@ class Survey:
                     message_id=message_id,
                     sender_id=sender_id,
                     bot_id=bot_id,
+                    message_type=message_type,
                     message_sent_at=datetime.now(),
                     survey_sent=False,
                     survey_sent_at=None,
-                    survey_id=None
+                    survey_id=None,
+                    reminder_sent=True if message_type == "reminder" else False,
+                    reminder_sent_at=datetime.now() if message_type is not None else None
                 ).model_dump()
                 self.collection_last_message.insert_one(data)
         except Exception as e:
@@ -53,34 +60,6 @@ class Survey:
             logger.error(f"Cannot save the last message id! {msg} \
                           \n thread_id: {thread_id}, message_id: {message_id}")
             
-
-    def get_available_threads(self) -> list:
-        """
-        This function retrieves all available threads which has message_sent_at + 30 min < now
-
-        Returns:
-            list: The list of available threads
-        """
-        try:
-            time_30_minutes_ago = datetime.now() - timedelta(minutes=cfg.min_minutes_to_sent_survey)
-
-            # Query to find records where message_sent_at < now - 30 mins
-            query = {
-                "message_sent_at": {
-                    "$lt": time_30_minutes_ago
-                },
-                "survey_sent": False
-            }
-
-            available_threads = self.collection_last_message.find(query)
-            return available_threads
-        except Exception as e:
-            exc_type, _, exc_tb = sys.exc_info()
-            fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
-            msg = f"Error: {e}" + f"err_type: {exc_type}, err_file: {fname}, err_line: {exc_tb.tb_lineno}"
-            
-            logger.error(f"Cannot get the available threads! {msg}")
-            return []
         
     def insert_survey(self, thread_id: str, message_id: str, question: str) -> str:
         """
@@ -145,24 +124,23 @@ class Survey:
         This function sends the survey to the available threads
         """
         try:
-            url = os.environ.get("GAPO_BOT_API_URL")
-            headers = {
-                "x-gapo-api-key": os.environ.get("GAPO_BOT_KEY"),
-                "Content-Type": "application/json"
+            time_to_minutes_ago = datetime.now() - timedelta(minutes=cfg.min_minutes_to_sent_survey)
+            # Query to find records where message_sent_at < now - 30 mins
+            query = {
+                "reminder_sent_at": {
+                    "$lt": time_to_minutes_ago
+                },
+                "reminder_sent": True,
+                "survey_sent": False
             }
+            available_threads = self.collection_last_message.find(query)
+            msg_sender = MessageSender()
 
-            available_threads = self.get_available_threads()
             for thread in available_threads:
-                thread_id = thread.get("thread_id")
-                bot_id = thread.get("bot_id")
-                message_id = thread.get("message_id")
-                data = {
-                    "thread_id": int(thread_id),
-                    "bot_id": int(bot_id),
-                    "body": {
-                        "type": "carousel",
-                        "metadata": {
-                            "carousel_cards": [
+                thread_id = str(thread.get("thread_id"))
+                bot_id = str(thread.get("bot_id"))
+                message_id = str(thread.get("message_id"))
+                carousel_cards = [
                                 {
                                     "title": cfg.survey_question,
                                     "image_url": "https://gapo-work-image.s3.vn-hcm.zetaby.com/images/478adb11-3d05-4cd9-bf56-b2826c4474cc/blob.jpeg",
@@ -170,17 +148,11 @@ class Survey:
                                         for ans, id in zip(cfg.answer_options, cfg.answer_option_ids)]
                                 }
                             ]
-                        }
-                    }
-                }
-                response = requests.post(url, headers=headers, json=data)
-                if response.status_code == 200:
+                result = msg_sender.send_carousel_cards(int(thread_id), int(bot_id), int(message_id), carousel_cards)
+                if result:
                     logger.debug(f"Survey sent successfully. Thread id (sub): {thread_id}, message id: {message_id}")
                     survey_id = self.insert_survey(thread_id, message_id, cfg.survey_question)
                     self.update_after_sending(thread_id, message_id, survey_id)
-                else:
-                    raise requests.RequestException(f"Failed to send the survey! \
-                                                    Status code: {response.status_code}, Message: {response.json()}")
 
         except Exception as e:
             exc_type, _, exc_tb = sys.exc_info()
@@ -211,3 +183,37 @@ class Survey:
         updated_id = self.collection_survey.update(query, update)
         return updated_id
         
+    def send_reminder(self):
+        time_to_minutes_ago = datetime.now() - timedelta(minutes=cfg.min_minutes_to_sent_survey)
+        # Query to find records where message_sent_at < now - 30 mins
+        query = {
+            "message_sent_at": {
+                "$lt": time_to_minutes_ago
+            },
+            "reminder_sent": False
+        }
+        msg_sender = MessageSender()
+        available_threads = self.collection_last_message.find(query)
+
+        for thread in available_threads:
+            thread_id = thread.get("thread_id")
+            bot_id = thread.get("bot_id")
+
+            # send text message to subthread using subthread_id, we need to set message_id = None
+            message_id = None
+            result = msg_sender.send_text_message_to_subthread(thread_id, bot_id, message_id, cfg.reminder_message)
+            if result:
+                query = {
+                    "thread_id": thread_id,
+                }
+                update = {
+                    "$set": {
+                        "reminder_sent": True,
+                        "reminder_sent_at": datetime.now(),
+                        "message_type": "reminder"
+                    }
+                }
+                self.collection_last_message.update(query, update)
+                logger.debug(f"Reminder sent successfully. Thread id (sub): {thread_id}")
+            else:
+                logger.error(f"Cannot send reminder to thread id (sub): {thread_id}")
