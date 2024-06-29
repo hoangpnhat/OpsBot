@@ -79,7 +79,7 @@ class MessageGetter:
             response = requests.get(url + f'/{parent_message_id}?thread_id={parent_thread_id}', headers=headers)
             if response.status_code == 200:
                 logger.debug("Parent message retrieved successfully")
-                return response.json()['data'].get('body').get("text")
+                return response.json()['data']
             else:
                 logger.error(f"Failed to retrieve parent message from Gapo! \
                              Request url: {url}, \

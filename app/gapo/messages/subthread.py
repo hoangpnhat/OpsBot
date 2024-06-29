@@ -45,6 +45,10 @@ class SubThread(BaseMessage):
         chat_history = super().get_chat_history()
         parent_message = self.msg_getter.get_parent_message(self.parent_thread_id, self.parent_message_id)
         # make sure this history is not only contain the parent message (parent_message is user_query in this case)
+        human_msg = self.convert_image_message(parent_message)
+        if human_msg:
+            chat_history.insert(0, human_msg)
+            return chat_history
         if parent_message and len(chat_history) > 0:
-            chat_history.insert(0, HumanMessage(content=parent_message))
+            chat_history.insert(0, HumanMessage(content=parent_message.get('body').get("text")))
         return chat_history

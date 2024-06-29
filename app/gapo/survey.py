@@ -25,10 +25,11 @@ class SurveyThread:
             if len(self.collection_last_message.find({"thread_id": thread_id})) > 0:
                 query = {
                     "thread_id": thread_id,
-                    "survey_sent": False,
+                    "survey_sent": False
                 }
                 update = {
                     "$set": {
+                        "bot_id": bot_id,
                         "message_id": message_id,
                         "message_sent_at": datetime.now(),
                     }

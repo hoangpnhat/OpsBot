@@ -1,7 +1,7 @@
 n_subthread_mesages: 10
 n_direct_messages: 10
-min_minutes_to_sent_survey: 3
-min_minutes_to_sent_reminder: 2
+min_minutes_to_sent_survey: 5
+min_minutes_to_sent_reminder: 5
 reminder_message: "Anh/chị có cần em hỗ trợ gì nữa không ạ?"
 survey_question: "Anh/chị vui lòng đánh giá chất lượng hỗ trợ với ạ."
 answer_options:
@@ -13,3 +13,7 @@ answer_option_ids:
   - "1"
   - "2"
   - "3"
+
+image_with: 512
+image_height: 512
+image_quality: 80
