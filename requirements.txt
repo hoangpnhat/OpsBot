@@ -8,3 +8,4 @@ python-dotenv==1.0.1
 pymongo==4.7.3
 langfuse==2.36.1
 apscheduler==3.10.4
+pillow==10.3.0

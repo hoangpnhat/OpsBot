@@ -2,12 +2,13 @@ import os
 import sys
 from typing import TypeVar, List, Dict
 from langchain_core.messages import HumanMessage, AIMessage
-if os.getcwd() not in sys.path: sys.path.append(os.getcwd())
-from app.common.config import logger
+from app.common.config import logger, cfg
 from app.gapo.create_message import MessageSender
 from app.gapo.get_message import MessageGetter
 from app.chatbot.chat import Chatbot
 from app.utils.str import extract_and_remove_dict_from_string
+from app.utils.image import convert_image_to_base64, download_image
+
 GapoMessage = TypeVar('GapoMessage')
 
 
@@ -31,6 +32,27 @@ class BaseMessage:
         self.message_type = event.message.get('thread', {}).get('type')
         self.user_message = event.message.get('text')
         self.page_size = n_messages
+
+    
+    def convert_image_message(self, message: Dict) -> HumanMessage:
+        msg_type = message.get('body', {}).get('type')
+        if msg_type in ["file", "image", "multi_image"]:
+            image_urls = message.get('body', {}).get('media', [])
+            # get the text in message
+            content = [{"type": "text", "text": message.get('body', {}).get('text')}]
+
+            # get the image in message
+            for image_url in image_urls:
+                image, image_path = download_image(image_url)
+                img_base64 = convert_image_to_base64(image, 
+                                                     quality=cfg.image_quality,
+                                                     max_size=(cfg.image_with, cfg.image_height))
+                content.append({
+                    "type": "image_url",
+                    "image_url": {"url": f"data:image/jpeg;base64,{img_base64}"}
+                })
+            return HumanMessage(content=content)
+        return None
         
     def get_chat_history(self) -> List[HumanMessage | AIMessage]:
         """
@@ -46,22 +68,28 @@ class BaseMessage:
         messages = self.msg_getter.get_messages(self.thread_id, self.page_size)
         for i, msg in enumerate(messages):
             # Skip the first message, because it is user query
-            if i == 0 or msg.get("deleted", False):
-                continue
-            # Verify message type
             msg_type = msg.get('body', {}).get('type')
-            if msg_type != "text":
-                if msg_type == "carousel":
-                    msg_text = msg.get('body').get('metadata').get('carousel_cards', [])[0].get('title')
-                else:
-                    continue
+            human_msg = None
+            if i == 0 or msg.get("deleted", False):
+                human_msg = self.convert_image_message(msg)
+                if human_msg:
+                    chat_history.insert(0, human_msg)
+                continue
+
+            # Verify message type
+            if msg_type == "carousel":
+                msg_text = msg.get('body').get('metadata').get('carousel_cards', [])[0].get('title')
             else:
-                msg_text = msg.get('body').get('text')
+                msg_text = msg.get('body', {}).get('text')
+
             if str(msg.get('sender', {}).get("id")) == str(self.bot_id):
                 chat_history.insert(0, AIMessage(msg_text))
             else:
-                chat_history.insert(0, HumanMessage(msg_text))
-
+                # Create a human message with image if there is an image in the message
+                human_msg = self.convert_image_message(msg)
+                # Otherwise, create a human message with text
+                human_msg = human_msg or HumanMessage(msg_text)
+                chat_history.insert(0, human_msg)
         return chat_history
     
     def get_anwser_from_bot(self, 
