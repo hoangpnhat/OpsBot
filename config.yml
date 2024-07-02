@@ -6,8 +6,8 @@ reminder_message: "Anh/chị có cần em hỗ trợ gì nữa không ạ?"
 survey_question: "Anh/chị vui lòng đánh giá chất lượng hỗ trợ với ạ."
 answer_options:
   - "Hài lòng"
-  - "Bình thường"
-  - "Không hài lòng"
+  - "Điều hướng sai"
+  - "Trả lời sai"
 
 answer_option_ids:
   - "1"
