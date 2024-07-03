@@ -5,10 +5,13 @@ import os
 load_dotenv(find_dotenv(), override=True)
 
 from app.gapo.webhook import gapo_app
+from app.report.report import report_app
 
 app = FastAPI()
 
 app.mount("/gapo", gapo_app)
+
+app.mount("/report", report_app)
 
 # Define the routes
 @app.get("/")

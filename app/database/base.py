@@ -36,13 +36,13 @@ class BaseCollection:
     
     def find(self, query: dict) -> list:
         """
-        Find survey records by query
+        Find document records by query
 
         Args:
             query (dict): The query
         
         Returns:
-            list: The list of survey records
+            list: The list of document records
         """
         results = self.collection.find(query)
         return [{**row, "_id": str(row["_id"])} for row in results]

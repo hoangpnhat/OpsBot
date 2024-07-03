@@ -21,7 +21,7 @@ def timing(func):
             "execution_time": execution_time,
             "start_time": start_dt,
             "end_time": end_dt,
-            "event": kwargs.get('event').model_dump()
+            "event": kwargs.get('event', None)
         }
         await asyncio.get_event_loop().run_in_executor(None, timing_collection.insert_one, timing_object)
         return result
