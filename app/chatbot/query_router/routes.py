@@ -39,7 +39,9 @@ material_warranty = Route(
         "áo bị bay màu sau khi giặt",
         "sp bị bay màu",
         "vải bị dãn",
-        "áo bị dãn"
+        "áo bị dãn",
+        "vải kém chất lượng",
+        "áo kém chất lượng"
     ]
 )
 
@@ -59,6 +61,9 @@ repair_warranty = Route(
         "dây kéo bị hỏng",
         "cúc áo bị hỏng",
         "nút áo bị hỏng"
+        "khách hàng muốn đổi hàng do lỗi sản phẩm",
+        "KH muốn đổi hàng do lỗi sản phẩm",
+        "KH muốn đổi hàng do lỗi của cửa hàng"
     ])
 
 store_operation = Route(
