@@ -1,7 +1,9 @@
 from pydantic import BaseModel, HttpUrl
-from typing import Optional, Dict, Any, List
+from typing import Optional, Dict, Any, List,Literal, Tuple
 from datetime import datetime
-
+from llama_index.core.bridge.pydantic import BaseModel as llamaIndexBaseModel
+from llama_index.core.bridge.pydantic import Field as llamaIndexField
+from abc import abstractmethod
 class Thread(BaseModel):
     id: str
     thread_id: str
@@ -68,3 +70,53 @@ class SurveySchema(BaseModel):
     question: str
     feedback: str | None
     feedback_id: str | None
+
+# Schema LLAMA INDEX 
+class LabelledNode(llamaIndexBaseModel):
+    """An entity in a graph."""
+
+    label: str = llamaIndexField(default="node", description="The label of the node.")
+    embedding: Optional[List[float]] = llamaIndexField(
+        default=None, description="The embeddings of the node."
+    )
+    properties: Dict[str, Any] = llamaIndexField(default_factory=dict)
+
+    @abstractmethod
+    def __str__(self) -> str:
+        """Return the string representation of the node."""
+        ...
+
+    @property
+    @abstractmethod
+    def id(self) -> str:
+        """Get the node id."""
+        ...
+
+class EntityNode(LabelledNode):
+    """An entity in a graph."""
+
+    name: str = llamaIndexField(description="The name of the entity.")
+    label: List[str] = llamaIndexField(default="entity", description="The labels of the node.")
+    properties: Dict[str, Any] = llamaIndexField(default_factory=dict)
+
+    def __str__(self) -> str:
+        """Return the string representation of the node."""
+        return self.name
+
+    @property
+    def id(self) -> str:
+        """Get the node id."""
+        return self.name.replace('"', " ")
+    
+
+
+from langchain_core.pydantic_v1 import BaseModel as langchainBaseModel 
+from langchain_core.pydantic_v1 import Field as langchainField
+
+class SubQuery(langchainBaseModel):
+    """Search over a graph database NEO4J of Promotion Program."""
+
+    sub_query: str = langchainField(
+        ...,
+        description="A very specific query against the database.",
+    )

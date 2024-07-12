@@ -19,6 +19,7 @@ class MessageGetter:
         """
         try:
             access_token = tokenizer.get_access_token()
+            logger.debug(f"Access token retrieved successfully: {access_token}")
         except Exception as e:
             logger.error(f"Failed to get access token from Gapo! {e}.")
 

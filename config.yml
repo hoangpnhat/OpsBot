@@ -17,3 +17,13 @@ answer_option_ids:
 image_with: 512
 image_height: 512
 image_quality: 80
+
+image_extensions:
+  - ".jpg"
+  - ".jpeg"
+  - ".png"
+
+# SENMANTIC ROUTING
+top_k: 3
+using_hybrid: True
+sparse_encoder_name: "TFIDF" # or BM25

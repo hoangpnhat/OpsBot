@@ -15,13 +15,12 @@ class MessageSender:
             "Content-Type": "application/json"
         }
 
-
-    def send_text_message_to_subthread(self, 
-                                            thread_id: int, 
-                                            bot_id: int, 
-                                            message_id: int, 
-                                            message: str, 
-                                            mention: dict = None) -> Dict | None:
+    def send_text_message_to_subthread(self,
+                                       thread_id: int,
+                                       bot_id: int,
+                                       message_id: int,
+                                       message: str,
+                                       mention: dict = None) -> Dict | None:
         """
         This function sends a text message with mention to a subthread
 

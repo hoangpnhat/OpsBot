@@ -5,6 +5,8 @@ import os
 import requests
 from typing import Tuple
 
+from app.common.config import cfg
+
 def convert_image_to_base64(image: str|Image.Image, quality: int=80, max_size: Tuple=(512, 512)) -> str:
     """
     This function converts an image file to a base64 encoded string with transformation.
@@ -30,6 +32,18 @@ def convert_image_to_base64(image: str|Image.Image, quality: int=80, max_size: T
     return base64_encoded
 
 
+def is_image(image_path: str) -> bool:
+    """
+    This function checks if a file is an image file.
+
+    Args:
+        image_path (str): The path to the image file.
+
+    Returns:
+        bool: True if the file is an image file, False otherwise.
+    """
+    return os.path.splitext(image_path)[1].lower() in cfg.image_extensions
+
 
 def download_image(image_url: str, image_dir: str=None) -> Tuple[Image.Image, str]:
     """
@@ -45,8 +59,7 @@ def download_image(image_url: str, image_dir: str=None) -> Tuple[Image.Image, st
     """
 
     image_name = image_url.split("/")[-1]
-    file_extension = image_name.split(".")[-1]
-    if file_extension.lower() not in ["jpg", "jpeg", "png"]:
+    if not is_image(image_name):
         raise ValueError("Invalid image file extension")
     response = requests.get(image_url)
     if response.status_code != 200:
