@@ -10,14 +10,15 @@ from langchain.chat_models.base import BaseChatModel
 from pydantic import BaseModel, Field
 from typing import List, Union, Dict
 import pydantic
-load_dotenv(find_dotenv(), override=True)
+from langfuse.decorators import observe, langfuse_context
+
 from app.chatbot.prompts.contextualization import contextualize_q_system_prompt
 from app.chatbot.prompts.langfuse_prompt import get_prompt_str
 from app.chatbot.query_router.router import Router
 from app.common.config import logger
 
 
-
+@observe()
 def contextualize_query(llm_model: BaseChatModel, user_query: str, chat_history: List[BaseMessage]) -> str:
     """
     This function takes a user query and a chat history and returns a contextualized query.
@@ -41,16 +42,17 @@ def contextualize_query(llm_model: BaseChatModel, user_query: str, chat_history:
         ]
     )
     chain = contextualize_q_prompt | llm_model #| StrOutputParser()
-
+    langfuse_handler = langfuse_context.get_current_langchain_handler()
     ai_response = chain.invoke(
-        {"chat_history": chat_history, "input": user_query}
+        {"chat_history": chat_history, "input": user_query},
+        config={"callbacks": [langfuse_handler]}
     )
     #ai_response.response_metadata
 
     return ai_response.content
 
 
-
+@observe()
 def answer_from_chat(llm_model: BaseChatModel, 
                      user_query: str,
                      qa_system_prompt: str,
@@ -76,13 +78,14 @@ def answer_from_chat(llm_model: BaseChatModel,
         ]
     )
     chain = qa_prompt | llm_model #| StrOutputParser()
-    
+    langfuse_handler = langfuse_context.get_current_langchain_handler()
     ai_response = chain.invoke(
-        {"chat_history": chat_history, "input": user_query}
+        {"chat_history": chat_history, "input": user_query},
+        config={"callbacks": [langfuse_handler]}
     )
     return ai_response.content
 
-
+@observe()
 def pick_tool(llm_model: BaseChatModel,
               user_query: str,
               contextualized_query: str,
@@ -112,12 +115,14 @@ def pick_tool(llm_model: BaseChatModel,
             MessagesPlaceholder(variable_name="agent_scratchpad")
         ])
     chain = prompt_template | llm_model.bind_tools(tools)
+    langfuse_handler = langfuse_context.get_current_langchain_handler()
     response = chain.invoke(
                 {
                     "input": user_query, 
                     "chat_history": chat_history,
                     "agent_scratchpad": []
-                })
+                }, 
+                config={"callbacks": [langfuse_handler]})
     return response.tool_calls
     
 
@@ -213,7 +218,7 @@ def load_external_tools(tool_names: List[str], tool_info: Dict) -> List[BaseMode
             tool_schemas.append(tool_schema)
     return tool_schemas
 
-
+@observe()
 def execute_redirect_tool(tool: Dict,
                           tool_info: Dict,
                           llm_model: BaseChatModel,
@@ -253,11 +258,12 @@ def execute_redirect_tool(tool: Dict,
             HumanMessagePromptTemplate.from_template("{input}"),
         ])
     chain = prompt_template | llm_model
+    langfuse_handler = langfuse_context.get_current_langchain_handler()
     result = chain.invoke(
         {
             "input": user_query,
             "chat_history": chat_history
-        })
+        }, config={"callbacks": [langfuse_handler]})
     return result.content
 
 
@@ -291,7 +297,7 @@ def execute_external_tool(tool: List[Dict],
     return answer
 
 
-
+@observe()
 def check_user_satisfaction(user_query: str, chat_history: List[BaseMessage], llm_model: BaseChatModel) -> bool:
     """
     This function to use llm model to check user satisfaction
@@ -323,9 +329,10 @@ def check_user_satisfaction(user_query: str, chat_history: List[BaseMessage], ll
         ]
     )
     chain = satisfaction_prompt | llm_model | StrOutputParser()
-    
+    langfuse_handler = langfuse_context.get_current_langchain_handler()
     ai_response = chain.invoke(
-        {"chat_history": chat_history, "input": user_query}
+        {"chat_history": chat_history, "input": user_query},
+        config={"callbacks": [langfuse_handler]}
     )
 
     if ai_response.upper() == "NO" or ai_response.upper() == "KHÔNG" or "NO" in ai_response.upper():

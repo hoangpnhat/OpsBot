@@ -5,6 +5,7 @@ from langchain_core.messages import BaseMessage
 from langchain.chat_models.base import BaseChatModel
 from langchain_openai import ChatOpenAI
 from typing import List, Dict
+from langfuse.decorators import observe, langfuse_context
 import os
 from app.common.config import logger
 from app.database.graphdb import GraphDatabaseConnection
@@ -45,7 +46,7 @@ def retrieve_promotion(query: str) -> str:
                          ) if result else "No promotion found"
     return response
 
-
+@observe()
 def query_promotion(list_kargs: List[Dict], 
                    user_query: str,
                    contextualized_query: str,
@@ -95,9 +96,9 @@ def query_promotion(list_kargs: List[Dict],
     ])
     
     chain = prompt | llm
-
+    langfuse_handler = langfuse_context.get_current_langchain_handler()
     response = chain.invoke({
         "chat_history": chat_history
-    })
+    }, config={"callbacks": [langfuse_handler]})
 
     return response.content
