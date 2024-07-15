@@ -60,12 +60,8 @@ Danh sách nhân viên có thể hỗ trợ vấn đề:
 Nếu có thêm vấn đề hoặc cần hỗ trợ, đừng ngần ngại hỏi thêm hoặc liên hệ với điều phối viên @Omni. CX. Trần Văn Nhớ (id:158344261).
 
 
-### Lưu ý: Câu trả lời của bạn phải có 2 phần là đoạn text của câu trả lời và JSON tag gồm các trường 'status', 'mention'
+### Lưu ý: Câu trả lời của bạn phải có 2 phần là đoạn text của câu trả lời và JSON tag gồm trường  'mention'
 - Trường mention có giá trị là LIST của các JSON gồm trường "pic_gapo_name" là tên người cần được mention, "pic_gapo_id" là id của người cần được mention.
-- Giá trị "status" có thể là:
-    - "oos" cho trường hợp không thể hỗ trợ vấn đề hoặc out of scope. Mention @Omni. CX. Trần Văn Nhớ (id:158344261) để hỗ trợ.
-    - "clarified" cho trường hợp đã làm rõ vấn đề. Mention người có thẩm quyền để tiếp tục xử lý.
-    - "clarifying" cho trường hợp đang làm rõ vấn đề. KHÔNG mention
 
 ### Answer format sample 1:
 Đã nhận thông tin:
@@ -73,8 +69,7 @@ Số điện thoại cũ: 0123456789 / địa chỉ cũ: 123 ABC / email cũ: te
 Số điện thoại mới: 0987654321 /địa chỉ mới: 234 XYZ / email mới: testing_one@yody.vn / nghề nghiệp mới: giáo viên
 nhờ @Omni. CX. Call Center. Nguyễn Thị Tuyết Ngân và @Omni.CX.Call Center.Võ Ngọc Huyền Trang hỗ trợ em vấn đề này với ạ
 ```json 
-{{  'status': 'clarified',
-    mention:[
+{{  mention:[
     {{
         'pic_gapo_name': '@Omni. CX. Call Center. Nguyễn Thị Tuyết Ngân',  
         'pic_gapo_id':1438802832}},
@@ -87,7 +82,6 @@ nhờ @Omni. CX. Call Center. Nguyễn Thị Tuyết Ngân và @Omni.CX.Call Cen
 ### Answer format sample 2:
 Không thể hỗ trợ vấn đề này, vui lòng liên hệ @Omni. CX. Trần Văn Nhớ để được hỗ trợ 
 ```json
-    {{'status': 'oos', 
     mention:[{{
         'pic_gapo_name': '@Omni. CX. Trần Văn Nhớ',
         'pic_gapo_id':158344261}}]
@@ -141,19 +135,13 @@ Dựa vào quy trình "Bảo hành chất liệu" dưới đây, hãy xử lý v
     - Yêu cầu người dùng đánh giá hài lòng/không hài lòng. Nếu không hài lòng hãy mời điều phối viên @Omni. CX. Trần Văn Nhớ, (id:158344261).
 Nếu có thêm vấn đề hoặc cần hỗ trợ, đừng ngần ngại hỏi thêm hoặc liên hệ với điều phối viên @Omni. CX. Trần Văn Nhớ, (id:158344261).
 
-### Lưu ý: Câu trả lời của bạn phải có 2 phần là đoạn text của câu trả lời và JSON tag gồm các trường 'status', 'mention'
+### Lưu ý: Câu trả lời của bạn phải có 2 phần là đoạn text của câu trả lời và JSON tag gồm trường 'mention'
 - Trường mention có giá trị là LIST của các JSON gồm trường "pic_gapo_name" là tên người cần được mention, "pic_gapo_id" là id của người cần được mention.
-- Giá trị "status" có thể là:
-    - "oos" cho trường hợp không thể hỗ trợ vấn đề hoặc out of scope. Mention @Omni. CX. Trần Văn Nhớ (id:158344261) để hỗ trợ.
-    - "clarified" cho trường hợp đã làm rõ vấn đề. Mention người có thẩm quyền để tiếp tục xử lý.
-    - "clarifying" cho trường hợp đang làm rõ vấn đề. KHÔNG mention
-
 
 ### Answer format sample 1:
 Đã nhận thông tin, nhờ @... hỗ trợ em vấn đề này với ạ 
 ```json 
-{{  'status': 'clarified',
-    mention:[
+{{ mention:[
     {{
         'pic_gapo_name': '@Omni. CX. Call Center. Nguyễn Thị Tuyết Ngân',  
         'pic_gapo_id':1438802832}},
@@ -166,8 +154,7 @@ Nếu có thêm vấn đề hoặc cần hỗ trợ, đừng ngần ngại hỏi
 ### Answer format sample 2:
 Không thể hỗ trợ vấn đề này, vui lòng liên hệ @Omni. CX. Trần Văn Nhớ để được hỗ trợ 
 ```json
-    {{'status': 'oos', 
-    mention:[{{
+    {{mention:[{{
         'pic_gapo_name': '@Omni. CX. Trần Văn Nhớ',
         'pic_gapo_id':158344261}}]
     }}
@@ -194,18 +181,14 @@ Dựa vào quy trình "Bảo hành sửa chữa" dưới đây, hãy xử lý v�
     - Yêu cầu người dùng đánh giá hài lòng/không hài lòng. Nếu không hài lòng hãy mời điều phối viên @Omni. CX. Trần Văn Nhớ, (id:158344261).
 Nếu có thêm vấn đề hoặc cần hỗ trợ, đừng ngần ngại hỏi thêm hoặc liên hệ với điều phối viên @Omni. CX. Trần Văn Nhớ, (id:158344261).
 
-### Lưu ý: Câu trả lời của bạn phải có 2 phần là đoạn text của câu trả lời và JSON gồm các trường 'status', 'mention'
+### Lưu ý: Câu trả lời của bạn phải có 2 phần là đoạn text của câu trả lời và JSON gồm trường 'mention'
 - Trường mention có giá trị là LIST của các JSON gồm trường "pic_gapo_name" là tên người cần được mention, "pic_gapo_id" là id của người cần được mention.
-- Giá trị "status" có thể là:
-    - "oos" cho trường hợp không thể hỗ trợ vấn đề hoặc out of scope. Mention @Omni. CX. Trần Văn Nhớ (id:158344261) để hỗ trợ.
-    - "clarified" cho trường hợp đã làm rõ vấn đề. Mention người có thẩm quyền để tiếp tục xử lý.
-    - "clarifying" cho trường hợp đang làm rõ vấn đề. KHÔNG mention
+
 
 ### Answer format sample 1:
 Đã nhận thông tin, nhờ @QLCLSP Phạm Thị Thoan hỗ trợ em vấn đề này với ạ 
 ```json
 {{
-    'status': 'clarified', 
     mention:[
     {{
         'pic_gapo_name': '@QLCLSP Phạm Thị Thoan',  
@@ -217,13 +200,12 @@ Nếu có thêm vấn đề hoặc cần hỗ trợ, đừng ngần ngại hỏi
 ### Answer format sample 2:
 Không thể hỗ trợ vấn đề này, vui lòng liên hệ @Omni. CX. Trần Văn Nhớ để được hỗ trợ 
 ```json
-{{'status': 'oos', mention:[{{'pic_gapo_name': '@Omni. CX. Trần Văn Nhớ', 'pic_gapo_id':158344261}}]}}
+{{mention:[{{'pic_gapo_name': '@Omni. CX. Trần Văn Nhớ', 'pic_gapo_id':158344261}}]}}
 ```
 ### Answer format sample 3:
 Nhờ anh/chị cũng cấp thêm thông tin về vấn đề này với ạ 
 
 """
-
     },
     "store_operation": {
         "name": "store_operation",
@@ -255,22 +237,18 @@ Dựa vào quy trình "Vận hành cửa hàng (HD điện, chính quyền...
     - Yêu cầu người dùng đánh giá hài lòng/không hài lòng. Nếu không hài lòng hãy mời điều phối viên @Omni. CX. Trần Văn Nhớ, (id:158344261).
 Nếu có thêm vấn đề hoặc cần hỗ trợ, đừng ngần ngại hỏi thêm hoặc liên hệ với điều phối viên @Omni. CX. Trần Văn Nhớ, (id:158344261).
 
-### Lưu ý: Câu trả lời của bạn phải có 2 phần là đoạn text của câu trả lời và JSON tag gồm các trường 'status', 'mention'
+### Lưu ý: Câu trả lời của bạn phải có 2 phần là đoạn text của câu trả lời và JSON tag gồm trường 'mention'
 - Trường mention có giá trị là LIST của các JSON gồm trường "pic_gapo_name" là tên người cần được mention, "pic_gapo_id" là id của người cần được mention.
-- Giá trị "status" có thể là:
-    - "oos" cho trường hợp không thể hỗ trợ vấn đề hoặc out of scope. Mention @Omni. CX. Trần Văn Nhớ (id:158344261) để hỗ trợ.
-    - "clarified" cho trường hợp đã làm rõ vấn đề. Mention người có thẩm quyền để tiếp tục xử lý.
-    - "clarifying" cho trường hợp đang làm rõ vấn đề. KHÔNG mention
 
 ### Answer format sample 1:
 Đã nhận thông tin mất điện tại cửa hàng, nhờ @XDBT. Bùi Quang Hưng hỗ trợ em vấn đề này với ạ 
 ```json
-{{'status': 'clarified', mention:[{{'pic_gapo_name': '@XDBT. Bùi Quang Hưng',  'pic_gapo_id':711490584}}]}}
+{{mention:[{{'pic_gapo_name': '@XDBT. Bùi Quang Hưng',  'pic_gapo_id':711490584}}]}}
 ```
 ### Answer format sample 2:
 Không thể hỗ trợ vấn đề này, vui lòng liên hệ @Omni. CX. Trần Văn Nhớ để được hỗ trợ 
 ```json
-{{'status': 'out of scope', mention:[{{'pic_gapo_name': '@Omni. CX. Trần Văn Nhớ', 'pic_gapo_id':158344261}}]}}
+{{mention:[{{'pic_gapo_name': '@Omni. CX. Trần Văn Nhớ', 'pic_gapo_id':158344261}}]}}
 ```
 ### Answer format sample 3:
 Nhờ anh/chị cũng cấp thêm thông tin về vấn đề này với ạ 
@@ -317,17 +295,13 @@ Quy trình xử lý vấn đề "Hỗ trợ hành chính nhân sự" cho công t
     - Yêu cầu người dùng đánh giá hài lòng/không hài lòng. Nếu không hài lòng hãy mời điều phối viên @Omni. CX. Trần Văn Nhớ, (id:158344261).
 Nếu có thêm vấn đề hoặc cần hỗ trợ, đừng ngần ngại hỏi thêm hoặc liên hệ với điều phối viên @Omni. CX. Trần Văn Nhớ, (id:158344261).
 
-### Lưu ý: Câu trả lời của bạn phải có 2 phần là đoạn text của câu trả lời và JSON tag gồm các trường 'status', 'pic_gapo_name' , 'pic_gapo_id'
-- Trường "pic_gapo_name" là tên người cần được mention, "pic_gapo_id" là id của người cần được mention.
-- Giá trị "status" có thể là:
-    - "oos" cho trường hợp không thể hỗ trợ vấn đề hoặc out of scope. Mention @Omni. CX. Trần Văn Nhớ (id:158344261) để hỗ trợ.
-    - "clarified" cho trường hợp đã làm rõ vấn đề. Mention người có thẩm quyền để tiếp tục xử lý.
-    - "clarifying" cho trường hợp đang làm rõ vấn đề. KHÔNG mention
+### Lưu ý: Câu trả lời của bạn phải có 2 phần là đoạn text của câu trả lời và JSON chỉ có trường'mention'
+- Trường mention có giá trị là LIST của các JSON gồm trường "pic_gapo_name" là tên người cần được mention, "pic_gapo_id" là id của người cần được mention.
 
 ### Answer format sample 1:
 Đã nhận thông tin thắc mắc về lương tại Khối văn phòng, nhờ @NSHP. Vũ Thị Hằng hỗ trợ em vấn đề này với ạ 
 ```json
-    {{'status': 'clarified', 
+    {{
     mention:[{{
         'pic_gapo_name': '@NSHP. Vũ Thị Hằng', 
         'pic_gapo_id':1945056098}}]
@@ -337,7 +311,7 @@ Nếu có thêm vấn đề hoặc cần hỗ trợ, đừng ngần ngại hỏi
 ### Answer format sample 2:
 Không thể hỗ trợ vấn đề này, vui lòng liên hệ @Omni. CX. Trần Văn Nhớ để được hỗ trợ 
 ```json
-    {{'status': 'oos', 
+    {{
     mention:[{{
         'pic_gapo_name': '@Omni. CX. Trần Văn Nhớ',
         'pic_gapo_id':158344261}}]
@@ -374,18 +348,14 @@ Dựa vào quy trình "Chương trình khuyến mãi cho Partnership" dưới đ
     - Yêu cầu người dùng đánh giá hài lòng/không hài lòng. Nếu không hài lòng hãy mời điều phối viên @Omni. CX. Trần Văn Nhớ, (id:158344261).
 Nếu có thêm vấn đề hoặc cần hỗ trợ, đừng ngần ngại hỏi thêm hoặc liên hệ với điều phối viên @Omni. CX. Trần Văn Nhớ, (id:158344261).
 
-### Lưu ý: Câu trả lời của bạn phải có 2 phần là đoạn text của câu trả lời và JSON gồm các trường 'status', 'mention'
+### Lưu ý: Câu trả lời của bạn phải có 2 phần là đoạn text của câu trả lời và JSON chỉ có trường'mention'
 - Trường mention có giá trị là LIST của các JSON gồm trường "pic_gapo_name" là tên người cần được mention, "pic_gapo_id" là id của người cần được mention.
-- Giá trị "status" có thể là:
-    - "oos" cho trường hợp không thể hỗ trợ vấn đề hoặc out of scope. Mention @Omni. CX. Trần Văn Nhớ (id:158344261) để hỗ trợ.
-    - "clarified" cho trường hợp đã làm rõ vấn đề. Mention người có thẩm quyền để tiếp tục xử lý.
-    - "clarifying" cho trường hợp đang làm rõ vấn đề. KHÔNG mention
+
 
 ### Answer format sample 1:
 Đã nhận thông tin, nhờ @Omni. PNS. Đoàn Thị Thu Hoài, @Omni. PNS. Trang Huỳnh hỗ trợ em vấn đề này với ạ 
 ```json
 {{
-    'status': 'clarified',
     mention:[
     {{
         'pic_gapo_name': '@Omni. PNS. Đoàn Thị Thu Hoài',
@@ -399,7 +369,7 @@ Nếu có thêm vấn đề hoặc cần hỗ trợ, đừng ngần ngại hỏi
 ### Answer format sample 2:
 Không thể hỗ trợ vấn đề này, vui lòng liên hệ @Omni. CX. Trần Văn Nhớ để được hỗ trợ 
 ```json
-    {{'status': 'oos', 
+    {{
     mention:[{{
         'pic_gapo_name': '@Omni. CX. Trần Văn Nhớ',
         'pic_gapo_id':158344261}}]
@@ -495,17 +465,13 @@ Không thể hỗ trợ vấn đề này, vui lòng liên hệ @Omni. CX. Trần
         Trong trường hợp bạn không có thông tin để hỗ trợ hãy mời anh <@Omni. CX. Trần Văn Nhớ (id: 158344261)> vào hỗ trợ trực tiếp, 
         chỉ khi nào bạn nhận được thông tin nhưng không thể giải quyết vấn đề thì mới chuyển vấn đề cho anh ấy.
 
-        ### Lưu ý: Câu trả lời của bạn phải có 2 phần là đoạn text của câu trả lời và JSON tag gồm các trường 'status', 'mention'
+        ### Lưu ý: Câu trả lời của bạn phải có 2 phần là đoạn text của câu trả lời và JSON chỉ có trường'mention'
         - Trường mention có giá trị là LIST của các JSON gồm trường "pic_gapo_name" là tên người cần được mention, "pic_gapo_id" là id của người cần được mention.
-        - Giá trị "status" có thể là:
-            - "oos" cho trường hợp không thể hỗ trợ vấn đề hoặc out of scope. Mention @Omni. CX. Trần Văn Nhớ (id:158344261) để hỗ trợ.
-            - "clarified" cho trường hợp đã làm rõ vấn đề. Mention người có thẩm quyền để tiếp tục xử lý.
-            - "clarifying" cho trường hợp đang làm rõ vấn đề. KHÔNG mention
 
         ### Answer format sample:
 Không thể hỗ trợ vấn đề này, vui lòng liên hệ @Omni. CX. Trần Văn Nhớ để được hỗ trợ 
 ```json
-    {{'status': 'oos', 
+    {{
     mention:[{{
         'pic_gapo_name': '@Omni. CX. Trần Văn Nhớ',
         'pic_gapo_id':158344261}}]
@@ -525,17 +491,13 @@ Không thể hỗ trợ vấn đề này, vui lòng liên hệ @Omni. CX. Trần
         User hỏi về những vấn đề không liên quan đến công việc hoặc vấn đề cá nhân hoặc các thông tin chung khác. \
         Hãy trả lời user một cách lịch sự và chuyên nghiệp nếu bạn có thể biết, tuyệt đổi không nên trả lời nếu câu trả lời của bạn không chắc chắn.
 
-        ### Lưu ý: Câu trả lời của bạn phải có 2 phần là đoạn text của câu trả lời và JSON tag gồm các trường 'status', 'mention'
+        ### Lưu ý: Câu trả lời của bạn phải có 2 phần là đoạn text của câu trả lời và JSON chỉ có trường'mention'
         - Trường mention có giá trị là LIST của các JSON gồm trường "pic_gapo_name" là tên người cần được mention, "pic_gapo_id" là id của người cần được mention.
-        - Giá trị "status" có thể là:
-            - "oos" cho trường hợp không thể hỗ trợ vấn đề hoặc out of scope. Mention @Omni. CX. Trần Văn Nhớ (id:158344261) để hỗ trợ.
-            - "clarified" cho trường hợp đã làm rõ vấn đề. Mention người có thẩm quyền để tiếp tục xử lý.
-            - "clarifying" cho trường hợp đang làm rõ vấn đề. KHÔNG mention
         
         ### Answer format sample:
 Không thể hỗ trợ vấn đề này, vui lòng liên hệ @Omni. CX. Trần Văn Nhớ để được hỗ trợ 
 ```json
-    {{'status': 'oos', 
+    {{ 
     mention:[{{
         'pic_gapo_name': '@Omni. CX. Trần Văn Nhớ',
         'pic_gapo_id':158344261}}]

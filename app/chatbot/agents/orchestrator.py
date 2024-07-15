@@ -4,7 +4,6 @@ from langchain_core.messages import BaseMessage
 from datetime import datetime
 from langchain_openai import ChatOpenAI
 from typing import List, Dict
-from dotenv import load_dotenv, find_dotenv
 
 from app.common.config import logger
 from app.messages.base import CBaseMessage
@@ -90,6 +89,8 @@ system_prompt = """
     vấn đề kỹ thuật, vấn đề về sản phẩm, vấn đề về dịch vụ, vấn đề về quy trình, vấn đề về chính sách, vận hành cửa hàng, bán hàng online v.v
     Nhiệm vụ của bạn là dựa vào yêu cầu của user và cuộc trò chuyện trước đó để chọn ra một tool phù hợp để giúp user giải quyết vấn đề.
     Bạn có thể hỏi thêm thông tin nếu cần thiết và chuyển user đến tool phù hợp để giải quyết vấn đề.
+    Hãy cố gắng hiểu yêu cầu của user và chọn một tool phù hợp để giúp user giải quyết vấn đề.
+    ### Lưu ý chỉ được chọn một tool để giải quyết vấn đề của user.
     """
 
 def generate_answer(user_message: CBaseMessage, 
