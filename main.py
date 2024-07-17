@@ -19,7 +19,7 @@ def health_check():
     return JSONResponse(content={"status": "ok"})
 
 @app.get("/logs")
-def get_logs(n_lines: int = -1):
+async def get_logs(n_lines: int = -1):
     try:
         if os.environ.get("ENV") == "dev":
             log_file_path = os.environ.get("DEV_LOG_FILE_PATH", "./logs/dev_data.log")

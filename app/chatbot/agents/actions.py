@@ -311,14 +311,15 @@ def check_user_satisfaction(user_query: str, chat_history: List[BaseMessage], ll
         bool: The user satisfaction. True if user is satisfied, False otherwise
     """
 
-    system_prompt = """ Bạn là một trợ lý quan sát, dựa vào cuộc trò chuyện giữa bạn và user, 
+    system_prompt = """ Bạn là một trợ lý quan sát, dựa vào cuộc trò chuyện giữa Opsbot và user, 
     hãy đánh giá liệu user có hài lòng với câu trả lời của bạn không. 
-    Trả lời `YES` nếu user hài lòng hoặc đang trong quá trình trao đổi thông tin với bạn.
-    Trả lời `NO` với các trường hợp sau:
-        - User KHÔNG hài lòng với câu trả lời của bạn
+    Đây là đánh giá chất lượng của bot và sự hài lòng của user (nhân viên chăm sóc khách hàng), KHÔNG phải là đánh giá sự hài lòng của khách hàng hoặc sản phẩm.
+    Chỉ trả lời `NO` với các trường hợp sau:
+        - User KHÔNG hài lòng với câu trả lời của Opsbot
         - Bạn điều hướng user đến một tool hoặc người phụ trách KHÔNG phù hợp
         - User KHÔNG hài lòng với kết quả từ tool
     
+    Còn lại là `YES`
     ### LƯU Ý: Câu trả lời của bạn chỉ là `YES` hoặc `NO`.
     """
     satisfaction_prompt = ChatPromptTemplate.from_messages(

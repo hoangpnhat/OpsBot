@@ -3,7 +3,7 @@ import sys
 from langchain_core.messages import BaseMessage
 from datetime import datetime
 from langchain_openai import ChatOpenAI
-from typing import List, Dict
+from typing import List, Dict, Tuple
 
 from app.common.config import logger
 from app.messages.base import CBaseMessage
@@ -89,13 +89,15 @@ system_prompt = """
     vấn đề kỹ thuật, vấn đề về sản phẩm, vấn đề về dịch vụ, vấn đề về quy trình, vấn đề về chính sách, vận hành cửa hàng, bán hàng online v.v
     Nhiệm vụ của bạn là dựa vào yêu cầu của user và cuộc trò chuyện trước đó để chọn ra một tool phù hợp để giúp user giải quyết vấn đề.
     Bạn có thể hỏi thêm thông tin nếu cần thiết và chuyển user đến tool phù hợp để giải quyết vấn đề.
-    Hãy cố gắng hiểu yêu cầu của user và chọn một tool phù hợp để giúp user giải quyết vấn đề.
-    ### Lưu ý chỉ được chọn một tool để giải quyết vấn đề của user.
+    
+    ### Lưu ý:
+    - Hãy dựa vào cuộc trò chuyện và cố gắng hiểu yêu cầu của user và chọn một tool phù hợp để giúp user giải quyết vấn đề.
+    - Chỉ được chọn một tool (hàm) phù hợp nhất để giải quyết vấn đề của user.
     """
 
 def generate_answer(user_message: CBaseMessage, 
                     chat_history: List[BaseMessage], 
-                    chat_history_wt_image: List[BaseMessage]) -> str:
+                    chat_history_wt_image: List[BaseMessage]) -> Tuple[str, Dict, str, str]:
     """
     This function takes a user message and chat history and returns an answer.
 
@@ -113,7 +115,8 @@ def generate_answer(user_message: CBaseMessage,
     cached_response = cache.get_cache_from_message(user_message)
     lastest_cache = cached_response[-1] if len(cached_response) > 0 else {}
     is_user_satisfied = check_user_satisfaction(user_message.text, chat_history_wt_image, llm_observation)
-    last_used_tool_name = lastest_cache.get('selected_tool', {}).get('name', "unclear_issue")
+    last_used_tool = lastest_cache.get('selected_tool', None)
+    last_used_tool_name = last_used_tool.get('name', "unclear_issue") if last_used_tool else "unclear_issue"
 
     contextualized_query = None
     # If the user is satisfied with the last response and the last function is not unclear_issue or chitchat, use cache
@@ -128,15 +131,20 @@ def generate_answer(user_message: CBaseMessage,
         contextualized_query = contextualize_query(llm_contextualization, user_message.text, chat_history_wt_image)
         # Pick a tools for the user using senmantic route
         tool_names = choose_appropriate_tools(contextualized_query)
+        logger.debug(f"Re-route tools: {tool_names}")
     
+    # split tools into external tools and redirect tools
+    if last_used_tool_name not in(tool_names) and last_used_tool_name not in ('unclear_issue', "chitchat"):
+        tool_names = [last_used_tool_name] + tool_names
+
+    logger.debug(f"Last used tool: {last_used_tool_name}")
     logger.debug(f"Tool names: {tool_names}")
     logger.debug(f"Contextualized query: {contextualized_query}")
-    # split tools into external tools and redirect tools
+
     external_tools = load_external_tools(tool_names, external_tool_info)
     redirect_tools = create_redirect_tools(tool_names, tool_info)
     # combine external tools and redirect tools and feed to llm to pick the best tool
     appropriate_tools = external_tools + redirect_tools
-
 
     # Tools selected by llm
     contextualized_query = contextualized_query if contextualized_query else user_message.text
@@ -177,6 +185,10 @@ def generate_answer(user_message: CBaseMessage,
                                     contextualized_query=contextualized_query,
                                     chat_history=chat_history)
     
+    # get issue_id
+    issue_name = selected_tools[0].get('name')
+    if issue_name:
+        issue_id = external_tool_info.get(issue_name, {}).get('id') or tool_info.get(issue_name, {}).get('id')
     answer, mentions = extract_and_remove_dict_from_string(answer)
-    return answer, mentions
+    return answer, mentions, issue_id, issue_name
     
