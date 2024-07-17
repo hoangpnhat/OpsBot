@@ -41,7 +41,17 @@ material_warranty = Route(
         "vải bị dãn",
         "áo bị dãn",
         "vải kém chất lượng",
-        "áo kém chất lượng"
+        "áo kém chất lượng",
+        "vải bị xù lông",
+        "da bị bong tróc",
+        "vải bị xù lông và muốn đổi sản phẩm khác",
+        "chất vải kém chất lượng và muốn đổi trả",
+        "khách bảo vải bạn dãn và xù lông, kém chất lượng, muốn đổi trả",
+        "áo bị bay màu và muốn đổi trả",
+        "áo bị bay màu sau khi giặt và muốn đổi",
+        "sản phẩm bị bay màu và muốn đổi sản phẩm khác",
+        "sản phẩm bị bạc màu và muốn đổi trả",
+        "áo bị bay màu sau khi giặt và muốn đổi"
     ]
 )
 
