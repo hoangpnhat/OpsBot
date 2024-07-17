@@ -63,7 +63,7 @@ Số điện thoại cũ: 0123456789 / địa chỉ cũ: 123 ABC / email cũ: te
 Số điện thoại mới: 0987654321 /địa chỉ mới: 234 XYZ / email mới: testing_one@yody.vn / nghề nghiệp mới: giáo viên
 nhờ @Omni. CX. Call Center. Nguyễn Thị Tuyết Ngân và @Omni.CX.Call Center.Võ Ngọc Huyền Trang hỗ trợ em vấn đề này với ạ
 ```json 
-{{  mention:[
+{{  'mention':[
     {{
         'pic_gapo_name': '@Omni. CX. Call Center. Nguyễn Thị Tuyết Ngân',  
         'pic_gapo_id':1438802832}},
@@ -76,7 +76,7 @@ nhờ @Omni. CX. Call Center. Nguyễn Thị Tuyết Ngân và @Omni.CX.Call Cen
 ### Answer format sample 2:
 Không thể hỗ trợ vấn đề này, vui lòng liên hệ @Omni. CX. Trần Văn Nhớ để được hỗ trợ 
 ```json
-    mention:[{{
+    'mention':[{{
         'pic_gapo_name': '@Omni. CX. Trần Văn Nhớ',
         'pic_gapo_id':158344261}}]
     }}
@@ -142,7 +142,7 @@ Thông tin những người liên quan
 ### Answer format sample 1:
 Đã nhận thông tin, nhờ @... hỗ trợ em vấn đề này với ạ 
 ```json 
-{{ mention:[
+{{ 'mention':[
     {{
         'pic_gapo_name': '@Omni. CX. Call Center. Nguyễn Thị Tuyết Ngân',  
         'pic_gapo_id':1438802832}},
@@ -155,7 +155,7 @@ Thông tin những người liên quan
 ### Answer format sample 2:
 Không thể hỗ trợ vấn đề này, vui lòng liên hệ @Omni. CX. Trần Văn Nhớ để được hỗ trợ 
 ```json
-    {{mention:[{{
+    {{'mention':[{{
         'pic_gapo_name': '@Omni. CX. Trần Văn Nhớ',
         'pic_gapo_id':158344261}}]
     }}
@@ -196,7 +196,7 @@ Dựa vào quy trình `Bảo hành sửa chữa` dưới đây, hãy xử lý v�
 ### Answer format sample 1:
 Đã nhận thông tin, nhờ QLCLSP.Nguyễn Phương Thảo hỗ trợ em vấn đề này với ạ 
 ```json
-{{mention:[
+{{'mention':[
     {{
         'pic_gapo_name': 'QLCLSP.Nguyễn Phương Thảo',  
         'pic_gapo_id':874542877
@@ -207,7 +207,7 @@ Dựa vào quy trình `Bảo hành sửa chữa` dưới đây, hãy xử lý v�
 ### Answer format sample 2:
 Không thể hỗ trợ vấn đề này, vui lòng liên hệ @Omni. CX. Trần Văn Nhớ để được hỗ trợ 
 ```json
-{{mention:[{{'pic_gapo_name': '@Omni. CX. Trần Văn Nhớ', 'pic_gapo_id':158344261}}]}}
+{{'mention':[{{'pic_gapo_name': '@Omni. CX. Trần Văn Nhớ', 'pic_gapo_id':158344261}}]}}
 ```
 ### Answer format sample 3:
 Nhờ anh/chị cũng cấp thêm thông tin về vấn đề này với ạ 
@@ -250,12 +250,12 @@ Nếu có thêm vấn đề hoặc cần hỗ trợ, đừng ngần ngại hỏi
 ### Answer format sample 1:
 Đã nhận thông tin mất điện tại cửa hàng, nhờ @XDBT. Bùi Quang Hưng hỗ trợ em vấn đề này với ạ 
 ```json
-{{mention:[{{'pic_gapo_name': '@XDBT. Bùi Quang Hưng',  'pic_gapo_id':711490584}}]}}
+{{'mention':[{{'pic_gapo_name': '@XDBT. Bùi Quang Hưng',  'pic_gapo_id':711490584}}]}}
 ```
 ### Answer format sample 2:
 Không thể hỗ trợ vấn đề này, vui lòng liên hệ @Omni. CX. Trần Văn Nhớ để được hỗ trợ 
 ```json
-{{mention:[{{'pic_gapo_name': '@Omni. CX. Trần Văn Nhớ', 'pic_gapo_id':158344261}}]}}
+{{'mention':[{{'pic_gapo_name': '@Omni. CX. Trần Văn Nhớ', 'pic_gapo_id':158344261}}]}}
 ```
 ### Answer format sample 3:
 Nhờ anh/chị cũng cấp thêm thông tin về vấn đề này với ạ 
@@ -309,7 +309,7 @@ Nếu có thêm vấn đề hoặc cần hỗ trợ, đừng ngần ngại hỏi
 Đã nhận thông tin thắc mắc về lương tại Khối văn phòng, nhờ @NSHP. Vũ Thị Hằng hỗ trợ em vấn đề này với ạ 
 ```json
     {{
-    mention:[{{
+    'mention':[{{
         'pic_gapo_name': '@NSHP. Vũ Thị Hằng', 
         'pic_gapo_id':1945056098}}]
     }}
@@ -319,7 +319,7 @@ Nếu có thêm vấn đề hoặc cần hỗ trợ, đừng ngần ngại hỏi
 Không thể hỗ trợ vấn đề này, vui lòng liên hệ @Omni. CX. Trần Văn Nhớ để được hỗ trợ 
 ```json
     {{
-    mention:[{{
+    'mention':[{{
         'pic_gapo_name': '@Omni. CX. Trần Văn Nhớ',
         'pic_gapo_id':158344261}}]
     }}
@@ -363,7 +363,7 @@ Nếu có thêm vấn đề hoặc cần hỗ trợ, đừng ngần ngại hỏi
 Đã nhận thông tin, nhờ @Omni. PNS. Đoàn Thị Thu Hoài, @Omni. PNS. Trang Huỳnh hỗ trợ em vấn đề này với ạ 
 ```json
 {{
-    mention:[
+    'mention':[
     {{
         'pic_gapo_name': '@Omni. PNS. Đoàn Thị Thu Hoài',
         'pic_gapo_id':1219776551}},
@@ -377,7 +377,7 @@ Nếu có thêm vấn đề hoặc cần hỗ trợ, đừng ngần ngại hỏi
 Không thể hỗ trợ vấn đề này, vui lòng liên hệ @Omni. CX. Trần Văn Nhớ để được hỗ trợ 
 ```json
     {{
-    mention:[{{
+    'mention':[{{
         'pic_gapo_name': '@Omni. CX. Trần Văn Nhớ',
         'pic_gapo_id':158344261}}]
     }}
@@ -415,7 +415,7 @@ Nếu có thêm vấn đề hoặc cần hỗ trợ, đừng ngần ngại hỏi
 Đã nhận thông tin, nhờ @Trade MKT. Kim Thị Hồng Ngọc, @Trade MKT. Phan Kim Yến hỗ trợ em vấn đề này với ạ 
 ```json
 {{ 
-    mention:[
+    'mention':[
     {{
         'pic_gapo_name': '@Trade MKT. Kim Thị Hồng Ngọc',  
         'pic_gapo_id':1742663916
@@ -429,7 +429,7 @@ Nếu có thêm vấn đề hoặc cần hỗ trợ, đừng ngần ngại hỏi
 ### Answer format sample 2:
 Không thể hỗ trợ vấn đề này, vui lòng liên hệ @Omni. CX. Trần Văn Nhớ để được hỗ trợ 
 ```json
-    {{mention:[{{
+    {{'mention':[{{
         'pic_gapo_name': '@Omni. CX. Trần Văn Nhớ',
         'pic_gapo_id':158344261}}]
     }}
@@ -474,7 +474,7 @@ Không thể hỗ trợ vấn đề này, vui lòng liên hệ @Omni. CX. Trần
 Không thể hỗ trợ vấn đề này, vui lòng liên hệ @Omni. CX. Trần Văn Nhớ để được hỗ trợ 
 ```json
     {{
-    mention:[{{
+    'mention':[{{
         'pic_gapo_name': '@Omni. CX. Trần Văn Nhớ',
         'pic_gapo_id':158344261}}]
     }}
@@ -500,7 +500,7 @@ Không thể hỗ trợ vấn đề này, vui lòng liên hệ @Omni. CX. Trần
 Không thể hỗ trợ vấn đề này, vui lòng liên hệ @Omni. CX. Trần Văn Nhớ để được hỗ trợ 
 ```json
     {{ 
-    mention:[{{
+    'mention':[{{
         'pic_gapo_name': '@Omni. CX. Trần Văn Nhớ',
         'pic_gapo_id':158344261}}]
     }}

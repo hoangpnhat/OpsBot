@@ -91,6 +91,9 @@ async def handle_webhook(
     answer, json_object, issue_id, issue_name = generate_answer(message, chat_history, chat_history_wt_image)
     mentions = get_mentions(json_object)
 
+    if len(mentions) == 0:
+        mentions, answer = extract_mention_in_text(answer)
+
     session_id = send_response(message, answer, mentions, message_sender, survey, background_tasks)
 
     langfuse_context.update_current_trace(
@@ -136,6 +139,21 @@ def get_mentions(json_object):
         }
         for user in json_object.get('mention', [])
     ]
+
+
+def extract_mention_in_text(answer):
+    import re
+    mentions = []
+    pattern = r'<@([^(]+)\s*\(id:(\d+)\)>'
+    matches = re.findall(pattern, answer)
+
+    for name, id in matches: 
+        mentions.append({
+            "pic_gapo_name": name.strip(),
+            "pic_gapo_id": id
+        })
+        answer = answer.replace(f'<@{name} (id:{id})>', f'@{name}')
+    return mentions, answer
 
 def send_response(message, answer, mentions, message_sender, survey, background_tasks: BackgroundTasks):
     if isinstance(message, DirectMessage):
