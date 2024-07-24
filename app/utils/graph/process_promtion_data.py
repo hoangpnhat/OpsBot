@@ -59,7 +59,7 @@ def process_promotion_data(folder_save_path:str,path_file:str, sheet_name:str):
     df.columns = df.columns.str.strip()
 
     #Strip all values in dataframe
-    df = df.applymap(lambda x: x.strip() if isinstance(x, str) else x)
+    df = df.apply(lambda x: x.strip() if isinstance(x, str) else x)
 
     # Capitalize all values in the 'Name' column
     df['Name'] = df['Name'].str.upper()
@@ -68,7 +68,12 @@ def process_promotion_data(folder_save_path:str,path_file:str, sheet_name:str):
     df[['Minimum deposit', 'Minimum products per invoice','Minimum invoice']] = df[['Minimum deposit', 'Minimum products per invoice',
                                                                                            'Minimum invoice']].fillna(value=0)
     df[['VIP', 'Birthday']] = df[['VIP', 'Birthday']].fillna(value=False)
+    
+    # Disable silent downcasting
+    pd.set_option('future.no_silent_downcasting', True)
+    # Convert boolean columns to boolean
     df[['VIP', 'Birthday']] = df[['VIP', 'Birthday']].replace(1.0,True)
+
 
     #Set type of column
     df['Minimum deposit'] = df['Minimum deposit'].astype(int)
@@ -76,12 +81,12 @@ def process_promotion_data(folder_save_path:str,path_file:str, sheet_name:str):
     df['Minimum invoice'] = df['Minimum invoice'].astype(int)
 
     # Convert columns to datetime
-    df['Start date'] = pd.to_datetime(df['Start date'])
-    df['End date'] = pd.to_datetime(df['End date'])
+    df['Start date'] = pd.to_datetime(df['Start date'], dayfirst=True)
+    df['End date'] = pd.to_datetime(df['End date'], dayfirst=True)
 
     # Format the dates
-    df['Start date'] = df['Start date'].dt.strftime('%d-%m-%Y')
-    df['End date'] = df['End date'].dt.strftime('%d-%m-%Y')
+    # df['Start date'] = df['Start date'].dt.strftime('%d-%m-%Y')
+    # df['End date'] = df['End date'].dt.strftime('%d-%m-%Y')
 
     #Concatenate product info
     df['paragraph'] = df.apply(concatenate_promotion_info, axis=1)
@@ -138,7 +143,7 @@ def process_voucher_info(folder_save_path:str,path_file:str,sheet_name:str):
     df.columns = df.columns.str.strip()
 
     #Strip all values in dataframe
-    df = df.applymap(lambda x: x.strip() if isinstance(x, str) else x)
+    df = df.apply(lambda x: x.strip() if isinstance(x, str) else x)
 
     # Convert columns to datetime
     df['Start date'] = pd.to_datetime(df['Start date'])

@@ -21,6 +21,12 @@ def get_graph_store():
         password=os.getenv("NEO4J_PASSWORD"),
         url=os.getenv("NEO4J_URL"),
     )
+    # print(os.getenv("NEO4J_URL"))
+    # return Neo4jPropertyGraphStore(
+    #     username="neo4j",
+    #     password="Q9XbcdaBhQqGXSn",
+    #     url="bolt://34.142.247.255:7687",
+    # )
 
 def embed_documents(documents_path, entities, relations, validation_schema, graph_store):
     api_key = os.getenv("OPENAI_API_KEY")
