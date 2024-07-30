@@ -110,7 +110,7 @@ adminitration = Route(
         "không thể đăng nhập Unicorn",
         "Không thể chấm công",
         "Cấp quyền xem báo cáo, tài liệu",
-        "Hỗ trợ vấn đề liên quan đến đánh giá năng lực chuyên môn"
+        "Hỗ trợ vấn đề liên quan đến đánh giá năng lực chuyên môn",
         "Cấp đồng phục nhân viên mới",
         "Cấp lại thẻ nhân viên",
         "cấp thẻ nv mới",

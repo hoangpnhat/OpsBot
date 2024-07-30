@@ -1,50 +1,61 @@
-
 import os
-import sys
-from semantic_router.encoders import OpenAIEncoder
-from semantic_router.layer import RouteLayer
-from semantic_router import Route
-from semantic_router.encoders import BM25Encoder, TfidfEncoder
-from semantic_router.hybrid_layer import HybridRouteLayer
 from typing import List, TypeVar
-from app.chatbot.query_router.routes import routes
-from app.common.config import cfg
+from semantic_router import Route
+from semantic_router.encoders import OpenAIEncoder, BM25Encoder, TfidfEncoder
+from semantic_router.layer import RouteLayer
+from semantic_router.hybrid_layer import HybridRouteLayer
 
+from app.chatbot.query_router.route import CRUDRoute
 
 RouteChoice = TypeVar('RouteChoice')
 
-
 class Router:
     _instance = None
-
+    
     def __new__(cls, *args, **kwargs):
         if cls._instance is None:
             cls._instance = super(Router, cls).__new__(cls)
+            cls._instance.initialized = False
         return cls._instance
 
-    def __init__(self, routes: List[Route]=routes, 
-                top_k: int=cfg.top_k, 
-                using_hybrid: bool=False, 
-                sparse_encoder_name=None):
-        if not hasattr(self, 'initialized'): # Prevent re-initialization
-            self.initialized = True
-            self.encoder = OpenAIEncoder() # default is text-embedding-ada-002
-            
-            if using_hybrid:
-                if sparse_encoder_name == "BM25":
-                    self.sparse_encoder = BM25Encoder()
-                else:
-                    self.sparse_encoder = TfidfEncoder()
+    def __init__(cls, *args, **kwargs):
+        top_k = kwargs.get("top_k", 3)
+        if not cls.initialized:
+            cls.initialize(top_k=top_k)
 
-                self.rl = HybridRouteLayer(
-                    encoder=self.encoder, sparse_encoder=self.sparse_encoder, routes=routes
-                )
-            else:
-                self.rl = RouteLayer(encoder=self.encoder, routes=routes)
-            
-            self.rl.top_k = top_k
+    def initialize(cls, routes: List[Route] = None, 
+                   top_k: int = 1, 
+                   using_hybrid: bool = False, 
+                   sparse_encoder_name: str = None):
+        
+        if not top_k:
+            cls.top_k = 1
+        cls.top_k = top_k
+        cls.using_hybrid = using_hybrid
+        cls.sparse_encoder_name = sparse_encoder_name
+        cls.encoder = OpenAIEncoder(os.getenv("ROUTE_EMBEDDING"))
 
-    def predict(self, query: str) -> List[RouteChoice]:
+        if not routes:
+            cls.load_routes()
+        
+        if cls.using_hybrid:
+            cls.sparse_encoder = BM25Encoder() if sparse_encoder_name == "BM25" else TfidfEncoder()
+            cls.rl = HybridRouteLayer(
+                encoder=cls.encoder,
+                sparse_encoder=cls.sparse_encoder,
+                routes=cls.routes,
+                top_k=cls.top_k
+            )
+        else:
+            cls.rl = RouteLayer(encoder=cls.encoder, routes=cls.routes, top_k=cls.top_k)
+        
+        cls.initialized = True
+    
+    def load_routes(cls):
+        route_objs = CRUDRoute().get_all_routes()
+        cls.routes = [Route(name=route_obj.name, utterances=route_obj.utterances) for route_obj in route_objs]
+
+    def route(cls, query: str) -> List[RouteChoice]:
         """
         This function takes a query and returns a list of RouteChoice objects.
         Args:
@@ -54,5 +65,4 @@ class Router:
             List[RouteChoice]: A list of RouteChoice objects
                             Ex: [RouteChoice(name='unclear_issue', function_call=None, similarity_score=0.8904590012)]
         """
-        result = self.rl.retrieve_multiple_routes(query)
-        return result
+        return cls.rl.retrieve_multiple_routes(query)

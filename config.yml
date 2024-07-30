@@ -14,6 +14,7 @@ answer_option_ids:
   - "2"
   - "3"
 
+# IMAGE PROCESSING for GPT-4o
 image_with: 512
 image_height: 512
 image_quality: 80

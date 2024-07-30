@@ -9,7 +9,7 @@ from fastapi import FastAPI, Response, BackgroundTasks, Depends
 from apscheduler.schedulers.background import BackgroundScheduler
 from langfuse.decorators import observe, langfuse_context
 from langfuse.callback import CallbackHandler
-import re
+
 if os.getcwd() not in sys.path:
     sys.path.append(os.getcwd())
 
@@ -26,6 +26,9 @@ async def lifespan(app: FastAPI):
     yield
 
 gapo_app = FastAPI(lifespan=lifespan)
+
+def get_langfuse_handler():
+    return langfuse_context.get_current_langchain_handler()
 
 def get_message_sender():
     return MessageSender()
@@ -51,8 +54,8 @@ async def shutdown_event():
 async def survey_scheduler():
     survey = get_survey()
     try:
-        survey.send_reminder()
-        survey.send_survey()
+        await survey.send_reminder()
+        await survey.send_survey()
         return Response(status_code=200, content="Survey sent successfully")
     except Exception as e:
         logger.error(f"Error while sending survey: {e}", exc_info=True)
@@ -64,6 +67,7 @@ async def survey_scheduler():
 async def handle_webhook(
     event: Dict,
     background_tasks: BackgroundTasks,
+    langfuse_handler: CallbackHandler = Depends(get_langfuse_handler),
     message_sender: MessageSender = Depends(get_message_sender),
     message_getter: MessageGetter = Depends(get_message_getter),
     survey: SurveyThread = Depends(get_survey)
@@ -74,7 +78,7 @@ async def handle_webhook(
     msg_type = event.get("message", {}).get('type')
 
     if msg_type == "quick_reply":
-        survey.update_feedback(
+        await survey.update_feedback(
             str(event.get("thread_id")),
             event.get("message", {}).get('text'),
             str(event.get("message", {}).get('payload'))
@@ -86,34 +90,34 @@ async def handle_webhook(
         return Response(status_code=400, content=f"Unsupported event type {event_type}")
 
     message = convert_to_message(event)
-    chat_history, chat_history_wt_image = get_chat_history(message, message_getter)
+    chat_history, chat_history_wt_image = await get_chat_history(message, message_getter)
 
-    answer, issue_id, issue_name = generate_answer(message, chat_history, chat_history_wt_image)
+    answer, json_object, issue_id, issue_name = await generate_answer(message, chat_history, chat_history_wt_image)
+    mentions = get_mentions(json_object)
 
-    mentions, answer = extract_mention_in_text(answer)
+    session_id = await send_response(message, answer, mentions, message_sender, survey)
 
-    session_id = send_response(message, answer, mentions, message_sender, survey, background_tasks)
-
-    langfuse_context.update_current_trace(
-                              name="Gapo-Chatbot247",
-                              user_id=str(event.get("from_user_id", "None")),
-                              session_id=session_id,
-                              metadata={"sub_thread_id": session_id, "issue_id": issue_id, "issue_name": issue_name})
+    background_tasks.add_task(update_langfuse_context,
+                              str(event.get("from_user_id", "None")),
+                              session_id,
+                              langfuse_handler,
+                              issue_id=issue_id,
+                              issue_name=issue_name)
 
     return Response(status_code=200)
 
-def get_chat_history(message, message_getter):
+async def get_chat_history(message, message_getter):
     chat_history = []
     chat_history_wt_image = []
     parent_message = None
 
     if isinstance(message, (SubThreadMessage, DirectMessage)):
         if isinstance(message, SubThreadMessage):
-            raw_parent_msg = message_getter.get_parent_message(message.parent_thread_id, message.parent_message_id)
+            raw_parent_msg = await message_getter.get_parent_message(message.parent_thread_id, message.parent_message_id)
             parent_message = APIParentMessage(raw_parent_msg).to_langchain_message(apply_image=True)
             parent_message_wt_image = APIParentMessage(raw_parent_msg).to_langchain_message(apply_image=False)
 
-        raw_history = message_getter.get_messages(message.thread_id)
+        raw_history = await message_getter.get_messages(message.thread_id)
         chat_history = [APIMessage(msg).to_langchain_message(apply_image=True) for msg in raw_history]
         chat_history_wt_image = [APIMessage(msg).to_langchain_message(apply_image=False) for msg in raw_history]
 
@@ -127,28 +131,25 @@ def get_chat_history(message, message_getter):
     logger.debug(f"Chat history: {chat_history_wt_image}")
     return chat_history, chat_history_wt_image
 
+def get_mentions(json_object):
+    if not json_object or not json_object.get('mention'):
+        return []
+    return [
+        {
+            "pic_gapo_name": user.get('pic_gapo_name', "NULL"),
+            "pic_gapo_id": user.get('pic_gapo_id', "xxxxxxxx")
+        }
+        for user in json_object.get('mention', [])
+    ]
 
-def extract_mention_in_text(answer):
-    mentions = []
-    matches = re.findall(r'<@([^(]+)\s*\(id:(\d+)\)>', answer) + re.findall(r'<@([^(]+)\s*\(id: (\d+)\)>', answer)
-
-    for name, id in matches: 
-        mentions.append({
-            "pic_gapo_name": name.strip(),
-            "pic_gapo_id": id
-        })
-        answer = answer.replace(f'<@{name} (id:{id})>', f'@{name}')
-        answer = answer.replace(f'<@{name} (id: {id})>', f'@{name}')
-    return mentions, answer
-
-def send_response(message, answer, mentions, message_sender, survey, background_tasks: BackgroundTasks):
+async def send_response(message, answer, mentions, message_sender, survey, background_tasks: BackgroundTasks):
     if isinstance(message, DirectMessage):
-        response = message_sender.send_text_message_to_user(
+        response = await message_sender.send_text_message_to_user(
             int(message.sender_id), int(message.receiver_id), answer
         )
         session_id = str(response.get('thread_id', "NOT_FOUND_SESSION_ID"))
     else:
-        response = message_sender.send_text_message_to_subthread(
+        response = await message_sender.send_text_message_to_subthread(
             thread_id=int(message.parent_thread_id),
             bot_id=int(message.receiver_id),
             message_id=int(message.parent_message_id),
@@ -168,6 +169,16 @@ def send_response(message, answer, mentions, message_sender, survey, background_
 
     return session_id
 
+async def update_langfuse_context(user_id: str, 
+                                  session_id: str, 
+                                  langfuse_handler: CallbackHandler,
+                                  **kwargs):
+    await langfuse_handler.update_current_trace(
+        name="Gapo-Chatbot247",
+        user_id=user_id,
+        session_id=session_id,
+        metadata={"sub_thread_id": session_id, **kwargs}
+    )
 
 @gapo_app.get("/send_survey")
 async def send_survey():

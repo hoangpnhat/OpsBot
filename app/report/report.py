@@ -141,6 +141,7 @@ def save_dict_to_csv(rows: List[Dict], save_dir: str) -> str:
 def create_execution_time_report(from_dt: datetime = None, to_dt: datetime = None):
     collection_timing = BaseCollection("timing")
     # Get the timing data where the end_time is between from_dt and to_dt
+    query = {}
     if not from_dt and not to_dt:
         query = {}
     elif not from_dt:
