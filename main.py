@@ -4,13 +4,23 @@ from dotenv import load_dotenv, find_dotenv
 import os
 from pydantic import BaseModel
 load_dotenv(find_dotenv(), override=True)
-
-from app.gapo.webhook import gapo_app
+from contextlib import asynccontextmanager
+from apscheduler.schedulers.background import BackgroundScheduler
+from app.gapo.webhook import gapo_app, survey_scheduler
 from app.report.report import report_app
 from app.chatbot.function_call.tool import CRUDTool, ToolSchema
 from app.chatbot.query_router.route import CRUDRoute, RouteSchema
 
-app = FastAPI()
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    scheduler = BackgroundScheduler()
+    scheduler.add_job(survey_scheduler, 'interval', seconds=int(os.environ.get("SCHEDULER_INTERVAL_MINS", 5)) * 60)
+    scheduler.start()
+    gapo_app.state.scheduler = scheduler
+    yield
+    gapo_app.state.scheduler.shutdown()
+    
+app = FastAPI(lifespan=lifespan)
 
 app.mount("/gapo", gapo_app, name="gapo")
 

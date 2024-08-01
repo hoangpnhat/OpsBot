@@ -16,7 +16,7 @@ graph_database_promtion = GraphDatabaseConnection()
 
 class query_promotion(BaseModel):
     """
-    Hàm `query_promotion` được chọn đối khi user cần truy vấn, tìm kiếm thông tin về chương trình khuyến mãi
+    Hàm `query_promotion` được chọn đối khi user cần truy vấn, tìm kiếm nội dung, mã giảm giá, mã voucher, thời gian, quy chế, phạm vị, điều kiện,... chương trình khuyến mãi
     """
     query: str = Field(..., title="user_query", description="Câu truy vấn/câu hỏi của user về chương trình khuyến mãi")
 
@@ -86,7 +86,7 @@ def query_promotion_func(**kwargs) -> str:
 
     if not user_query:
         raise ValueError("Missing the user_query argument. Please provide the user_query argument.")
-    if not chat_history:
+    if chat_history is None:
         raise ValueError("Missing the chat_history argument. Please provide the chat_history argument.")
     if not contextualized_query:
         raise ValueError("Missing the contextualized_query argument. Please provide the contextualized_query argument.")

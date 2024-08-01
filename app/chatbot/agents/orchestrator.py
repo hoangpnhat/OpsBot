@@ -67,6 +67,9 @@ def generate_answer(user_message: CBaseMessage,
     # if the last tool is not in the list of tools, add it to the list
     if last_used_tool_name not in(tool_names) and last_used_tool_name not in ('unclear_issue', "chitchat"):
         tool_names = [last_used_tool_name] + tool_names
+    
+    if len(tool_names) == 0:
+        tool_names = ["unclear_issue"]
 
     logger.debug(f"Last used tool: {last_used_tool_name}")
     logger.debug(f"Tool names: {tool_names}")
@@ -93,7 +96,8 @@ def generate_answer(user_message: CBaseMessage,
     # Execute the selected tool
     answer = tool_manager.execute_tool(tool_name=selected_tool_name, 
                                        user_query=user_message.text, 
-                                       chat_history=chat_history, 
+                                       chat_history=chat_history,
+                                       contextualized_query=contextualized_query, 
                                        **params)
     
     # Save the selected tool to cache

@@ -6,7 +6,6 @@ from functools import partial
 import asyncio
 
 from fastapi import FastAPI, Response, BackgroundTasks, Depends
-from apscheduler.schedulers.background import BackgroundScheduler
 from langfuse.decorators import observe, langfuse_context
 from langfuse.callback import CallbackHandler
 import re
@@ -21,36 +20,39 @@ from app.common.timing import timing
 from app.gapo.message import DirectMessage, ParentThreadMessage, SubThreadMessage, APIMessage, APIParentMessage, convert_to_message
 from app.chatbot.agents.orchestrator import generate_answer
 
-@asynccontextmanager
-async def lifespan(app: FastAPI):
-    yield
 
-gapo_app = FastAPI(lifespan=lifespan)
 
-def get_message_sender():
+
+gapo_app = FastAPI()
+
+async def get_message_sender():
     return MessageSender()
 
-def get_message_getter():
+async def get_message_getter():
     return MessageGetter()
 
 def get_survey():
     return SurveyThread()
 
 
-@gapo_app.on_event("startup")
-async def startup_event():
-    scheduler = BackgroundScheduler()
-    scheduler.add_job(survey_scheduler, 'interval', seconds=int(os.environ.get("SCHEDULER_INTERVAL_MINS", 5)) * 60)
-    scheduler.start()
-    gapo_app.state.scheduler = scheduler
+# @gapo_app.on_event("startup")
+# async def startup_event():
 
-@gapo_app.on_event("shutdown")
-async def shutdown_event():
-    gapo_app.state.scheduler.shutdown()
+#     scheduler = BackgroundScheduler()
+#     scheduler.add_job(survey_scheduler, 'interval', seconds=int(os.environ.get("SCHEDULER_INTERVAL_MINS", 5)) * 1)
+#     scheduler.start()
+#     gapo_app.state.scheduler = scheduler
 
-async def survey_scheduler():
+# @gapo_app.on_event("shutdown")
+# async def shutdown_event():
+#     gapo_app.state.scheduler.shutdown()
+
+def survey_scheduler():
     survey = get_survey()
     try:
+        # asyncio.to_thread(survey.send_reminder())
+        # asyncio.to_thread(survey.send_survey())
+        logger.debug("Send survey")
         survey.send_reminder()
         survey.send_survey()
         return Response(status_code=200, content="Survey sent successfully")
@@ -173,3 +175,9 @@ def send_response(message, answer, mentions, message_sender, survey, background_
 async def send_survey():
     await survey_scheduler()
     return Response(content="Triggered survey successfully", status_code=200)
+
+from fastapi.testclient import TestClient
+
+def test_read_items():
+    with TestClient(gapo_app) as client:
+        print(client.get("/scheduler/"))
